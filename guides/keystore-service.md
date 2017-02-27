@@ -7,12 +7,12 @@ template: default
 
 A common need when managing a fleet of devices is to track metrics and error logs. This guide demonstrates how to use Murano's [Keystore service](../../services/keystore#) to [collect metrics](#collect-metrics) and [expose those metrics](#expose-metrics) from a custom API endpoint.
 
-## Prerequisites
+# Prerequisites
 
 * A Murano account with a solution is required. To create a solution, you can follow the [Solution Quickstart](/quickstarts/solutions/exampleapp/).
 
 
-## Collect Metrics
+# Collect Metrics
 
 A first step for monitoring your device fleet is to collect information from devices. To keep things simple, you can collect two types of data about incoming messages from devices.
 
@@ -25,7 +25,7 @@ For the purpose of this guide, you can use the web-based editor. To modify the d
 
 ![web-based-editor](../assets/point-event.png)
 
-### Increasing a Daily Metric Counter
+## Increasing a Daily Metric Counter
 
 To make a daily counter, you can use `incrby` command. This command adds one to the `"dailyCount"` key, setting it to 1 if the key does not already exist. It does so atomically, so you will not miss any incoming data points.
 
@@ -43,7 +43,7 @@ local expiration = math.floor(1 + os.time()/86400) * 86400
 Keystore.command({ command = "expireat", key = "dailyCount", args = {expiration} })
 ```
 
-### Log the Last 10 Messages from the Device
+## Log the Last 10 Messages from the Device
 
 To log message content from your devices, you can use the [data.value event argument](../../services/device/#datapoint) provided to the datapoint event handler. The first value found in data.value is the message timestamp, and the second is the message itself. (Note that in most cases, you would want to also filter on `data.alias` rather than log all messages.)
 
@@ -64,7 +64,7 @@ Therefore, in order to keep the last 10 logs, the target list range index is 0 t
 Keystore.command({ command = "ltrim", key = "logs", args = {0, 9}})
 ```
 
-### All Together
+## All Together
 
 Here is the point event code in its entirety.
 
@@ -89,7 +89,7 @@ Keystore.command({ command = "ltrim", key = "logs", args = {0, 9}})
 
 ```
 
-## Expose Metrics
+# Expose Metrics
 
 The easiest way to expose our collected data is to create an API route endpoint. Endpoints can be created with the "+" button on the *ROUTES* tab of your solution. When you create a new route, you will be prompted to specify the path and HTTP method for the route. Create a new route in your solution with the Method `GET` and the Path `/metrics`.
 
@@ -115,7 +115,7 @@ return { dailyCount = dailyCount.value, logs = logs.value }
 
 This works because endpoint scripts return a 200 HTTP status code by default, and Lua tables are automatically transformed into JSON response bodies. However, you could also set these manually by setting `response.code` and `response.body` instead.
 
-### All Together
+## All Together
 
 Here is the API route endpoint code in its entirety:
 
@@ -132,7 +132,7 @@ return { dailyCount = dailyCount.value, logs = logs.value }
 
 ```
 
-## Generate Some Product Data
+# Generate Some Product Data
 
 To test your scripts, you need to send data from your device to Murano. Here is how to do that:
 
@@ -168,7 +168,7 @@ $ curl https://m0a6fwvjl7x8ncdi.m2.exosite.com/provision/activate -H "Content-Ty
 $ curl https://m0a6fwvjl7x8ncdi.m2.exosite.com/onep:v1/stack/alias -H "X-Exosite-CIK: 029c56108afffc2507e3ffb0aeed105dd6c39922" -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" -d "message=hello world"
 ```
 
-## Test
+# Test
 
 You can now retrieve your metrics data by opening the `/metrics` endpoint you defined in your web browser. For example, if your solution name was `my-iot-solution`, then you would go to this address:
 
