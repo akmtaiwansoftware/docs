@@ -16,7 +16,6 @@ body {
   position: static;
 }
 
-
 @media (max-width: 775px) {
   #docsearch {
     display: none;
@@ -111,20 +110,16 @@ div.content ol li ol li {
   list-style-type: lower-alpha;
 }
 
-
 #logo {
   /*width: 220px;
   height: 60px;
   background-size: 220px 60px;  */
 }
 
-
 body, td, textarea, input {
   font-family: 'Roboto',sans-serif;
   font-size: 0.9em;
 }
-
-
 
 body.no-literate .content pre > code {
   letter-spacing: 0px;
@@ -211,8 +206,6 @@ img.ext_link_icon {
   top: -3px;
   text-transform: uppercase;
 }
-
-
 
 a.btn.orange {
     background: #ff921e;

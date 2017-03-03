@@ -7,7 +7,7 @@ template: default
 
 The product you create is the virtual representation of the physical hardware and sensors that will send data to the Murano platform. 
 
-## Web UI
+# Web UI
 
 To create a new product using the Web UI:
 
@@ -35,7 +35,7 @@ Before continuing, you will need to find the ID of the product you created.
    ![product id](../assets/product_id.png)
 
 
-## Murano CLI
+# Murano CLI
 
 To create a new product using the Murano CLI:
 

@@ -11,7 +11,7 @@ Murano Solutions allow developers to create and deploy custom Applications and A
 * Asset hosting for deploying static file based applications, like a CDN
 * Service event handler scripts that have access to all Murano [services](/reference/services)
 
-## Web UI
+# Web UI
 
 To create a solution using the Web UI:
 
@@ -33,7 +33,7 @@ Once you have created a solution, you will need to find the Solution ID.
 
    ![solutions tab](/tutorials/hvac-tutorial/assets/solutions_tab.png)
 
-## Murano CLI
+# Murano CLI
 
 To create a solution using the Murano CLI:
 
