@@ -3,7 +3,7 @@ title: Device Management
 template: default
 ---
 
-# Guide: Manage Device Lifecycle
+# Guide: Manage Your Device Lifecycle
 
 This guide will help you understand the process a device goes through during its time on the Murano platform. This will cover device provisioning, device distribution, customer experience, claiming a device, transfer of ownership, device replacement, and end of life.
 
