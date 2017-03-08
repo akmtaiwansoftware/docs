@@ -31,7 +31,7 @@ The CC3200 device is a complete platform solution including software, sample app
 
 Murano CLI is a command-line utility for working with Murano. Think of it as a way to simplify and automate repetitious tasks for those who are comfortable with the command-line interface. 
 
-[https://github.com/exosite/MrMurano#mrmurano](https://github.com/exosite/MrMurano#mrmurano)
+[https://github.com/exosite/MuranoCLI](https://github.com/exosite/MuranoCLI)
 
 ### Python
 
