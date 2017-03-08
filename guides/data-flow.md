@@ -60,7 +60,7 @@ The Web Page issues a GET request to the Application URL's "/history" endpoint. 
 
 # Conclusions
 
-That's it! Those are the basics of how Murano Products, Applications, and Integrations work. Although much of the information here was simplified/pseudo-codified (<a href="/guides/device-management/" target="_blank">Device management & authentication</a>, using Services to <a href="/guides/keystore-service/" target="_blank">accomplish more</a>, and <a href="/guides/user-management/" target="_blank">User/permission control</a> were only skimmed over), these basic transactions can be scaled to many Products, many Applications, and many Integrations—all with many more Devices, Users, and Web Services represented in each area.
+Those are the basics of how Murano Products, Applications, and Integrations work. Although much of the information here was simplified/pseudo-codified (<a href="/guides/device-management/" target="_blank">Device management & authentication</a>, using Services to <a href="/guides/keystore-service/" target="_blank">accomplish more</a>, and <a href="/guides/user-management/" target="_blank">User/permission control</a> were only skimmed over), these basic transactions can be scaled to many Products, many Applications, and many Integrations—all with many more Devices, Users, and Web Services represented in each area.
 
 To put these concepts into action, the <a href="/quickstarts/lightbulb/" target="_blank">Lightbulb Quick Start Guide</a> is recommended to get you started on developing with your own components.
 
