@@ -1,62 +1,64 @@
 ---
-title: Murano Overview
+title: Home Page
 template: default
 ---
+[//]: <> (icons from https://material.io/icons/)
 
-# Murano Overview
+<div style="text-align:center; margin-bottom:20px; padding-left:50px; padding-right:50px;">
+Murano is a full-stack IoT platform used to develop, deploy, and maintain connected projects.
+</div>
 
-Welcome to Murano, Exosite's enterprise IoT software platform. Use this documentation site to familiarize yourself with Exosite's products and explore the many features available to you through Murano.
-
-<a class="btn orange" href="https://exosite.com/business/signup">Murano Signup</a>
-<a class="btn orange" href="/quickstarts">Murano Quickstarts</a>
-
-![murano overview image](/assets/platform_overview.png)
-
-Murano helps organizations connect product deployments and build applications and services using a secure, scalable infrastructure. The easiest way to think about the Murano platform is as a number of cloud software layers that are integrated together, simplifying the full IoT stack. Murano has taken care of the infrastructure, development, and integration of the functional layers, including device connectivity, device/product management, data routing, service integration (with services like data stores, alerting, and third-party analytics platforms), application public APIs, user auth/roles/permissions, and application asset hosting. 
-
-Murano also allows integration with third-party software and other server-based systems, allowing developers to focus on user-application-specific functionality and device applications, while achieving a faster time to market than would be possible if building a platform from scratch. 
-
-Murano allows developers to build full IoT systems quickly, while maintaining the flexibility to add new features and build customizations not possible on more rigid platforms.
-
-Murano uses a micro-services architecture managed by an ISO-27001 information security program, and provides support, status, and developer-operations interfaces that many of the world's top organizations rely on as an integral part of their IoT operations. 
-
-# Murano Features
-
-## Businesses
-
-The Business concept in Murano is a virtual space that houses all the products and solutions created by your organization. A Business does not necessarily have to be a real-life company. A business could be a development or testing space for trying out new innovations. The business page is the place to manage your account, user access, products, solutions, billing and payments, and more.
-
-[Manage Your Business](/guides/manage-business/)
-
-## Solutions
-
-The Solution concept in Murano represents the application logic, user interfaces, and APIs for an IoT application. It provides the tools needed to build and deploy applications and services on top of IoT device data using concepts of data routing, integrated services, custom APIs, user auth/roles/permissions, and application asset hosting. This allows developers to create solution templates that contain the entire application functionality to deploy to end users or to provide a custom API for their products.
-
-[Create a Solution](/guides/create-solution/)
-
-## Products
-
-The Product concept in Murano represents a connected device type. It provides tools and interfaces to manage product definitions, allowing developers to deploy a fleet of devices using a common API hostname, provisioning sequence, definition for data routing, and content for things like infield updates and configuration. Developers can quickly build devices and verify device behavior using integrated prototyping dashboards.
-
-[Create a Product](/guides/create-product/)
-
-## Services
-
-[Work with Services](/reference/services/)
-
-# Need Help?
-
-Exosite makes every effort to ease your development of IoT solutions. But in the end, developing an IoT solution still requires a developer. If you need help with your IoT solution, we're here to ensure your success.
-
-
-- [Professional Services](https://exosite.com/services/professional-services/)
-
-If you have a question and need help, our community is a great place to start. Our Support Specialists are constantly monitoring the community to provide the support you need.
-
-- [Community Forum](https://community.exosite.com/)
-
-Need more help? Interested in learning about how our premium and critical support can help your company? Send us an email and we'll take care of you.
-
-- [Support Services](https://support.exosite.com/hc/)
+<div class="row" style="background-color: #E5E5E5; padding-top:20px;">
+    <div class="col-sm-12" style="margin-bottom:20px;">
+        <img src="/assets/simple-iot-diagram.png" alt="" class="img-responsive" style="display:block; margin:auto;">
+    </div>
+    <h3 style="text-align: center;">Choose Your Documentation Starting Point</h3>
+    <div class="col-sm-4" style="padding-right:5px; padding-left:5px;">
+        <div style="font-color:#0; background-color:#ffffff; padding-top:10px; height:180px; overflow:hidden; z-index:1; position:relative;">
+            <h4 style="text-align:center;"><img src="/assets/ic_router_exo_300px.png" width=30px><span>Products</span></h4>
+            <div style="text-align:center;">
+                <a href="/quickstarts/">Quickstarts</a><br/>
+                <a href="development/exositeready/">ExositeReady</a><br/>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4" style="padding-right:5px; padding-left:5px;">
+        <div style="font-color:#0; background-color:#ffffff; padding-top:10px; height:180px; overflow:hidden; z-index:1; position:relative;">
+            <h4 style="text-align:center;"><img src="/assets/ic_cloudintegration_exo_300px.png" width=30px><span>Integrations</span></h4>
+            <div style="text-align:center;">
+                <a href="/guides/">Guides</a><br/>
+                <a href="/reference/services/">Core Services</a><br/>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4" style="padding-right:5px; padding-left:5px;">
+        <div style="font-color:#0; background-color:#ffffff; padding-top:10px; height:180px; overflow:hidden; z-index:1; position:relative; text-align:center;">
+            <h4><img src="/assets/ic_devices_other_exo_300px.png" width=30px><span>Applications</span></h4>
+            <div style="text-align:center;">
+                <a href="/tutorials/hvac-tutorial/">HVAC Tutorial</a><br/>
+                <a href="/tutorials/esp8266-tutorial/">ESP8266 Tutorial</a><br/>
+            </div> 
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #3c3c42; position:relative; top:-20px;">
+    <div style="text-align:center; padding:50px;">
+        <a href="/quickstarts/lightbulb/" class="btn btn-info" role="button" style="background-color: #ef5d38; font-size:small; margin-top:20px;">5 Minute Setup</a>
+    </div>
+</div>
 
 
+<div class="row help">
+    <div class="help-title col-sm-12" style="text-align:center; margin-bottom:20px;">
+        <h3>Need More Help?</h3>
+    </div>
+    <div class="btn-help btn-bottom col-sm-4" style="text-align:center; padding:5px;">
+        <a href="https://community.exosite.com/" class="btn btn-primary" style="background-color: #ef5d38; font-size:small;" target="_blank">Community Forum</a>
+    </div>
+    <div class="btn-help btn-bottom col-sm-4" style="text-align:center; padding:5px;">
+        <a href="https://support.exosite.com/" class="btn btn-primary" style="background-color: #ef5d38; font-size:small;" target="_blank">Contact Support</a>
+    </div>
+    <div class="btn-help btn-bottom col-sm-4" style="text-align:center; padding:5px;">
+        <a href="http://info.exosite.com/sales-contact" class="btn btn-primary" style="background-color: #ef5d38; font-size:small;" target="_blank">Hire the Exosite Team</a>
+    </div>
+</div>

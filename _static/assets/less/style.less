@@ -1,0 +1,144 @@
+@import "bootstrap/index";
+
+@import "./theme";
+@import "./variables";
+
+@import "./exosite";
+
+@navbar-height: 60px;
+@header-color: @exo-navy;
+@brand-primary: @exo-blue;
+@brand-warning: #f15c2e;
+
+@font-family-sans-serif: 'Arial',sans-serif;
+@dropdown-link-hover-bg: @exo-navy;
+@dropdown-link-hover-color: @exo-orange;
+@border-radius-base: 2px;
+@border-radius-large: 2px;
+@border-radius-small: 2px;
+@navbar-margin-bottom: 0px;
+@list-group-hover-bg: @exo-navy;
+@list-group-link-hover-color: @exo-orange;
+
+// background for main and sidebar sections
+@content-background: #FEFEFE;
+@menu-background: #F0F0F0;
+@content-color: #3c3c42;
+body {
+  background-color: @content-background;
+
+  a {
+    color: @exo-medium-blue;
+  }
+
+  a:hover {
+    color: @exo-blue;
+  }
+
+  btn-warning:hover {
+    background-color: #e44427;
+  }
+
+  // makes images take up a maximum of 100% and
+  // not exceed the image's height
+  p > img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navbar-top {
+    // box-shadow: 0 0 20px #1a1a1a;
+    background-color: @header-color;
+    // TODO: Hack to get around background-image taking predence over background-color
+    background-image: linear-gradient(@header-color, @header-color);
+    color: @gray-lighter;
+
+    .navbar-brand {
+      > img {
+        height: 28px;
+        margin-top: -3px;
+      }
+    }
+
+    .nav-search {
+      border-radius: 8px;
+    }
+
+    .navbar-text {
+      margin-left: 30px;
+      font-size: 16px;
+      font-style: bold;
+    }
+    .navbar-nav > li > a, button > span.icon-bar {
+      color: @gray-lighter;
+    }
+    .navbar-nav > li > a:hover {
+      background-color: @exo-blue;
+    }
+
+    .active {
+      background-color: @brand-primary;
+      background-image: linear-gradient(@brand-primary, @brand-primary);
+    }
+    a.current-page {
+      color: @exo-orange;
+    }
+
+    .mobile-docs {
+      padding-left: 20px;
+    }
+  }
+
+  .row {
+    .sidenav-toggle {
+      background-color: @brand-primary;
+      color: @exo-navy;
+      font-size: 24px;
+      .icon-bar {
+        background-color: @exo-navy;
+      }
+    }
+
+    .sidenav {
+      background-color: @menu-background;
+      border-bottom: 5px solid @exo-blue;
+      color: @content-color;
+      padding: 10px 10px;
+
+      .sidenav-header {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: @gray-light;
+        font-size: 18px;
+      }
+
+      ul {
+        margin-left: 5px;
+        text-transform: capitalize;
+        .menu-header {
+          color: @gray-light;
+          margin-top: 5px;
+        }
+        li {
+          > a {
+            text-transform: capitalize;
+          }
+        }
+        a.current-page {
+          color: @exo-orange;
+        }
+      }
+    }
+
+    .main {
+      border-bottom: 5px solid @exo-blue;
+      padding: 40px;
+      color: @content-color;
+      background-color: @content-background;
+
+      h1 {
+        text-transform: uppercase;
+      }
+    }
+  }
+}

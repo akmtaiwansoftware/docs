@@ -830,11 +830,9 @@ a.big.button:hover:visited {
   font-size: 0.9em;
   background-color: #F0F0F0;
 }
-
 .menu ul.level-1 > li + li {
   margin-top: 20px;
 }
-
 .menu a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

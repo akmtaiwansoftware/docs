@@ -10,3 +10,4 @@ Guides are provided to help you execute single specific tasks within Murano. Eac
 * [Create a Product](/guides/create-product/)
 * [Manage Users](/guides/user-management/)
 * [Record Product Metrics](/guides/keystore-service/)
+* [Host Your App Externally](/guides/external-app-hosting/)

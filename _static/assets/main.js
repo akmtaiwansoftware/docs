@@ -50,12 +50,11 @@
 
       // strip trailing slash
       var path = document.location.pathname.replace(/\/$/, '');
-
       // highlight selected top level menu
-      $('ul.topmenu li a').each(function() {
+      $('.nav-links').find('ul li a').each(function() {
         var href = $(this).attr('href');
-        if (path === href) {
-          $(this).addClass('active');
+        if (href && href.replace(/\//g, '') == path.replace(/\//g,'')) {
+          $(this).addClass('current-page');
         }
       });
 
