@@ -3,7 +3,7 @@ title: Home Page
 template: default
 ---
 <div style="text-align:center; margin-bottom:20px; padding-left:50px; padding-right:50px;">
-Murano is a full-stack IoT platform used by some of the world's largest companies to power their connected product initiatives. Murano provides the tools to develop, deploy, and maintain connected Products, Applications, and Integrations.
+Murano is a full-stack IoT platform used by some of the world's largest companies to power their connected product initiatives. Murano provides the tools to develop, deploy, and maintain connected Products, Integrations, and Applications.
 </div>
 
 <div class="row" style="background-color: #E5E5E5; padding-top:20px;">
