@@ -3,7 +3,7 @@ title: Data Flow in Murano
 template: default
 ---
 
-# Guide: Data Flow in Murano
+# Data Flow in Murano
 
 The basic components of an IoT system are Internet-connected hardware Products, real-time User Applications, and Integrations with external web & IT services. As a Murano developer, to get these components working together, it is helpful to understand how the data flows within Murano. This guide walks through a Murano data flow involving each of these basic components.
 
