@@ -1,6 +1,6 @@
 # Lightbulb Quickstart
 
-In this quickstart, you will use a Python script to simulate a connected lightbulb. You will then create a development dashboard within Murano where you can see temperature and humidity data from the device and have the ability to remotely turn the lightbulb on and off.
+In this quickstart, you will use a Python script to simulate a connected lightbulb. You will then create a development dashboard within Murano where you have the ability to remotely turn the lightbulb on and off.
 
 # Requirements
 
@@ -128,19 +128,11 @@ In this section, you will create a dashboard to view the data from the connected
 
   ![image alt text](pythonsim_14.png)
 
-3. In the *WIDGET* popup that appears, select *Text* from the *TYPE* drop-down menu and complete the remaining fields (*TITLE*: "Temperature"; *VALUE*: "resources["temperature"]"; *UNITS*: "F"). Click "SAVE."
-
-  ![image alt text](temperature.png)
-
-5. Create another pane and text widget for humidity and complete the remaining fields (*TITLE:* "Humidity"; *VALUE:* "resources["humidity"]"; *UNITS:* "%"). Click "SAVE."
-
-  ![image alt text](humidity.png)
-
-6. Add a third pane and widget. In the *WIDGET* popup that appears, select *Toggle Switch* from the *TYPE* drop-down menu and complete the remaining fields (*TITLE*: "On / Off"; *VALUE*: "resources["state"]"; *ON VALUE*: "1"; *OFF VALUE*: "0"). Click "SAVE".
+3. In the *WIDGET* popup that appears, select *Toggle Switch* from the *TYPE* drop-down menu and complete the remaining fields (*TITLE*: "On / Off"; *VALUE*: "resources["state"]"; *ON VALUE*: "1"; *OFF VALUE*: "0"). Click "SAVE".
 
   ![image alt text](toggle.png)
 
-7. Turn the light on and off for the simulated device using the toggle switch on your dashboard. 
+4. Turn the light on and off for the simulated device using the toggle switch on your dashboard. 
 
   ![image alt text](pythonsim_18.png)
 
