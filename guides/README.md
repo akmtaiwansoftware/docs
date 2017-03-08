@@ -11,4 +11,4 @@ Guides are provided to help you execute single specific tasks within Murano. Eac
 * [Manage Users](/guides/user-management/)
 * [Record Product Metrics](/guides/keystore-service/)
 * [Host Your App Externally](/guides/external-app-hosting/)
-* [Manage Your Device Lifecycle](guides/device-management/)
+* [Manage Your Device Lifecycle](/guides/device-management/)
