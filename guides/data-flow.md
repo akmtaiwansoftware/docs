@@ -21,7 +21,7 @@ In this simplified system, a temperature sensor will communicate temperature eve
 
 To make that happen:
 * **Product:** Every 10 minutes, the temperature sensor wakes up, measures the temperature, and sends the value as the variable "temp" via one of the Murano data APIs (e.g., the <a href="/reference/products/device-api/http/" target="_blank">HTTP API</a>).
-* **Application:** Upon User load (or auto-refresh), the web page fetches the temperature history from a configured <a href="/guides/api-application/" target="_blank">API Application</a> that exposes a /history URL endpoint that returns the last N number of temperature values.
+* **Application:** Upon User load (or auto-refresh), the web page fetches the temperature history from a configured API Application that exposes a /history URL endpoint that returns the last N number of temperature values.
 * **Integration:** As soon as the system detects that the data exceeds the 100 C threshold, an SMS message is sent out by an <a href="/reference/services/twilio/" target="_blank">SMS gateway service</a> to a user's phone.
  
 <img src="/guides/assets/mdf-iot-component-external-flow.png" height="300" alt="Simple IoT System">
