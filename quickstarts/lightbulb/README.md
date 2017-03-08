@@ -142,5 +142,5 @@ Switch to the terminal (while the simulator is running), and you will see the si
 
 Congratulations—you just remotely turned a simulated device sensor on and off.
 
-[UP NEXT: CREATE A SOLUTION >>](http://docs.exosite.com/quickstarts/solutions/exampleapp/)
+[UP NEXT: CREATE A SOLUTION >>](/quickstarts/solutions/exampleapp/)
 

@@ -2,10 +2,8 @@
 title: Home Page
 template: default
 ---
-[//]: <> (icons from https://material.io/icons/)
-
 <div style="text-align:center; margin-bottom:20px; padding-left:50px; padding-right:50px;">
-Murano is a full-stack IoT platform used to develop, deploy, and maintain connected projects.
+Murano is a full-stack IoT platform used by some of the world's largest companies to power their connected product initiatives. Murano provides the tools to develop, deploy, and maintain connected Products, Applications, and Integrations.
 </div>
 
 <div class="row" style="background-color: #E5E5E5; padding-top:20px;">
@@ -43,7 +41,7 @@ Murano is a full-stack IoT platform used to develop, deploy, and maintain connec
 </div>
 <div class="row" style="background-color: #3c3c42; position:relative; top:-20px;">
     <div style="text-align:center; padding:50px;">
-        <a href="/quickstarts/lightbulb/" class="btn btn-info" role="button" style="background-color: #ef5d38; font-size:small; margin-top:20px;">5 Minute Setup</a>
+        <a href="/quickstarts/lightbulb/" class="btn btn-info" role="button" style="background-color: #ef5d38; font-size:small; margin-top:20px;">Quickstart Setup</a>
     </div>
 </div>
 

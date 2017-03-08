@@ -202,10 +202,4 @@ You can now develop locally, compile your app, and push to the cloud.
 
 <!-- Weaver's suggestion to add a link to learn more is valid and needed, but we don't talk about these things in the docs yet-->
 <!--For more information about the powerful capabilities of Routes and Services (not to mention Hosting, Users, Roles and more, please check out <a href="../../">our getting started documentation</a>. -->
-<div style="padding-bottom: 50px"></div>
-
-
-
-Next up (if you have not already):
-<a class="btn orange" href="http://docs.exosite.com/murano/get-started/">CREATE A PRODUCT >></a>
-<div style="padding-bottom: 300px"></div>
+[UP NEXT: BUILD OUT A COMPLETE SYSTEM WITH A TUTORIAL >>](/tutorials/)

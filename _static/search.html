@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/elasticlunr.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -8,7 +9,7 @@ $(document).ready(function() {
           results = regex.exec(location.search);
       return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
   }
-  var contentEl = $('div[role="flatdoc-content"]')
+  var contentEl = $('.main')
   var query = getParameterByName('q');
   if (query === '') {
     contentEl.html('Missing query parameter.');
@@ -19,12 +20,12 @@ $(document).ready(function() {
     headers: {
       'Accept': 'application/vnd.github.v3.text-match+json'
     }
-  };  
+  };
   function toDocPath(path) {
     var href = path.replace(/README\.md$/, '');
     href = href.replace(/\.md$/, '');
     return href;
-  }    
+  }
   $.ajax('/search_index.json', options).done(function(data, status) {
     //var index_data = JSON.parse(data);
 

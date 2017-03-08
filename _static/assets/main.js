@@ -8,11 +8,10 @@
         return href;
       }
 
-      $("#docsearch").keypress(function(e) {
-        if(e.which == 13) {
-          var query = encodeURIComponent($('#docsearch').val());
-          window.location.href = '/search.html?q=' + query;
-        }
+      $(".search-form").on('submit',function(e){
+        e.preventDefault();
+        var query = encodeURIComponent($('#docsearch').val());
+        window.location.href = '/search.html?q=' + query;
       });
 
       // Add GitHub style anchors to headers.

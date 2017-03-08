@@ -39,10 +39,8 @@
     </script>
 
     <!-- Initializer -->
-    <!--
-      TODO: this could break something unintentionally, but it removes an error from the console
       <script>{{ content }}</script>
-    -->
+
 </head>
 <body>
 
@@ -137,10 +135,10 @@
             </ul>
           </div>
         </ul>
-        <form class="navbar-form navbar-right form-inline">
+        <form id="searchForm" class="navbar-form navbar-right form-inline search-form">
           <!-- <a class="btn btn-warning" href="https://exosite.com/business/signup">Sign Up For Murano</a> -->
           <div class="form-group">
-            <input id="docsearch" type="text" class="form-control nav-search" placeholder="Search...">
+            <input id="docsearch" onsubmit="return false;" type="text" class="form-control nav-search" placeholder="Search...">
           </div>
         </form>
       </div><!-- /.navbar-collapse -->
