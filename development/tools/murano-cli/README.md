@@ -1,6 +1,6 @@
-# MuranoCLI
+# Murano Command Line Interface (CLI)
 
-Do more from the command line with [Murano](https://exosite.com/platform/)
+Do more from the command line with [Murano](https://exosite.com/platform/).
 
 MuranoCLI is the command-line tool that interacts with Murano and makes different
 tasks easier. MuranoCLI makes it easy to deploy code to a solution, import many
