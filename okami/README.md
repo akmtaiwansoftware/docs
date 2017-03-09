@@ -1,4 +1,0 @@
----
-title: Okami
-template: default
----
