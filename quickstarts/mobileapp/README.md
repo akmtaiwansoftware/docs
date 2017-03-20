@@ -76,11 +76,11 @@ This quickstart is designed for developers with some basic knowledge of mobile a
    
     a. The  end point `GET /development/test`shows a demo message.
       
-        ![image alt text](image_1.png)
+![image alt text](mobile_image_1.png)
     
     b. The end point `GET /development/device/data/{identifier}/{window}` shows device temperature and humidity.
       
-        ![image alt text](mobile_image_2.png)
+![image alt text](mobile_image_2.png)
 
 ## Demo the Mobile App
 
