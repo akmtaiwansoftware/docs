@@ -7,6 +7,8 @@ template: default
 
 Thanks for helping make docs better!  Check out the [Documentation Categories](#documentation-categories) and [Technical Overview](#technical-overview) below for information on how this doc site works and how to use the tools to contribute to it. 
 
+**Note:** Please attempt to follow the format conventions of existing documentation as much as possible with elements such as clear text headings, a linear structure, and generic screenshots. Please reach out to techcomm@exosite.com with any formatting questions. 
+
 ## Making Small Changes
 
 If you are just adjusting a simple spelling error or syntax/grammar problem, you can edit the page directly in the GitHub UI (go to the doc page and click the pencil edit button). Any changes you make with this method should be minor!
@@ -47,7 +49,7 @@ Reference docs provide developers with the API, code, and other technical resour
 
 ## Technical Overview
 
-Exosite's docs site is hosted on Github Pages, this means that it is just a bunch
+Exosite's docs site is hosted on GitHub Pages, this means that it is just a bunch
 of static HTML files. To make the docs easier to write, this repo includes a
 custom static site generator that reads markdown and transforms it into HTML.
 
