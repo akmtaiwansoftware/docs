@@ -4,7 +4,7 @@
 @import "./exosite";
 @navbar-height: 60px;
 @header-color: @exo-navy;
-@brand-primary: @exo-blue;
+@brand-primary: @exo-navy;
 @brand-warning: #f15c2e;
 @font-family-sans-serif: 'Roboto',
 sans-serif;
@@ -26,7 +26,7 @@ body {
         color: @exo-medium-blue;
     }
     a:hover {
-        color: @exo-blue;
+        color: @exo-navy;
     }
     btn-warning:hover {
         background-color: #e44427;
@@ -62,7 +62,7 @@ body {
             color: @gray-lighter;
         }
         .navbar-nav > li > a:hover {
-            background-color: @exo-blue;
+            background-color: @exo-medium-blue;
         }
         .active {
             background-color: @brand-primary;
@@ -75,15 +75,13 @@ body {
             padding-left: 20px;
         }
     }
-    
     .equal {
-  display: flex;
-  flex-wrap: wrap;
-}
-    
+        display: flex;
+        flex-wrap: wrap;
+    }
     .equal > div[class*='col-'] {
         display: flex;
-  flex-direction: column;
+        flex-direction: column;
     }
     .main-row {
         .sidenav-toggle {
@@ -126,14 +124,19 @@ body {
             border-bottom: 5px solid @exo-medium-blue;
             color: @content-color;
             background-color: @content-background;
-            padding: 0;
+            .dots{
+                position: absolute;
+                top: 440px;
+                height: 140px;
+                max-width: 97%;
+            }
             .start-box {
                 background: @exo-light-grey;
                 max-width: 90%;
                 margin: 50px auto 0 auto;
-                padding: 30px;
+                padding: 30px 15px;
                 img.diagram {
-                    width: 90%;                    
+                    width: 90%;
                     margin-bottom: 60px;
                 }
                 h1 {
@@ -147,14 +150,39 @@ body {
                     z-index: 1;
                     position: relative;
                     .doc-box-wrapper {
+                        a {
+                            color: @content-color;
+                            &:hover {
+                                color: @content-color;
+                                text-decoration: none;
+                                .doc-box {
+                                    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+                                    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                                }
+                            }
+                            &:active,
+                            &:focus {
+                                text-decoration: none;
+                            }
+                        }
                         .doc-box {
                             background: #fff;
                             padding: 20px;
                             height: 230px;
-                            @media (max-width: 767px) {
+                            @media (max-width: 1114px) {
+                                height: 250px;
+                            }
+                            @media (max-width: 1074px) {
+                                height: 270px;
+                            }
+                            @media (max-width: 997px) {
+                                height: 280px;
+                            }
+                            @media (max-width: @screen-md-min) {
+                                height: auto;
                                 margin-bottom: 16px;
                             }
-                            h4{
+                            h4 {
                                 font-weight: bold;
                                 margin-top: 0;
                                 span {
@@ -169,13 +197,9 @@ body {
                             ul {
                                 padding: 0 0 0 76px;
                                 font-size: 14px;
-                                font-weight: 400;
-                                a {
-                                    color: @content-color;
-                                    margin-left: -7px;
-                                }
+                                font-weight: 400;                                
                             }
-                        }                            
+                        }
                     }
                 }
             }
@@ -230,6 +254,10 @@ body {
                     text-decoration: underline;
                     font-weight: 400;
                     font-size: 18px;
+                    @media (max-width: @screen-sm-min) {
+                        padding-bottom: 10px;
+                        display:block;
+                    }   
                 }
             }
         }
@@ -237,7 +265,13 @@ body {
     .footer {
         background-color: @header-color;
         color: @gray-lighter;
-        padding: 50px 100px;
+        padding: 50px 0px;
+        .footer-container {
+            width: 90%;
+            @media (max-width: @screen-sm-min) {
+                text-align: center;
+            }
+        }
         .footer-logo {
             width: 100%;
             max-width: 50px;
@@ -248,6 +282,11 @@ body {
             font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
+        }
+        .nav-menu {
+            @media (max-width: @screen-sm-min) {
+               padding-bottom: 10px;
+            }            
         }
         .menu {
             list-style: none;
@@ -267,6 +306,25 @@ body {
             p {
                 font-weight: 300;
                 margin: 0;
+            }
+            @media (max-width: @screen-sm-min) {
+               padding-bottom: 10px;
+            }
+        }
+        .language-select a {
+            background: @gray-lighter;
+            border-radius: 3px;
+            color: @exo-navy;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 12px;
+            padding: 4px 8px; 
+            img {
+                margin-right: 10px;
+                display: inline;
+                height: 100%;
+                width: 20px;
+                margin-top: -1px;
             }
         }
     }

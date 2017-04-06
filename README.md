@@ -2,44 +2,51 @@
 title: Home Page
 template: default
 ---
-
+<div><img class="dots" src="/assets/dot-pattern.png"></div>
 <div class="start-box">
     <img src="/assets/docs-diagram.png" alt="docs-diagram" class="center-block diagram">
     <h1 class="text-center">Choose Your Documentation Starting Point</h1>
     <h2 class="text-center">Learn Murano concepts, reference the APIs, and deploy IoT solutions quickly</h2>
-    <div class="row doc-boxes">
-        <div class="col-sm-4 doc-box-wrapper">
-            <div class="doc-box">
-                <h4><img src="/assets/products-icon.png"><span>Products</span></h4>
-                <h5>Connect</br>Your Devices</h5>
-                <ul>
-                    <li><a href="">Embedded Systems</a></li>
-                    <li><a href="">Gateways</a></li>
-                </ul>
-            </div>
+    <div class="row doc-boxes">    
+        <div class="col-sm-12 col-md-4 doc-box-wrapper">
+            <a href="#">
+                <div class="doc-box">
+                    <h4><img src="/assets/products-icon.png"><span>Products</span></h4>
+                    <h5>Connect</br>Your Devices</h5>
+                    <ul>
+                        <li>Embedded Systems</li>
+                        <li>Gateways</li>
+                    </ul>                   
+                </div>
+            </a>
         </div>
-        <div class="col-sm-4 doc-box-wrapper">
-            <div class="doc-box">
-                <h4><img src="/assets/integrations-icon.png"><span>Integrations</span></h4>
-                <h5>Connect an IT System</br>or Web Service</h5>
-                <ul>
-                    <li><a href="">Integrations</a></li>
-                    <li><a href="">Core Services</a></li>
-                    <li><a href="">Custom Connectors</a></li>
-                </ul>
-            </div>
+        <div class="col-sm-12 col-md-4 doc-box-wrapper">
+            <a href="#">
+                <div class="doc-box">
+                    <h4><img src="/assets/integrations-icon.png"><span>Integrations</span></h4>
+                    <h5>Connect an IT System</br>or Web Service</h5>
+                    <ul>
+                        <li>Integrations</li>
+                        <li>Core Services</li>
+                        <li>Custom Connectors</li>
+                    </ul>                   
+                </div>
+            </a>
         </div>
-        <div class="col-sm-4 doc-box-wrapper">
-            <div class="doc-box"> 
-                <h4><img src="/assets/applications-icon.png"><span>Applications</span></h4>
-                <h5>Create a User</br>Interface Application</h5>
-                <ul>
-                    <li><a href="">Mobile</a></li>
-                    <li><a href="">Web Page</a></li>
-                    <li><a href="">Deploy on Murano</a></li>
-                    <li><a href="">Deploy on Your Private Cloud</a></li>                
-                </ul>
-            </div>
+        <div class="col-sm-12 col-md-4 doc-box-wrapper">
+            <a href="#" class="hoverable">
+                <div class="doc-box"> 
+
+                    <h4><img src="/assets/applications-icon.png"><span>Applications</span></h4>
+                    <h5>Create a User</br>Interface Application</h5>
+                    <ul>
+                        <li>Mobile</li>
+                        <li>Web Page</li>
+                        <li>Deploy on Murano</li>
+                        <li>Deploy on Your Private Cloud</li>        
+                    </ul>                
+                </div>
+            </a>
         </div>
     </div>
 </div> 
@@ -52,6 +59,7 @@ template: default
 <!-- end quickstart -->
 
 <!-- help tiles -->
+<!-- UNCOMMENT WHEN READY TO PUBLISH TILES 
 <div class="tiles center-block">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3 tile-wrapper">
@@ -111,6 +119,7 @@ template: default
         </div>
     </div>
 </div>
+-->
 
 <!-- end tiles -->
 
