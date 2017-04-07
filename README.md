@@ -2,13 +2,13 @@
 title: Home Page
 template: default
 ---
-<div><img class="dots" src="/assets/dot-pattern.png"></div>
+<div class="dots"></div>
 <div class="start-box">
     <img src="/assets/docs-diagram.png" alt="docs-diagram" class="center-block diagram">
     <h1 class="text-center">Choose Your Documentation Starting Point</h1>
     <h2 class="text-center">Learn Murano concepts, reference the APIs, and deploy IoT solutions quickly</h2>
     <div class="row doc-boxes">    
-        <div class="col-sm-12 col-md-4 doc-box-wrapper">
+        <div class="col-sm-6 col-md-4 doc-box-wrapper">
             <a href="#">
                 <div class="doc-box">
                     <h4><img src="/assets/products-icon.png"><span>Products</span></h4>
@@ -20,7 +20,7 @@ template: default
                 </div>
             </a>
         </div>
-        <div class="col-sm-12 col-md-4 doc-box-wrapper">
+        <div class="col-sm-6 col-md-4 doc-box-wrapper">
             <a href="#">
                 <div class="doc-box">
                     <h4><img src="/assets/integrations-icon.png"><span>Integrations</span></h4>
@@ -33,7 +33,7 @@ template: default
                 </div>
             </a>
         </div>
-        <div class="col-sm-12 col-md-4 doc-box-wrapper">
+        <div class="col-sm-6 col-md-4 doc-box-wrapper">
             <a href="#" class="hoverable">
                 <div class="doc-box"> 
 
