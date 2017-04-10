@@ -9,7 +9,7 @@ template: default
     <h2 class="text-center">Learn Murano concepts, reference the APIs, and deploy IoT solutions quickly</h2>
     <div class="row doc-boxes">    
         <div class="col-sm-6 col-md-4 doc-box-wrapper">
-            <a href="#">
+            <a href="/about/products/">
                 <div class="doc-box">
                     <h4><img src="/assets/products-icon.png"><span>Products</span></h4>
                     <h5>Connect</br>Your Devices</h5>
@@ -21,7 +21,7 @@ template: default
             </a>
         </div>
         <div class="col-sm-6 col-md-4 doc-box-wrapper">
-            <a href="#">
+            <a href="/about/integrations/">
                 <div class="doc-box">
                     <h4><img src="/assets/integrations-icon.png"><span>Integrations</span></h4>
                     <h5>Connect an IT System</br>or Web Service</h5>
@@ -34,9 +34,8 @@ template: default
             </a>
         </div>
         <div class="col-sm-6 col-md-4 doc-box-wrapper">
-            <a href="#" class="hoverable">
-                <div class="doc-box"> 
-
+            <a href="/about/applications/" class="hoverable">
+                <div class="doc-box">
                     <h4><img src="/assets/applications-icon.png"><span>Applications</span></h4>
                     <h5>Create a User</br>Interface Application</h5>
                     <ul>
