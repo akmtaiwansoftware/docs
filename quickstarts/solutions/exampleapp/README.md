@@ -54,7 +54,7 @@ You have now created a custom API, owner and guest roles with device-level permi
 You can plug all types of services into your solution. Products are linked to your solution as a "service," similar to the way you can integrate Twilio. You will continue to add services that you can plug in and save development time.
 
 1) In your solution, click on the *SERVICES* tab <br />
-2) Select *Product* <br />
+2) Select *Device* <br />
 3) Select the settings icon <br />
 4) Select the products you want to include in the solution <br />
 5) Click "APPLY" <br />
