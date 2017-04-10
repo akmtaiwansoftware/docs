@@ -138,6 +138,6 @@ template: default
         <a href="http://info.exosite.com/sales-contact" target="_blank">Hire the Exosite Team</a>
     </div>
     <div class="col-sm-3 text-center">
-        <a href="http://info.exosite.com/portals" target="_blank">Read Portals & One Platform Docs</a>
-    </div>x
+        <a href="/portals" target="_blank">Read Portals & One Platform Docs</a>
+    </div>
 </div>
