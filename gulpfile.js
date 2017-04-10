@@ -10,7 +10,8 @@ var gulp = require('gulp'),
   fm = require('front-matter'),
   fs = require('fs'),
   clone = require('clone'),
-  exec = require('child_process').exec;
+  exec = require('child_process').exec,
+  clean = require('gulp-clean');
 
 
 var site_search_index = [];
@@ -280,4 +281,9 @@ gulp.task('serve', ['watch'], function () {
       baseDir: '_site'
     }
   });
+});
+
+gulp.task('clean', function () {
+    return gulp.src('_site', {read: false})
+        .pipe(clean());
 });
