@@ -13,7 +13,7 @@ If you are just adjusting a simple spelling error or syntax/grammar problem, you
 
 ## Making Large(r) Changes
 
-If you are making more significant changes, you will need to make the changes locally, verify they are complete and accurate, push the changes to GitHub on a branch, and then submit a pull request to get them published.  Details below:
+If you are making more significant changes, you will need to make the changes locally, verify they are complete and accurate, push the changes to GitHub on a new branch, and then submit a pull request to get them published.  Details below:
 
 First, you will need to read the section below on ["Developing"](#developing) to get this docs repository cloned onto your local machine and to be able to preview changes before pushing back to GitHub.
 
@@ -31,19 +31,17 @@ A page that provides a high-level overview of a subject and introduces the main 
 
 ### Quickstart
 
-Quickstarts walk users through the shortest possible way to accomplish something in the format of a tutorial (e.g., "Lightbulb Quickstart" - http://docs.exosite.com/quickstarts/lightbulb/).
-
-### Guide
-
-Guides are brief examples of how to do a single specific task, such as sending a notification (e.g., "Create a Product" - http://docs.exosite.com/guides/create-product/).
+Quickstarts walk users through the shortest possible way to accomplish something in the format of a tutorial (e.g., "Lightbulb Quickstart" - http://docs.exosite.com/quickstarts/lightbulb/). The end of a Quickstart should link to a relevant, more complete example in the format of a Tutorial.
 
 ### Tutorial
 
-Tutorials provide users with a complete example of how to implement a full solution from end to end by walking through real-life use cases in great detail (e.g., "HVAC Tutorial" - http://docs.exosite.com/tutorials/hvac-tutorial/).
+Tutorials provide users with a complete example of how to implement a full solution from end to end by walking through real-life use cases in great detail (e.g., "HVAC Tutorial" - http://docs.exosite.com/tutorials/hvac-tutorial/). Tutorials should be the basics for a Semi-Vertical.
 
-### Reference
+### Reference (and Guides)
 
-Reference docs provide developers with the API, code, and other technical resources they may need to accomplish specific tasks. 
+Reference docs provide developers with the API, code, and other technical resources they may need to accomplish specific tasks.
+
+Guides have been moved to the UI section of Reference. These are brief examples of how to do a single specific task, such as sending a notification (e.g., "Create a Product" - http://docs.exosite.com/guides/create-product/).
 
 ## Technical Overview
 
