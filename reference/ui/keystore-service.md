@@ -3,7 +3,7 @@ title: Record Product Metrics
 template: default
 ---
 
-# Guide: Record Product Metrics
+# Record Product Metrics
 
 A common need when managing a fleet of devices is to track metrics and error logs. This guide demonstrates how to use Murano's [Keystore service](../../services/keystore#) to [collect metrics](#collect-metrics) and [expose those metrics](#expose-metrics) from a custom API endpoint.
 

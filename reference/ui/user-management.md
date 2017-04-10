@@ -3,7 +3,7 @@ title: User Management
 template: default
 ---
 
-# Guide: Manage Users
+# Manage Users
 
 Murano user management supports user authentication, role-based access control, and storage per user.
 
