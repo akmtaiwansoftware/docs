@@ -16,10 +16,12 @@ This article has information about Products in Murano.
 
 The following topics are related, and can be reviewed for more information:
 
-1. <a href="/ui/device-management">Connected Product lifecycle management</a>
+1. <a href="/development/exositeready">Hardware Ports (supported hardware & libraries)</a>
+1. <a href="/development/exositeready/gwe">Gateway Software</a>
 1. <a href="/reference/services/device">The Device Service</a>
-1. <a href="/ui/keystore-service">View and record Product metrics</a>
-1. <a href="/ui/create-product/">Using my Product in my Application</a>
+1. <a href="/reference/ui/device-management">Connected Product lifecycle management</a>
+1. <a href="/reference/ui/keystore-service">View and record Product metrics</a>
+1. <a href="/reference/ui/create-product/">Using my Product in my Application</a>
 1. <a href="/about/applications">Murano Applications</a>
 1. <a href="/about/integrations">Murano Integrations</a>
 

@@ -16,8 +16,8 @@ This article has information about Applications in Murano.
 
 The following topics are related, and can be reviewed for more information:
 
-1. <a href="/ui/create-solution/">Working with Applications</a>
-1. <a href="/ui/user-management/">End User Permission Management</a>
+1. <a href="/reference/ui/create-solution/">Working with Applications</a>
+1. <a href="/reference/ui/user-management/">End User Permission Management</a>
 1. <a href="/reference/services/user/">User Management Service</a>
 1. <a href="/about/products">Murano Products</a>
 1. <a href="/about/integrations">Murano Integrations</a>
