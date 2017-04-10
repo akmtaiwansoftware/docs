@@ -7,7 +7,7 @@ template: default
 
 In this quickstart, you will manually activate a device to act as a connected lightbulb using API calls. 
 
-**NOTE:** This simulator script uses the [Device HTTP API](https://github.com/exosite/docs/blob/master/murano/products/device_api/http).
+**NOTE:** This simulator script uses the [HTTP Device API](http://docs.exosite.com/reference/products/device-api/http/).
 
 Devices need two pieces of information to activate with the platform. These are the Product ID (attained by creating a product) and a Unique Identifier Serial Number. The Product ID can be found on the *INFO* tab of the Product [page](https://www.exosite.io/business/products).
 

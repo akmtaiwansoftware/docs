@@ -95,7 +95,7 @@ If you do not have Ruby installed, the official Ruby docs will help you get it i
 Once Ruby is installed, install Murano CLI by running this command:
 
 ```sh
-$ sudo gem install ExositeMurano
+$ sudo gem install MuranoCLI
 ```
 
 If prompted, please enter your local computer password.
