@@ -53,7 +53,7 @@ template: default
 
 <!--quickstart button -->
 <div class="text-center quickstart">
-    <a href="/quickstarts/lightbulb/" class="btn btn-info" role="button">Quickstart Setup</a>
+    <a href="/quickstarts/devicesensor/" class="btn btn-info" role="button">Quickstart Setup</a>
 </div>
 <!-- end quickstart -->
 
