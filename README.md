@@ -128,13 +128,16 @@ template: default
     <div class="help-title col-sm-12 text-center">
         <h3>Need More Help?</h3>
     </div>
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-3 text-center">
         <a href="https://community.exosite.com/" target="_blank">Use The Community Forum</a>
     </div>
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-3 text-center">
         <a href="https://support.exosite.com/" target="_blank">Contact Our Support Staff</a>
     </div>
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-3 text-center">
         <a href="http://info.exosite.com/sales-contact" target="_blank">Hire the Exosite Team</a>
+    </div>
+    <div class="col-sm-3 text-center">
+        <a href="http://info.exosite.com/sales-contact" target="_blank">Read Portals & One Platform Docs</a>
     </div>
 </div>
