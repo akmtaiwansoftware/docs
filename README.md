@@ -128,7 +128,7 @@ template: default
         <h3>Need More Help?</h3>
     </div>
     <div class="col-sm-3 text-center">
-        <a href="https://community.exosite.com/" target="_blank">Use The Community Forum</a>
+        <a href="https://community.exosite.com/" target="_blank">Use the Community Forum</a>
     </div>
     <div class="col-sm-3 text-center">
         <a href="https://support.exosite.com/" target="_blank">Contact Our Support Staff</a>
