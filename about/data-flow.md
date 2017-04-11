@@ -7,15 +7,15 @@ template: default
 
 The basic components of an IoT system are Internet-connected hardware Products, real-time User Applications, and Integrations with external web & IT services. As a Murano developer, to get these components working together, it is helpful to understand how the data flows within Murano. This guide walks through a Murano data flow involving each of these basic components.
 
-<img src="/guides/assets/mdf-iot-simple-diagram.png" height="200" alt="Simple IoT System">
+<img src="../assets/mdf-iot-simple-diagram.png" width="500" alt="Simple IoT System">
 
 There are representations of these components inside of Murano—you have to set up and configure Products, Applications, and Integrations to get the full IoT system working.
 
-<img src="/guides/assets/mdf-iot-simple-diagram-murano.png" height="200" alt="Simple IoT System">
+<img src="../assets/mdf-iot-simple-diagram-murano.png" width="500" alt="Simple IoT System">
 
 For simplicity in this guide, the physical components are replaced with a temperature sensor, a web page showing a graph, and an SMS messaging service. 
 
-<img src="/guides/assets/mdf-iot-component-diagram.png" height="200" alt="Simple IoT System">
+<img src="../assets/mdf-iot-component-diagram.png" width="500" alt="Simple IoT System">
 
 In this simplified system, a temperature sensor will communicate temperature every 10 minutes, make it so the temperature history can be viewed as a graph on a website, and automatically send an SMS message if the temperature exceeds 100 C.  
 
@@ -24,13 +24,13 @@ To make that happen:
 * **Application:** Upon User load (or auto-refresh), the web page fetches the temperature history from a configured API Application that exposes a /history URL endpoint that returns the last N number of temperature values.
 * **Integration:** As soon as the system detects that the data exceeds the 100 C threshold, an SMS message is sent out by an <a href="/reference/services/twilio/" target="_blank">SMS gateway service</a> to a user's phone.
  
-<img src="/guides/assets/mdf-iot-component-external-flow.png" height="300" alt="Simple IoT System">
+<img src="../assets/mdf-iot-component-external-flow.png" width="500" alt="Simple IoT System">
 
 Of course, the temperature sensor's data transmissions and the web page's data requests are done at different times. This is shown in the following diagram by:
 * <span style="color:blue">Blue</span>: data flow proceeding from the temperature sensor data
 * <span style="color:orange">Orange</span>: data flow proceeding from the web page request
 
-<img src="/guides/assets/mdf-murano-internal-flow.png" height="300" alt="Simple IoT System">
+<img src="../assets/mdf-murano-internal-flow.png" width="600" alt="Simple IoT System">
 
 **Inside of Murano, this is what is happening:**
 
@@ -60,7 +60,7 @@ The Web Page issues a GET request to the Application URL's "/history" endpoint. 
 
 # Conclusions
 
-That's it! Those are the basics of how Murano Products, Applications, and Integrations work. Although much of the information here was simplified/pseudo-codified (<a href="/guides/device-management/" target="_blank">Device management & authentication</a>, using Services to <a href="/guides/keystore-service/" target="_blank">accomplish more</a>, and <a href="/guides/user-management/" target="_blank">User/permission control</a> were only skimmed over), these basic transactions can be scaled to many Products, many Applications, and many Integrations—all with many more Devices, Users, and Web Services represented in each area.
+Those are the basics of how Murano Products, Applications, and Integrations work. Although much of the information here was simplified/pseudo-codified (<a href="/guides/device-management/" target="_blank">Device management & authentication</a>, using Services to <a href="/guides/keystore-service/" target="_blank">accomplish more</a>, and <a href="/guides/user-management/" target="_blank">User/permission control</a> were only skimmed over), these basic transactions can be scaled to many Products, many Applications, and many Integrations—all with many more Devices, Users, and Web Services represented in each area.
 
 To put these concepts into action, the <a href="/quickstarts/lightbulb/" target="_blank">Lightbulb Quick Start Guide</a> is recommended to get you started on developing with your own components.
 

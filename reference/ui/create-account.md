@@ -3,7 +3,7 @@ title: Create an Account
 template: default
 ---
 
-# Guide: Create an Account
+# Create an Account
 
 To get started with Exosite, you will need to create an Exosite account using your web browser of choice. 
 

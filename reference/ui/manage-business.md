@@ -3,7 +3,7 @@ title: Manage Your Business
 template: default
 ---
 
-# Guide: Manage Your Business
+# Manage Your Business
 
 Your Murano Business houses all the products and solutions created by your organization and allows you to manage your account, user access, products, solutions, billing and payments, and more.
 

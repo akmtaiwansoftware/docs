@@ -3,7 +3,7 @@ title: Create a Product
 template: default
 ---
 
-# Guide: Create a Product
+# Create a Product
 
 The product you create is the virtual representation of the physical hardware and sensors that will send data to the Murano platform. 
 

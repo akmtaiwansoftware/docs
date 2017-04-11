@@ -2,11 +2,12 @@
 title: Exosite Command Line Interface
 template: default
 ---
+# Deprecation Warning
+
+The Exosite CLI has been replaced by the [Murano CLI](/development/tools/murano-cli/).
 
 # Exosite Command Line Interface (CLI)
 The Exosite Command Line Interface is a tool that enables web application developers to use their local development environments to develop IoT application software and then to publish it online.
-
-Note: If you're working with products, use the [Exoline CLI](../exoline-cli).
 
 Open a terminal window to run the commands below.
 

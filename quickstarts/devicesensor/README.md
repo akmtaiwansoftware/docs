@@ -1,24 +1,23 @@
-# Device Sensor Example App
+# Device Sensor Quickstart
 
-Welcome to the Device Sensor Example!
+Welcome to the Device Sensor Quickstart!
 
-This application is written as a basic HTML/JavaScript app with Murano Solution event handlers, routes, modules and static assets.
+This application is written as a basic HTML/JavaScript app with Murano Solution event handlers, routes, modules, and static assets. This example is intended to be minimal with only a few endpoints and rendering requirements.
 
-This is a simple demonstration to provide access to devices associated with a basic solution while exercising all the available endpoints.  Begin by first creating a [Product](https://www.exosite.io/business/products) followed by one or more devices. After devices are created and activated you will see information about each device in the "Available Devices" section.
-
-This example is intended to be minimal with only a few endpoints and rendering requirements.
-Information about the available API endpoints is accessible [here](/docs).
+This is a simple demonstration to provide access to devices associated with a basic solution while exercising all the available endpoints. After devices are created and activated you will see information about each device in the "Available Devices" section.
 
 ## Using This Example
 
-Clone this [repository](https://github.com/exosite/device-sensor-example).
+Clone this [repository](https://github.com/exosite/device-sensor-quickstart/blob/master/README.md).
 
 ```sh
 git clone git@github.com:exosite/device-sensor-example.git
 cd device-sensor-example
 ```
 
-To deploy the application, first create a solution in Exosite Murano and select this application as the repository source.  Install the [murano command line tool](http://docs.exosite.com/development/tools/murano-cli/). Then initialize the project with your solution and product id using the following command (where XXXXXX is your respective identifier):
+To deploy this application, first [create a solution](http://docs.exosite.com/reference/ui/create-solution/) in [Exosite Murano](https://www.exosite.io/business/solutions). Then [create a Product](http://docs.exosite.com/reference/ui/create-product/) in the [Exosite Murano](https://www.exosite.io/business/products).
+
+Install the [murano command line tool](http://docs.exosite.com/development/tools/murano-cli/). Then initialize the project with your solution id and product id using the following commands (where XXXXXX is your respective identifier):
 
 ```sh 
 murano config business.id XXXXXX
@@ -29,4 +28,6 @@ murano assign set
 ```
 
 Navigate to your [solution](https://www.exosite.io/business/solutions) web application at an address similar to:
-https://solution.apps.exosite.io
+https://mysolution.apps.exosite.io
+
+Information about the available API endpoints is accessible at the /docs URL of your deployed solution (e.g., https://mysolution.apps.exosite.io/docs).

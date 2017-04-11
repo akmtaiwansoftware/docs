@@ -68,14 +68,15 @@
         <ul class="nav navbar-nav visible-xs">
           <div class="nav-links mobile-docs">
             <ul class="nav navbar-nav">
-              <li><a type="button" data-toggle="collapse" data-target="#nav-murano-platform" aria-expanded="false">Murano Platform</a></li>
+              <li><a type="button" data-toggle="collapse" href="#nav-murano-platform" aria-expanded="false">Murano Platform</a></li>
               <ul class="navbar-collapse collapse list-unstyled" id="nav-murano-platform">
                 <li><a class="level-0" href="/">Murano Overview</a></li>
               </ul>
-              <li><a type="button" data-toggle="collapse" data-target="#nav-api-reference" aria-expanded="false">API Reference</a></li>
+              <li><a type="button" data-toggle="collapse" href="#nav-api-reference" aria-expanded="false">API Reference</a></li>
               <ul class="navbar-collapse collapse list-unstyled" id="nav-api-reference">
                 <li class="menu-header">General</li>
                 <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/products/device-api/curl/">Device API with Curl</a></li>
                 <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
                 <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
                 <li class="menu-header">Communication Services</li>
@@ -95,14 +96,14 @@
                 <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
                 <li><a class="level-1" href="/reference/services/user">User Management Service</a></li>
               </ul>
-              <li><a type="button" data-toggle="collapse" data-target="#nav-quick-starts" aria-expanded="false">Quick Starts</a></li>
+              <li><a type="button" data-toggle="collapse" href="#nav-quick-starts" aria-expanded="false">Quick Starts</a></li>
               <ul class="navbar-collapse collapse list-unstyled" id="nav-quick-starts">
                 <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
                 <li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
                 <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>
               </ul>
 
-              <li><a type="button" data-toggle="collapse" data-target="#nav-guides" aria-expanded="false">Guides</a></li>
+              <li><a type="button" data-toggle="collapse" href="#nav-guides" aria-expanded="false">Guides</a></li>
               <ul class="navbar-collapse collapse list-unstyled" id="nav-guides">
                 <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
                 <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
@@ -112,21 +113,20 @@
                 <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
               </ul>
 
-              <li><a type="button" data-toggle="collapse" data-target="#nav-tutorials" aria-expanded="false">Tutorials</a></li>
+              <li><a type="button" data-toggle="collapse" href="#nav-tutorials" aria-expanded="false">Tutorials</a></li>
               <ul class="navbar-collapse collapse list-unstyled" id="nav-tutorials">
                 <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
                 <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
                 <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
               </ul>
 
-              <li><a type="button" data-toggle="collapse" data-target="#nav-development" aria-expanded="false">Development</a></li>
+              <li><a type="button" data-toggle="collapse" href="#nav-development" aria-expanded="false">Development</a></li>
               <ul class="navbar-collapse collapse list-unstyled" id="nav-development">
                 <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
-                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
                 <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
               </ul>
 
-              <li><a type="button" data-toggle="collapse" data-target="#nav-onep-portals" aria-expanded="false">One Platform & Portals</a></li>
+              <li><a type="button" data-toggle="collapse" href="#nav-onep-portals" aria-expanded="false">One Platform & Portals</a></li>
               <ul class="navbar-collapse collapse list-unstyled" id="nav-onep-portals">
                 <li><a class="level-0" href="/portals/">Documentation</a></li>
               </ul>
@@ -148,7 +148,13 @@
         <ul class="list-unstyled">
           <li class="menu-header">About</li>
           <li><a class="level-0" href="/">Overview</a></li>
-          <li><a class="level-0" href="/guides/data-flow/">Data Flow</a></li>
+          <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+          <li><a class="level-0" href="/about/products/">Products</a></li>
+          <li><a class="level-0" href="/about/applications/">Applications</a></li>
+          <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+        </ul>
+        <ul class="list-unstyled">
+          <li class="menu-header">Quickstarts</li>
           <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
           <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
           <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
@@ -171,11 +177,17 @@
           <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
           <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
           <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
           <li class="menu-header">IoT</li>
           <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
           <li class="menu-header">Storage</li>
           <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
           <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+        </ul>
+        <ul class="list-unstyled">
           <li class="menu-header">Other</li>
           <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
           <li><a class="level-1" href="/reference/services/gateway">Device Gateway public API</a></li>
@@ -194,25 +206,22 @@
           <li class="menu-header">Tools</li>
           <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
           <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
-          <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
-          <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
-          <li><a class="level-0" href="/development/exositeready">Gateway Engine</a></li>
+          <li><a class="level-0" href="/development/exositeready/">ExositeReady</a></li>
+          <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
           <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
 
         </ul>
         <ul class="list-unstyled">
           <li class="menu-header">UI</li>
-          <li><a class="level-0" href="/ui/">Guides Overview</a></li>
-          <li><a class="level-0" href="/ui/create-account/">Create an Account</a></li>
-          <li><a class="level-0" href="/ui/manage-business/">Manage Your Business</a></li>
-          <li><a class="level-0" href="/ui/create-solution/">Create a Solution</a></li>
-          <li><a class="level-0" href="/ui/create-product/">Create a Product</a></li>
-          <li><a class="level-0" href="/ui/user-management/">Manage Users</a></li>
-          <li><a class="level-0" href="/ui/keystore-service/">Record Product Metrics</a></li>
-          <li><a class="level-0" href="/ui/external-app-hosting/">Host Your App Externally</a></li>
-          <li><a class="level-0" href="/ui/device-management/">Manage Your Device Lifecycle</a></li>
+          <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+          <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+          <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+          <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+          <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+          <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+          <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+          <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
         </ul>
-
     </div>
         <div class="main">
         {{body}}

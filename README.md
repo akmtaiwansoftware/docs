@@ -9,7 +9,7 @@ template: default
     <h2 class="text-center">Learn Murano concepts, reference the APIs, and deploy IoT solutions quickly</h2>
     <div class="row doc-boxes">    
         <div class="col-sm-6 col-md-4 doc-box-wrapper">
-            <a href="#">
+            <a href="/about/products/">
                 <div class="doc-box">
                     <h4><img src="/assets/products-icon.png"><span>Products</span></h4>
                     <h5>Connect</br>Your Devices</h5>
@@ -21,7 +21,7 @@ template: default
             </a>
         </div>
         <div class="col-sm-6 col-md-4 doc-box-wrapper">
-            <a href="#">
+            <a href="/about/integrations/">
                 <div class="doc-box">
                     <h4><img src="/assets/integrations-icon.png"><span>Integrations</span></h4>
                     <h5>Connect an IT System</br>or Web Service</h5>
@@ -34,9 +34,8 @@ template: default
             </a>
         </div>
         <div class="col-sm-6 col-md-4 doc-box-wrapper">
-            <a href="#" class="hoverable">
-                <div class="doc-box"> 
-
+            <a href="/about/applications/" class="hoverable">
+                <div class="doc-box">
                     <h4><img src="/assets/applications-icon.png"><span>Applications</span></h4>
                     <h5>Create a User</br>Interface Application</h5>
                     <ul>
@@ -54,7 +53,7 @@ template: default
 
 <!--quickstart button -->
 <div class="text-center quickstart">
-    <a href="/quickstarts/lightbulb/" class="btn btn-info" role="button">Quickstart Setup</a>
+    <a href="/quickstarts/devicesensor/" class="btn btn-info" role="button">Quickstart Setup</a>
 </div>
 <!-- end quickstart -->
 
@@ -129,13 +128,16 @@ template: default
     <div class="help-title col-sm-12 text-center">
         <h3>Need More Help?</h3>
     </div>
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-3 text-center">
         <a href="https://community.exosite.com/" target="_blank">Use The Community Forum</a>
     </div>
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-3 text-center">
         <a href="https://support.exosite.com/" target="_blank">Contact Our Support Staff</a>
     </div>
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-3 text-center">
         <a href="http://info.exosite.com/sales-contact" target="_blank">Hire the Exosite Team</a>
+    </div>
+    <div class="col-sm-3 text-center">
+        <a href="/portals" target="_blank">Read Portals & One Platform Docs</a>
     </div>
 </div>

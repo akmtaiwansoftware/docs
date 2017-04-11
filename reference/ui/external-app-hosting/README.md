@@ -3,7 +3,7 @@ title: External application hosting
 template: default
 ---
 
-# Guide: Host Your App Externally
+# Host Your App Externally
 
 Murano can be used with mobile and existing frontend applications provided the Cross Origin Request Sharing (CORS) settings on your solution are configured properly. After modifying your Project's CORS settings, you can request your data through Murano by interacting with your API directly from your application. If you are integrating Murano into a backend application, configuring CORS is not required and you can interact with your API directly.
 

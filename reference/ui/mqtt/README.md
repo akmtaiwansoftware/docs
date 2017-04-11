@@ -1,4 +1,4 @@
-# Guide: MQTT
+# MQTT
 
 In this guide, you will enable MQTT for your product. You will then activate your device and connect your activated device with the Murano MQTT endpoint.
 

@@ -3,7 +3,7 @@ title: Murano Solution Overview
 template: default
 ---
 
-# Guide: Create a Solution
+# Create a Solution
 
 Murano Solutions allow developers to create and deploy custom Applications and API Services. Solutions combine three key things:
 
