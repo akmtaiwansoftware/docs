@@ -84,6 +84,13 @@ body {
         flex-direction: column;
     }
     .main-row {
+        height: 100%;
+        border-bottom: 5px solid @exo-medium-blue;
+        background: url('/assets/grey-box.png') repeat-y;
+        margin: 0;
+        @media (max-width: @screen-md-min) {
+            width: 100%;
+        }
         .sidenav-toggle {
             background-color: @brand-primary;
             color: @exo-navy;
@@ -94,9 +101,16 @@ body {
         }
         .sidenav {
             background-color: @menu-background;
-            border-bottom: 5px solid @exo-medium-blue;
             color: @content-color;
-            padding: 10px;
+            padding: 10px 10px 10px 25px;
+            width: inherit;
+            min-width: 215px;
+            max-width: 215px;
+            float: left;
+            height: 100%;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
             .sidenav-header {
                 text-transform: uppercase;
                 font-weight: bold;
@@ -120,21 +134,40 @@ body {
                 }
             }
         }
-        .main {
-            border-bottom: 5px solid @exo-medium-blue;
+        .main {            
             color: @content-color;
             background-color: @content-background;
-            .dots{
+            height: 100%;
+            overflow: auto;
+            padding: 16px;
+            .dots {
                 position: absolute;
-                background: url('/assets/dot-pattern.png') no-repeat;
-                top: 460px;
+                background: url('/assets/dot-pattern.png') repeat-x;
+                top: 590px;
                 height: 140px;
-                width: 96.8%;
-                @media (max-width: 1080px) {
+                width: 100%;
+                display: block;
+                background-position-x: center;
+                @media (min-width: 2200px) {
+                    display: none;
+                }
+                @media (max-width: 1730px) {
+                    top: 560px;
+                }
+                @media (max-width: 1560px) {
+                    top: 540px;
+                }
+                @media (max-width: 1400px) {
+                    top: 520px;
+                }
+                @media (max-width: 1300px) {
+                    top: 500px;
+                }                
+                @media (max-width: 1150px) {
                     top: 490px;
                 }
                 @media (max-width: 1074px) {
-                    top: 510px;
+                    top: 530px;
                 }
                 @media (max-width: @screen-md-min) {
                     display: none;
@@ -196,9 +229,9 @@ body {
                                 margin-top: 0;
                                 span {
                                     padding-left: 8px;
-                                     @media (max-width: @screen-md-min) {
-                                         display: block;
-                                         margin-top: 16px;
+                                    @media (max-width: @screen-md-min) {
+                                        display: block;
+                                        margin-top: 16px;
                                     }
                                 }
                             }
@@ -210,16 +243,16 @@ body {
                             ul {
                                 padding: 0 16px;
                                 font-size: 14px;
-                                font-weight: 400;  
+                                font-weight: 400;
                                 @media (max-width: @screen-md-min) {
                                     list-style: none;
                                 }
                             }
                         }
                         @media (max-width: @screen-md-min) {
-                                margin: 0 auto 16px auto;
-                                float: none;
-                                text-align: center;
+                            margin: 0 auto 16px auto;
+                            float: none;
+                            text-align: center;
                         }
                     }
                 }
@@ -277,8 +310,8 @@ body {
                     font-size: 18px;
                     @media (max-width: @screen-sm-min) {
                         padding-bottom: 10px;
-                        display:block;
-                    }   
+                        display: block;
+                    }
                 }
             }
         }
@@ -306,8 +339,8 @@ body {
         }
         .nav-menu {
             @media (max-width: @screen-sm-min) {
-               padding-bottom: 10px;
-            }            
+                padding-bottom: 10px;
+            }
         }
         .menu {
             list-style: none;
@@ -329,7 +362,7 @@ body {
                 margin: 0;
             }
             @media (max-width: @screen-sm-min) {
-               padding-bottom: 10px;
+                padding-bottom: 10px;
             }
         }
         .language-select a {
@@ -339,7 +372,7 @@ body {
             text-transform: uppercase;
             font-weight: 400;
             font-size: 12px;
-            padding: 4px 8px; 
+            padding: 4px 8px;
             img {
                 margin-right: 10px;
                 display: inline;

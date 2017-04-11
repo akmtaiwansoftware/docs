@@ -2,7 +2,6 @@
 title: Home Page
 template: default
 ---
-<div class="dots"></div>
 <div class="start-box">
     <img src="/assets/docs-diagram.png" alt="docs-diagram" class="center-block diagram">
     <h1 class="text-center">Choose Your Documentation Starting Point</h1>
