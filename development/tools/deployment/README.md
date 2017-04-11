@@ -7,7 +7,7 @@ template: default
 
 A common task with developing software is deploying code to different environments.  This guide provides basic instructions for setup and deployment of three solutions (environments) with the same code.
 
-![Deployment Workflow Diagram](../assets/deployment-workflow-diagram.png)
+![Deployment Workflow Diagram](assets/deployment-workflow-diagram.png)
 
 # Prerequisites
 
