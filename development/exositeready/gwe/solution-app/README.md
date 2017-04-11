@@ -55,10 +55,10 @@ This guide requires the installation of GWE on your gateway hardware device. The
 
 	![Step 7](assets/step_7.png)
 
-8. Open your terminal to install the [Exosite CLI tool](https://github.com/exosite/exosite-cli).
+8. Open your terminal to install the [Murano CLI tool](https://github.com/exosite/MuranoCLI).
 
 	```
-	pip install exosite
+	gem install MuranoCLI
 	```
 
 9. Clone the GWE Seed App repository to your machine.
@@ -67,17 +67,18 @@ This guide requires the installation of GWE on your gateway hardware device. The
 	git clone https://github.com/exosite/GWE-Seed-App
 	```
 
-10. Init the Exosite program and log in using your exosite.io credentials. 
+10. Configure `MuranoCLI` to your business and new solution. 
 
 	```
 	cd GWE-Seed-App
-	exosite --init
+	murano config business.id <BUSINESS_ID>
+	murano config solution.id <SOLUTION_ID>
 	```
 
 11. Deploy the solution.
 
 	```
-	exosite --deploy
+	murano syncup -V --no-specs
 	```
 
 ## Configure the Gateway 

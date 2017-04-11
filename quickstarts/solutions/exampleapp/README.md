@@ -21,7 +21,7 @@ No hardware is required to complete this guide.
 
 ## Software Setup
 
-In order to complete this tutorial, you will need Git, node.js & npm, and Python & pip installed on your system. 
+In order to complete this tutorial, you will need Git, node.js & npm, and ruby & gems installed on your system. 
 
 **NOTE:** This is a technical tutorial. You will need some familiarity with your operating system’s terminal. 
 
@@ -34,7 +34,7 @@ Create a solution using the home automation example as a starting point here:
 
 ![image alt text](exampleapp_1.png)
 
-Notice, the Home Automation Example will pull in a public GitHub repository. If you are using your own GitHub repository in the future, it will not be linked to your solution (e.g., push to your GitHub repository and see changes on your solution). It consumes the repository when creating the solution, and you can push changes using the <a href="/development/tools/exosite-cli/" target="_blank">Murano CLI</a>.
+Notice, the Home Automation Example will pull in a public GitHub repository. If you are using your own GitHub repository in the future, it will not be linked to your solution (e.g., push to your GitHub repository and see changes on your solution). It consumes the repository when creating the solution, and you can push changes using the <a href="/development/tools/murano-cli/" target="_blank">Murano CLI</a>.
 
 
 ![image alt text](exampleapp_2.png)
@@ -107,34 +107,31 @@ Congratulations—you have connected a device to your web app and are seeing liv
   cd home-automation-example
   ```
 
-3. Install the Exosite CLI:
+3. Install the [Murano CLI](https://github.com/exosite/MuranoCLI):
 
   ```
-  sudo pip install exosite
+  gem install MuranoCLI
   ```
 
-4. To confirm the Exosite CLI was installed correctly, type in: 
+4. Configure the `murano` CLI to use your account:
 
   ```
-  exosite -h
+  murano config user.name <YOUR_EMAIL_ADDRESS>
+  murano config solution.id <SOLUTION_ID>
+  murano business list
   ```
-  If it returns “command not found,” you may need to install pip with brew on your specific OS. 
+  The last command should result in a prompt for your account password. If you experience problems at this step, please visit the [Murano CLI](https://github.com/exosite/MuranoCLI) project page for assistance. 
 
-  **NOTE:** There is a known issue in OS X—if you have upgraded to El Capitan, you may need to go around the built-in system dependencies on “six” by running:
-  ```
-  sudo pip install --upgrade exosite --ignore-installed six --ignore-installed prompt-toolkit --ignore-installed requests
-  ```
-
-5. Once you have confirmed the Exosite CLI was successfully installed, run the following three commands: 
+5. Once you have confirmed the Murano CLI was successfully installed, run the following three commands: 
 
   ```
   npm install
   ```
   ```
   npm run compile
-   ```
   ```
-  exosite --init
+  ```
+  murano syncup -V --no-specs
   ```
 
 6. Log in with your Exosite credentials, and enter your product and solution IDs (hint: try the typeahead).
@@ -150,7 +147,7 @@ Congratulations—you have connected a device to your web app and are seeing liv
 
 9. Deploy your solution from the top-level directory (you may need to CD back up to *home-automation-example* directory):
   ```
-  exosite --deploy
+  murano syncup -V --no-specs
   ```
 
 10. Open the URL (cmd/ctrl + click to open in default browser, or copy paste the link):
@@ -191,10 +188,11 @@ In your terminal:
 5. To push your solution changes to Exosite, simply run: 
   ```
   npm run compile 
-  ``` 
+  ```
+
 6. Deploy your solution changes to Exosite:
   ```
-  exosite --deploy 
+  murano syncup -V --no-specs
   ```
   <div style="padding-bottom: 30px"></div>
 
