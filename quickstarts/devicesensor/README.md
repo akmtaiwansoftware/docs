@@ -6,7 +6,7 @@ This application is written as a basic HTML/JavaScript app with Murano Solution 
 
 ## Using This Example
 
-Clone this [repository](https://github.com/exosite/device-sensor-quickstart/blob/master/README.md).
+Clone this [repository](https://github.com/exosite/device-sensor-quickstart/).
 
 ```sh
 git clone git@github.com:exosite/device-sensor-example.git
