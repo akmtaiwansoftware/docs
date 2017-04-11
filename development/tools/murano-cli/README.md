@@ -33,8 +33,8 @@ There are a few steps and pieces to getting a solution with a product up and
 running in Murano. Here is the list.
 
 - Pick a business: `murano business list`
-	If this is the first time you've run `murano` it will ask for your Murano username
-	and password.
+  If this is the first time you've run `murano` it will ask for your Murano username
+  and password.
 - Set it: `murano config business.id ZZZZZZZZZ`
 - Create a product: `murano product create myawesomeproduct --save`
 - Add resource aliases to specs/resources.yaml
@@ -52,24 +52,24 @@ Then deploy with `murano syncup`
 
 When upgrading from a 1.\* version to a 2.0, you should uninstall the old versions
 first.
-```
-> gem uninstall MuranoCLI`
+```sh
+> gem uninstall MuranoCLI MrMurano
 ```
 
 And then install:
 
-```
+```sh
 > gem install MuranoCLI
 ```
 Or
-```
+```sh
 > gem update MuranoCLI
 ```
 
 You will likely need to be root for the above commands.  If you would rather not
 install as root, you can install gems in the user directory.
 
-```
+```sh
 > gem install MuranoCLI --user-install
 ```
 
@@ -122,12 +122,12 @@ CORS options inline.
 
 ```yaml
 routes:
-	cors: my_cors_file.json
+  cors: my_cors_file.json
 ```
 OR:
 ```yaml
 routes:
-	cors: {"origin": true}
+  cors: {"origin": true}
 ```
 
 Then use `murano cors set` to push these options up to your solution.
@@ -185,12 +185,12 @@ could be:
 --#EVENT device datapoint
 local stamped = nil
 if data.api == "record" then
-	stamped = tostring(data.value[1]) .. 's'
+  stamped = tostring(data.value[1]) .. 's'
 end
 Tsdb.write{
-	tags = {sn=data.device_sn},
-	metrics = {[data.alias] = tonumber(data.value[2])},
-	ts = stamped
+  tags = {sn=data.device_sn},
+  metrics = {[data.alias] = tonumber(data.value[2])},
+  ts = stamped
 }
 ```
 
@@ -205,7 +205,7 @@ and `.murano.prod`. Then write the `.env` file to point at the system you're
 currently working on.
 
 The files for this are then:
-```
+```sh
 cat >> .murano.dev <<EOF
 [solution]
 id=AAAAAAAA
