@@ -178,7 +178,6 @@ Here are some documents that will help you understand the basics of the Portals 
 * [Set user profile picture](#set-user-profile-picture)
 * [Share User Portal](#share-user-portal)
 * [Update user](#update-user)
-* [Update password](#update-password)
 * [Reset password](#reset-password)
 * [Reset user profile picture](#reset-user-profile-picture)
 * [Delete user](#delete-user)

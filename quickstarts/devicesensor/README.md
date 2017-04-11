@@ -29,3 +29,28 @@ Navigate to your [Solution](https://www.exosite.io/business/solutions) web appli
 https://mysolution.apps.exosite.io
 
 Information about the available API endpoints is accessible at the /docs URL of your deployed solution (e.g., https://mysolution.apps.exosite.io/docs).
+
+When you first navigate to the newly deployed solution, you won't have any devices set up.
+
+![Device Sensor Initial](device-sensor-initial.png)
+
+Click 'Create Device' and add a new device with serial number 0001.
+
+![Device Sensor Create New Device](device-sensor-create-new-device.png)
+
+The device will be added, but we'll need to activate it. Use your terminal to copy and paste the code that is displayed in the page.
+
+![Device Sensor Activate Device](device-sensor-activate-device.png)
+
+After you activate, refresh your page and you'll see input fields for your device.
+
+![Device Sensor Activated](device-sensor-activated.png)
+
+When you enter values into these fields, the data is submitted to your device in the platform.
+
+![Device Sensor Input](device-sensor-input.png)
+
+You can view the most recent values submitted to your device using the [Product](https://www.exosite.io/business/products/) page in Exosite Murano.
+
+![Device Sensor Values](device-sensor-values.png)
+
