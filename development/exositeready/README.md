@@ -1,16 +1,13 @@
 ---
-title: ExositeReady™
+title: Libraries & Examples
 ---
-# ExositeReady™ Device Connectivity Enablement Software
+# Libraries & Examples
 
-ExositeReady™ software is code created by Exosite or in collaboration with partners to give developers software for their hardware platform, no matter if it is a small embedded microcontroller or a Linux based industrial computer gateway. Exosite provides libraries, demo and reference code, in addition to production quality offerings like the ExositeReady™ Embedded SDK. Code and hardware ports that have gone through the ExositeReady™ Certification program meeting high criteria for functionality, testing, and quality are marked as __ExositeReady™ Certified__.
+Exosite provides device libraries, regularly tested demo and reference code, and other examples. 
 
 # Device Libraries
 
 <table width="100%">
-    <tr>
-      <th colspan="2" style="font-weight: bold;">ExositeReady™ Device Libraries</th>
-    </tr>
     <tr>
         <td style="text-align: center;">![sdk](assets/c.png)</td>
         <td style="width:80%;padding-top:40px;padding-bottom:40px;">[One Platform C Library as a part of Embedded SDK](https://github.com/exositeready/er_sdk)</td>
@@ -87,11 +84,6 @@ Exosite has provided reference code for or worked with partners on a number of h
         <td style="width:80%; padding-top:40px;padding-bottom:40px;">[Broadcom Hardware Platform Support](misc_platforms#broadcom-exositeready-platforms)</td>
     </tr>
 </table>
-
-
-
-# ExositeReady™ for Partners
-For vendors interested in partnering with Exosite on providing ExositeReady™ enabled hardware and development kits, please contact [support@exosite.com](mailto:support@exosite.com). Exosite allows vendors to contribute ports that meet the requirements of the ExositeReady™ program.
 
 # Support and Inquiries
 The [developer forum](https://community.exosite.com/c/hardware-platforms) is the best place to get and find help.
