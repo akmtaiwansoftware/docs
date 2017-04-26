@@ -1,9 +1,9 @@
 ---
-title: Solution Deployment
+title: Command Line Deployment
 template: default
 ---
 
-# Solution Deployment
+# Command Line Deployment
 
 A common task with developing software is deploying code to different environments.  This guide provides basic instructions for setup and deployment of three solutions (environments) with the same code.
 
