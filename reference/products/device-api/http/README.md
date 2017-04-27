@@ -4,7 +4,7 @@ title: HTTP
 
 # HTTP Device API Overview
 
-This is the HTTP Device API for the Murano Platform. Device firmware and applications should use this API to provision and interact with the platform.  Devices use resources to read from and write to, like a variable. When used in this document 'timestamp' is a unix timestamp, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
+This is the HTTP Device API for the Murano Platform. Device firmware and applications should use this API to provision and interact with the platform.  Devices use resources to read from and write to, like a variable. When used in this document "timestamp" is a unix timestamp, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
 
 # Procedures
 ### Timeseries Data Procedures
