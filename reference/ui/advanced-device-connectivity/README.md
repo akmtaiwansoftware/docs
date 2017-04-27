@@ -5,11 +5,11 @@ This reference manual breaks out each page of Murano's Advanced Device Connectiv
 ![ADC Entry](assets/adc_entry.png) 
 
 # ADC Pages
-* [Devices](#Devices)
-* [Logs](#Logs)
-* [Resources](#Resources)
-* [Content](#Content)
-* [Settings](#Settings)
+* [Devices](#devices)
+* [Logs](#logs)
+* [Resources](#resources)
+* [Content](#content)
+* [Settings](#settings)
 
 # Devices
 
@@ -17,7 +17,7 @@ This reference manual breaks out each page of Murano's Advanced Device Connectiv
 
 ![Device Creation](assets/device_creation.png)
 
-![Device Created](assets/devices_created.png) 
+![Device Created](assets/device_created.png) 
 
 # Logs
 
