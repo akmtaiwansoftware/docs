@@ -3,50 +3,62 @@ title: Murano OAuth
 template: default
 ---
 
-# Murano OAuth User
+# Manage OAuth User
 
-This document describes how to use the Murano User service to connect with an OAuth provider. This allows the end users of a solution to sign in using an existing identity such as Google or Facebook rather than using username and password.
+This document describes how to use the Murano User service to connect with an OAuth provider. This allows the end users of a solution to sign in using an existing identity such as Google or Facebook rather than using a username and password.
 
-# Function:
+# Function
 
 ## createSocial
 Description: Create a social.
+
 Example:
 ```
 User.createSocial({"consumer":"Google","client_id":"xxxxxxxxxx","client_secret":"xxxxxx","scope":["profile","email"],"redirect":"https://xxxxx.exosite.io/social/handle/Google"})
 ```
+
 ## getSocial
 Description: Get social info.
+
 Example:
 ```
 User.getSocial({consumer="Google”})
 ```
+
 ## deleteSocial
 Description: Delete a social.
+
 Example:
 ```
 User.deleteSocial({consumer="Google”})
 ```
+
 ## updateSocial
 Description: Update the social info.
+
 Example:
 ```
 User.updateSocial({consumer="Google”,client_id=”213casdsad”})
 ```
+
 ## getSocialLoginUrl
-Description: Get social login url.
+Description: Get social login URL.
+
 Example:
 ```
 User.getSociaLoginUrl({consumer="Google”})
 ```
 ## getSocialToken
-Description: Get social login Token.
+Description: Get social login token.
+
 Example:
 ```
 User.getSocialToken({consumer="Google”,code=”xxxxx”})
 ```
+
 ## socialRequest
 Description: Request social get information.
+
 Example:
 ```
 User.socialRequest({consumer="Google”,token=”xxxxx”})
@@ -56,7 +68,7 @@ User.socialRequest({consumer="Google”,token=”xxxxx”})
 
 ## Endpoints
 
-First create the 2 endpoints on you solution.
+First,create the two endpoints on your solution.
 
 ```
 --#ENDPOINT GET /social/handle/{consumer}/loginurl
@@ -77,20 +89,20 @@ response.message = User.socialRequest({consumer=request.parameters.consumer, tok
 
 ## Google
 
-Create an App on Google: [https://console.developers.google.com/](https://console.developers.google.com/)
+Create an app on Google: [https://console.developers.google.com/](https://console.developers.google.com/)
 
 Go to Credentials and create a new credential. It should be an OAuth client ID with type "Web Application".
 
 ![image alt text](assets/oauth_0.png)	
 
-Get the
+Get the:
 ```
  ClientID => Client ID
 
  Client_secret => Client secret
 ```
 
-Add callback url.
+Add callback URL.
 
 ![image alt text](assets/oauth_1.png)
 
@@ -110,7 +122,7 @@ Example: [https://sphx185.apps.exosite-dev.io/social/handle/Google/loginurl](htt
 
 ## Facebook
 
-Create an App on Facebook: [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/)
+Create an app on Facebook: [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/)
 
 ![image alt text](assets/oauth_4.png)
 
@@ -123,7 +135,7 @@ Get the:
 
 ![image alt text](assets/oauth_5.png)
 
-Set the callback url.
+Set the callback URL.
 
 ![image alt text](assets/oauth_6.png)
 
@@ -211,7 +223,7 @@ Example:  [https://sphx185.apps.exosite-dev.io/social/handle/GitHub/loginurl](ht
 
 **Note:** Twitter is using OAuth1, not OAuth2, so it is different.
 
-First create the 2 endpoints on your solution.
+First create the two endpoints on your solution.
 
 ```lua
 --#ENDPOINT GET /Twitter/login
