@@ -28,15 +28,12 @@ When you click “+ NEW DEVICE(S)”, you will have the option to add one device
 
 # Logs
 
-Once you have at least one connected device, you will have access to a connection log of that each device’s meta data here.
+The *Logs* page is where you can access a connection log of each device’s meta data.
 
 ![Logs](assets/logs.png) 
 
 # Resources
 
-![Resources](assets/resources.png) 
-
-![New Resource Creation](assets/new_resource_creation.png) 
 
 # Content
 
