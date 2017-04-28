@@ -34,13 +34,25 @@ The *Logs* page is where you can access a connection log of each device’s meta
 
 # Resources
 
+The *Resources* page is where you can add attributes to your devices. Resources are defined by alias and format and delimit the data model of your devices. 
+
+![Resources](assets/resources.png) 
+
+When you click "+ NEW RESOURCE", you will be prompted to choose your data format. 
+* *String* refers to a unicode sequence of characters. 
+* *Number* refers to any positive or negative value. 
+* *Boolean* refers to a binary variable (i.e., true or false).
+
+You will also be given the option to "modify this value from the cloud." Leaving this box unchecked will allow only the device itself to write to the alias. Checking this box will allow other applications to modify the value of the resource, depending on the permissions you have put in place. 
+
+![New Resource Creation](assets/new_resource_creation.png)
 
 # Content
+
+The *Content* page serves as a file store that your devices can access and utilize through the API. Click “+ NEW CONTENT” and follow the prompts to upload your files. 
 
 ![Content](assets/content.png) 
 
 # Settings
 
-![Settings](assets/settings.png) 
 
-![Settings 2](assets/settings2.png) 
