@@ -2,7 +2,7 @@
 
 This reference manual breaks out each page of Murano's Advanced Device Connectivity (ADC) feature and diagrams each component. All ADC functionality is located within Murano under the *Product* realm of your Project.
 
-![ADC Entry](assets/adc_entry.png) 
+![ADC Entry](assets/adc_entry_marked.png) 
 
 # ADC Pages
 * [Devices](#devices)
