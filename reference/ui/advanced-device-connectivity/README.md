@@ -51,12 +51,6 @@ Typically, devices report values to resources that are "read-only" in the cloud.
 
 Devices are not restricted to write to only defined resources. Devices write to "alias"es which may or may not correspond to defined resources. All device writes are sent to the event handler and can be processed by scripts, but only writes to defined resources will have "reported" values stored, available to devices via "read" and visible when viewing the device online. Additionally, only resources that are cloud-modifiable will have "set" values.
 
-|Configuration|Device Write|Device Read|Cloud Set|Cloud Get|
-|-------------|------------|-----------|---------|---------|
-|No resource|sent to event handler|N/A|N/A|N/A|
-|Resource, not cloud-modifiable|sent to event handler, updates "reported" value|reads "reported" value|N/A|reads "reported" value|
-|Resource, cloud-modifiable|sent to event handler, updates "reported" and "set" values|reads "set" value|writes "set" value|can read both "reported" and "set" values|
-
 # Content
 
 The *Content* page serves as a file store that your devices can access and utilize through the API. Click “+ NEW CONTENT” and follow the prompts to upload your files. Each content item has an ID, a MIME type, a size (in bytes), and a timestamp. Devices may list available content, get content info, and download content using the [HTTP Device API](/reference/products/device-api/http/).
