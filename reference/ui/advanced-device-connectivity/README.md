@@ -34,7 +34,7 @@ The *Logs* page is where you may access a connection log of each device’s meta
 
 # Resources
 
-The *Resources* page is where you may add attributes to your devices (e.g., temperature). Resources are defined by alias and format and delimit the data model of your devices. 
+The *Resources* page is where you may add attributes (or "alias"es) to your devices (e.g., temperature, status, etc.). Resources represent a device's digital twin in the cloud. A resource is identified by its alias, and the resource's unit (e.g., °C) can be specified to further clarify the alias's measurement. It is possible to restrict values to ranges (0-100) or to discrete values ("open", "closed", "jammed"). The current resource value for a given device is visible when browsing the device in the project and is accessible to scripts, which can then act on reported values in any number of ways.
 
 ![Resources](assets/resources.png) 
 
@@ -46,6 +46,16 @@ When you click "+ NEW RESOURCE", you will be prompted to choose your data format
 You will also be given the option to "modify this value from the cloud." Leaving this box unchecked will allow only the device itself to write to the alias. Checking this box will allow other applications to modify the value of the resource, depending on the permissions you have put in place. 
 
 ![New Resource Creation](assets/new_resource_creation.png)
+
+Typically, devices report values to resources that are "read-only" in the cloud. It is possible to enable writing from the cloud, which can be used to support command-and-control behavior. All resources have a "reported" value which represents the last value written by the device (using the write API). Resources that are cloud-writeable have an additional "set" value assigned when a write occurs from the cloud. The read API will return the "set" value (not the "reported" value) in this case; note, however, that a device write will replace both the "set" and the "reported" value. Devices will use either the read API or the long-polling API to receive control requests and then write appropriate resource updates to reflect its having acted on the request.
+
+Devices are not restricted to write to only defined resources. Devices write to "alias"es which may or may not correspond to defined resources. All device writes are sent to the event handler and can be processed by scripts, but only writes to defined resources will have "reported" values stored, available to devices via "read" and visible when viewing the device online. Additionally, only resources that are cloud-modifiable will have "set" values.
+
+|Configuration|Device Write|Device Read|Cloud Set|Cloud Get|
+|-------------|------------|-----------|---------|---------|
+|No resource|sent to event handler|N/A|N/A|N/A|
+|Resource, not cloud-modifiable|sent to event handler, updates "reported" value|reads "reported" value|N/A|reads "reported" value|
+|Resource, cloud-modifiable|sent to event handler, updates "reported" and "set" values|reads "set" value|writes "set" value|can read both "reported" and "set" values|
 
 # Content
 
@@ -61,9 +71,18 @@ There is no restriction as to the kind of content that can be made available to 
 
 The *Settings* page allows you to set your authentication method and determine which devices can connect. 
 
-Selecting the *Token* option enables a character string for the authorization of your devices’ communication with Murano. 
-**NOTE:** checking the box “Allow development devices to connect” will allow unencrypted communication of your device. 
+Selecting the *Token* option enables a character string for the authorization of your devices’ communication with Murano. Development devices connecting via HTTP must authenticate using CIK (private key). Such devices should not go into production; any devices using HTTP in development that are intended for production should be reprovisioned when TLS is enabled.
+
+**NOTE:** Enabling the "Allow development devices to connect" checkbox removes the requirement to use HTTPS and allows straight-HTTP, which is not encrypted and for which all information, including sensitive data like the CIK (private key), is passed in plaintext and easily read by third parties. It is highly discouraged to run in this mode, but activities—particularly those during the development of the device—make doing so useful under limited circumstances. 
 
 The *TLS Client Certificate* option enables authentication and identification of devices via parameters of the client certificate.
 
 ![Settings](assets/settings.png) 
+
+## Provisioning
+
+Farther down on the *Settings* page, you may select your provisioning settings. Provisioning is the process by which a device acquires credentials consisting of an identity and a secure means of verifying that identity. Devices connecting for the first time may do so fully provisioned (presenting both identity and verification of that identity), may present only their identity, or may require both an identity and verification; of these, devices fully provisioned as part of the manufacturing process are considered the most secure, as they can not be spoofed and the private aspect of the verification need not be sent to them; provisioning opens the possibility that illegitimate devices can appear as legitimate and be granted access.
+
+When provisioning a device, the device may present its own identity (assuming "Allow devices to register their own identity" is selected). Such devices will have an identity (such as a MAC address) that must match the specified format. Alternatively, a device may receive an identity (when "Allow server to generate the identity for devices connecting without one" is selected). In either case, it is possible for illegitimate devices to successfully provision; presented identity provides a slightly greater barrier due to its identity format validation. It is possible to further restrict provisioning to only those devices with particular IP Addresses.
+
+![Provisioning](assets/settings2.png) 
