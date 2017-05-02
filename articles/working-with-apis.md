@@ -1,9 +1,9 @@
 ---
-title: Murano Platform Scripting
+title: Working with APIs
 template: default
 ---
 
-# Murano Scripting Guide
+# Working with APIs
 
 * [Overview & References](#overview)
 * [Service Call](#service-call)
@@ -16,13 +16,13 @@ template: default
 
 # Overview
 
-Exosite's [Murano](../) platform is an event-driven system that uses scripts to route data and perform application logic and rules. These scripts have a rich set of capabilities and are used to perform such actions as storing device data into a time series data store, offloading processing from your devices, and handling Solution Application API requests. These scripts have access to all of the Murano services. A reference for each of these services and their functionality can be found here: [Service Reference](../services)
+Exosite's [Murano]() platform is an event-driven system that uses scripts to route data and perform application logic and rules. These scripts have a rich set of capabilities and are used to perform such actions as storing device data into a time series data store, offloading processing from your devices, and handling Solution Application API requests. These scripts have access to all of the Murano services. A reference for each of these services and their functionality can be found here: [Service Reference](services)
 
 Scripts are written in Lua, on the LuaJIT VM, which is Lua 5.1 with [some 5.2 features](http://luajit.org/extensions.html#lua52).
 For general information about Lua 5.1, please refer to the [online Lua manual](http://www.lua.org/manual/5.1/).
 
 Scripts may be added to a Solution by using either the [Murano admin UI](https://www.exosite.com/business/solutions) or by
-using the [Exosite Command Line Interface](../../development/tools/exosite-cli).
+using the [Exosite Command Line Interface](../development/tools/exosite-cli).
 
 
 ### Examples
@@ -46,7 +46,7 @@ To send an email, a service operation call can be made from the Lua script by us
 locale result = Email.send({to="my@friend.com", subject="Hello", text="World"})
 ```
 
-The list of services, operations, arguments and response are defined for each services on [Murano Services page](../services).
+The list of services, operations, arguments and response are defined for each services on [Murano Services page](services).
 
 ### Error handling
 
@@ -63,23 +63,23 @@ If for any reason the service call failed the following Lua Table is returned to
 
 # Script Execution
 
-The Murano Lua scripts are executed in reaction to a system event, which are defined by [Murano services](../services) events.
+The Murano Lua scripts are executed in reaction to a system event, which are defined by [Murano services](services) events.
 
 For example, a [message is received from an IoT device](../../reference/services/device/#datapoint) or an
 HTTP request is made on your [Custom API endpoint](../../reference/services/webservice/#request).
 
 Those events will trigger the execution of one or more **event_handler script(s)** defined
-in your solution. One **event_handler script** always targets a single [Murano services](../services) event.
+in your solution. One **event_handler script** always targets a single [Murano services](services) event.
 
 On the [Murano Portal](https://www.exosite.com/business/solutions) you can define event script under the Solutions *Services* tab.
-If you are using the [Exosite client tool](../../development/tools/exosite-cli), you can define the event script in the
+If you are using the [Exosite client tool](../development/tools/exosite-cli), you can define the event script in the
 [event_handler folder](https://github.com/exosite/home-automation-example/tree/master/event_handler) of your project
 by using the service _Alias_ as the file name.
 
 ## Event Handler Context
 
 During execution, **event handler scripts** are wrapped in a handler function corresponding to
-the [Murano Services](../services) event. The event handler function will expose arguments defined by the Murano service event.
+the [Murano Services](services) event. The event handler function will expose arguments defined by the Murano service event.
 
 **Important:** Murano **event handler scripts** share the same context within a solution.
 Therefore, the use of the _local_ keyword is highly recommended for every function and variable definitions to avoid a potential overlapping issue.
@@ -320,7 +320,7 @@ Log from the call to the [Webservice request operation](../../reference/services
 # Script Environment
 
 Scripts are executed in their own sandboxed instance of the Lua VM to keep them isolated
-from each other. Each script has access to all [Murano Services](../services), but access
+from each other. Each script has access to all [Murano Services](services), but access
 to those services is authenticated based on your solution.
 
 Each script execution is resource constrained. Currently that translates into 1MB of
