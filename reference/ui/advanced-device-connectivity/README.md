@@ -1,4 +1,4 @@
-# ADC Page-by-Page Manual
+# ADC Page-by-Page Reference
 
 This reference manual breaks down each page of Murano's Advanced Device Connectivity (ADC) feature and provides descriptions of each component's functionality. All ADC offerings are located within [Murano](https://www.exosite.io/business/) under the *Product* realm of your Project.
 
@@ -49,9 +49,13 @@ You will also be given the option to "modify this value from the cloud." Leaving
 
 # Content
 
-The *Content* page serves as a file store that your devices can access and utilize through the API. Click “+ NEW CONTENT” and follow the prompts to upload your files. 
+The *Content* page serves as a file store that your devices can access and utilize through the API. Click “+ NEW CONTENT” and follow the prompts to upload your files. Each content item has an ID, a MIME type, a size (in bytes), and a timestamp. Devices may list available content, get content info, and download content using the [HTTP Device API](/reference/products/device-api/http/).
 
 ![Content](assets/content.png) 
+
+There is no restriction as to the kind of content that can be made available to devices. Files can contain anything from audio/video content to config data, but the typical use case is to store firmware updates. For content that gets updated over time, such as with new firmware versions, it is recommended to include in the ID some kind of version tag. Whether this approach is taken or the content is updated in place and a timestamp is used to differentiate, devices will need a means to know which version they are at. Exosite recommends storing this information in a [Resource](#resources). Additionally, if the resource is cloud-modifiable, the device can be notified when new firmware is available.
+ 
+**Note:** Content items must be less than 64 MB in size.
 
 # Settings
 
