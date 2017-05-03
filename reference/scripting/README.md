@@ -59,6 +59,16 @@ If for any reason the service call failed the following Lua Table is returned to
 }
 ```
 
+If the service call responds with a 204 HTTP status code, the following Lua Table is returned to the script:
+```
+{code:java}
+{
+  "status":204,
+  "status_code":204 -- It's deprecated
+}
+{code}
+```
+
 ---
 
 # Script Execution
