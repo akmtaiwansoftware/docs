@@ -28,9 +28,12 @@ When you click the “+ NEW DEVICE(S)” button, you will have the option to add
 
 # Logs
 
-The *Logs* page is where you may access a connection log of each device’s meta data.
+The *Logs* page is where you may access a connection log of each device’s meta data and a "live" view that displays events associated with a product's API endpoint that came in while the Murano product UI was running.
 
 ![Logs](assets/logs.png) 
+
+
+![Logs2](/tutorials/provisioning/assets/provisioning_device_wrote.png)
 
 # Resources
 
