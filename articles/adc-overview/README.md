@@ -12,7 +12,7 @@ about device connections and facilitates bidirectional communication between
 the devices and Exosite's systems.
 
 # Resources
-* Device Provisioning Tutorial (Coming Soon)
+* [Device Provisioning Tutorial](/tutorials/provisioning/)
 * [Page-by-Page Reference](/reference/ui/advanced-device-connectivity/)
 
 # About ADC

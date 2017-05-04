@@ -28,9 +28,12 @@ When you click the “+ NEW DEVICE(S)” button, you will have the option to add
 
 # Logs
 
-The *Logs* page is where you may access a connection log of each device’s meta data.
+The *Logs* page is where you may access a connection log of each device’s meta data and a "live" view that displays events associated with a product's API endpoint that came in while the Murano product UI was running.
 
 ![Logs](assets/logs.png) 
+
+
+![Logs2](/tutorials/provisioning/assets/provisioning_device_wrote.png)
 
 # Resources
 
@@ -50,12 +53,6 @@ You will also be given the option to "modify this value from the cloud." Leaving
 Typically, devices report values to resources that are "read-only" in the cloud. It is possible to enable writing from the cloud, which can be used to support command-and-control behavior. All resources have a "reported" value which represents the last value written by the device (using the write API). Resources that are cloud-writeable have an additional "set" value assigned when a write occurs from the cloud. The read API will return the "set" value (not the "reported" value) in this case; note, however, that a device write will replace both the "set" and the "reported" value. Devices will use either the read API or the long-polling API to receive control requests and then write appropriate resource updates to reflect its having acted on the request.
 
 Devices are not restricted to write to only defined resources. Devices write to "alias"es which may or may not correspond to defined resources. All device writes are sent to the event handler and can be processed by scripts, but only writes to defined resources will have "reported" values stored, available to devices via "read" and visible when viewing the device online. Additionally, only resources that are cloud-modifiable will have "set" values.
-
-|Configuration|Device Write|Device Read|Cloud Set|Cloud Get|
-|-------------|------------|-----------|---------|---------|
-|No resource|sent to event handler|N/A|N/A|N/A|
-|Resource, not cloud-modifiable|sent to event handler, updates "reported" value|reads "reported" value|N/A|reads "reported" value|
-|Resource, cloud-modifiable|sent to event handler, updates "reported" and "set" values|reads "set" value|writes "set" value|can read both "reported" and "set" values|
 
 # Content
 
