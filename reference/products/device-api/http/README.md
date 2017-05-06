@@ -1,52 +1,28 @@
 ---
-title: HTTP
+title: HTTPS
 ---
 
-# HTTP Device API Overview
+# HTTPS Device API Overview
 
-This is the HTTP Device API for the Murano Platform. Device firmware and applications should use this API to provision and interact with the platform.  Devices use resources to read from and write to, like a variable. When used in this document "timestamp" is a unix timestamp, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
+This is the HTTPS Device API for the Murano Platform. Device firmware implementations should use this API to provision and interact with the Murano platform.  Authenticated devices post sensor and status data and retrieve configuration and control commands using this API.
 
-# Procedures
-### Timeseries Data Procedures
-* [Write](#write) - write new data to a set of resources
-* [Read](#read) - read the latest data from a set of resources
-* [Hybrid Write/Read](#hybrid-writeread) - write a set of resources, then read a set of resources
-* [Long-Polling](#long-polling) - be notified immediately when a resource is updated
+When used in this document "timestamp" is a unix timestamp, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
 
-### Product Device Provisioning Procedures
-* [Activate](#activate) - activate device and get device's CIK
-* [List Available Content](#list-available-content) - get a list of content available to device
-* [Get Content Info](#get-content-info) - get meta information about content file
-* [Download Content](#download-content) - get content file
+## HTTPS Device APIs
+### Provisioning and OTA updates
+* [Provision](#provision) - Securely provision authentication credentials for a device
+* [List Available Content](#list-available-content) - Retrieve a listing of available content
+* [Get Content Info](#get-content-info) - Retrieve meta information (content-type, size, updated timestamp, description) for a specific content identifier
+* [Download Content](#download-content) - Download a specific content file
 
-### Utility Procedures
-* [Timestamp](#timestamp) - get the current unix timestamp
+### Data reporting and retrieval
+* [Post](#post-sensor-data) - Report sensor data to Murano
+* [Get](#get-configuration-data) - Retrieve configuration and control data from Murano
+* [Combined Post/Get](#combined-post-get) - Use a single request to report and retrieve data from Murano
+* [Long-Polling](#long-polling) - Retrieve the lastest data available, or wait to receive an update
 
-## Libraries and Sample Code
-
-Sample code that uses this API can be found on the Murano Getting Started product examples:
-
-* [Murano Quickstarts](/quickstarts/)
-
-## Notational Conventions
-
-This document uses a few notational conventions:
-
-* JSON is pretty printed for clarity. The extra whitespace is not included in the RPC JSON.
-* Comments (`//`) are occasionally included in JSON to give hints or provide detail. These comments are not included in actual requests or responses.
-* A name in angle brackets (e.g., `<myvar>` is a placeholder that will be defined elsewhere)
-* `number` indicates a number (e.g., 42)
-* `string` represents a string (e.g., "MySensor")
-* `|` represents multiple choice
-* `=` represents default value
-* `...` represents one or more of the previous items
-
-## Hostname/Host
-Although all examples use the server hostname and host header of "m2.exosite.com," device firmware and applications should use the Murano Product ID in the hostname: `<productid>.m2.exosite.com`.  
-
-```
-   Host: myproductid.m2.exosite.com
-```
+### Misc
+* [Timestamp](#timestamp) - Get the current unix timestamp
 
 ## HTTP Responses
 
@@ -57,108 +33,338 @@ Typical HTTP response codes include:
 | 200    | OK            | Successful request, returning requested values       |
 | 204    | No Content    | Successful request, nothing will be returned         |
 | 4xx    | Client Error  | There was an error\* with the request by the client  |
-| 401    | Unauthorized  | No or invalid CIK                                    |
-| 5xx    | Server Error  | There was an error with the request on the server    |
+| 401    | Unauthorized  | Missing or invalid credentials                       |
+| 5xx    | Server Error  | Unhandled server error. Contact support.             |
 
-_\* Note: aliases that are not found are not considered errors in the request. See the documentation for [read](#read), [write](#write), and [Hybrid write/read](#hybrid-writeread) for details._
+\* Note: aliases that are not found are not considered errors in the request. See the documentation for [post](#post-sensor-data), [get](#get-configuration-data), and [post/get](#combined-post-get) for details.
 
+## Libraries and Sample Code
 
-# Data Procedures
+Sample code that uses this API can be found on the Murano Getting Started product examples:
 
-## Write
+* [Murano Quickstarts](/quickstarts/)
 
-Write one or more resources of `<alias>` with given `<value>`. The client (e.g., device or portal) is identified by `<CIK>`. Data is written with the server timestamp as of the time the data was received by the server. Data cannot be written faster than a rate of once per second; doing so results in undefined behavior. If multiple aliases are specified, they are written at the same timestamp.
+## Notational Conventions
 
+This document uses the following notational conventions:
+
+* A name in angle brackets (e.g., `<myvar>` is a placeholder that will be defined elsewhere)
+* `...` represents one or more of the previous items
+* Curly brackets around HTTP headers represent optional or conditional headers.
+
+## Connection Domain
+Each Murano device gateway instance receives a unique API domain for devices to connect to. Your unique domain (endpoint) can be retrieved from your account page. In this document, we will use the example domain of 'example.m2.exosite.io'. Replace the example domain with your unique domain when using the API.
+
+When making a secure TLS connection attempt to the API domain it is required to specify the domain as the SNI field in the TLS connection request.  The HTTP 'Host' header must also be set to the domain name. Any mismatch or use of an invalid domain will result in the connection being terminated without response.
+
+## Authentication
+A device may authenticate with either a TLS Client Certificate during the TLS connection handshake, or using a secret Token sent in the 'X-Exosite-CIK' HTTP header.
+
+When using a TLS Client Certificate for authentication, the certificate 'Subject' CommonName (CN) must hold the connecting device's identity.
+
+To establish a device's identity and authorization on the Murano device gateway a device's identity must be whitelisted and pre-shared authentication credentials set for the device, or the gateway must be configured to enable provisioning allowing a device to connect and provision it's identity and credentials.
+
+For device gateways that are configured to enable provisioning and TLS client certificate authentication, a device that connects with a TLS client certificate of a whitelisted identity will be auto associated with the device gateway.  For device gateways that disallow provisioning, the device's client certificate will have to be pre-associated with the identity in the gateway.
+
+For device gateways that are configured to enable provisioning and Token authentication, a device must make a request to the [provision](#provision) API to receive a secret token that can be used for subsequent authenticated API requests. The device gateway can be configured to whitelist allowed identities, provisioning time windows and restrict IP addresses to manufacturing facilities for device provisioning.
+
+# Provisioning and OTA updates
+
+## Provision
+When the Murano device gateway is configured for Token authentication, calling this endpoint will provision credentials for the given `<identity>` and returns the secret `<token>` the device will use for all subsequent API requests. It is typical that the Murano device gateway is configured to only allow whitelisted identities to provision.  Identities must also conform to the identity format specification defined in the device gateway settings.
 
 ### request
+```
+POST /provision/activate HTTP/1.1
+Host: example.m2.exosite.io
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: <length>
+
+id=<identity>
+```
+
+### response
+```
+HTTP/1.1 200 OK
+Date: <date>
+Server: Murano
+Connection: Keep-Alive
+Content-Length: <length>
+Content-Type: text/plain; charset=utf-8
+
+<token>
+```
+
+Response may also be:
+
+* `HTTP/1.1 404 Not Found` if whitelisting is required and the `<identity>` is not whitelisted.
+* `HTTP/1.1 409 Conflict` if the `<identity>` has already been provisioned.
+* See [HTTP Responses](#http-responses) for a full list of responses
+
+### example
+Provision identity '12345678'
+```
+$ curl -i 'https://example.m2.exosite.io/provision/activate' \
+    -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+    -d 'id=12345678'
+```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 40
+Content-Type: text/plain; charset=utf-8
+
+22596363b3de40b06f981fb85d82312e8c0ed511
+```
+
+## List Available Content
+List available content `<content-id>`s.
 
 ```
+GET /provision/download HTTP/1.1
+Host: example.m2.exosite.io
+{X-Exosite-CIK: <token>}
+<blank line>
+```
+
+### response
+```
+HTTP/1.1 200 OK
+Date: <date>
+Server: Murano
+Connection: Keep-Alive
+Content-Length: <length>
+Content-Type: text/csv; charset=utf-8
+
+<content-id 1>
+<content-id 2...>
+<content-id n>
+```
+
+Response may also be:
+
+* See [HTTP Responses](#http-responses) for a full list of responses
+
+### example
+```
+$ curl -i 'https://example.m2.exosite.io/provision/download' \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511'
+```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 71
+Content-Type: text/csv; charset=utf-8
+
+MANIFEST
+fw_20150519_rev01b.bin
+fw_20160101_rev02.bin
+splash01.png
+splash02.png
+```
+
+## Get Content Info
+Retrieve meta information (content-type, size, updated timestamp, description) for the specified `<content-id>`.
+
+```
+GET /provision/download?id=<content-id>&info=true HTTP/1.1
+Host: example.m2.exosite.io
+{X-Exosite-CIK: <token>}
+<blank line>
+```
+
+### response
+```
+HTTP/1.1 200 OK
+Date: <date>
+Server: Murano
+Connection: Keep-Alive
+Content-Length: <length>
+Content-Type: text/csv; charset=utf-8
+
+<content-type>,<byte-size>,<updated-timestamp>,<description>
+```
+
+Response may also be:
+
+* See [HTTP Responses](#http-responses) for a full list of responses
+
+### example
+```
+$ curl -i 'https://example.m2.exosite.io/provision/download?id=splash01.png&info=true' \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511'
+```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 45
+Content-Type: text/csv; charset=utf-8
+
+image/png,23427,1462500951,Boot splash screen
+```
+
+## Download Content
+Download the content `<content-id>` in full or in part.  To request chunks of the content, use the header `Range: bytes=<range-specifier>`. `<range-specifier>` takes the form of `X-Y` where both `X` and `Y` are optional but at least one of them must be present. `X` is the start byte position to return. `Y` is the end position. Both are 0 based. If `X` is omitted, `Y` will request the last `Y` count of bytes of the content. If `Y` is omitted, it will default to the end of the content. The response `Content-Type` header will be as defined in the content meta info.
+
+```
+GET /provision/download?id=<content-id> HTTP/1.1
+Host: example.m2.exosite.io
+{X-Exosite-CIK: <token>}
+{Range: bytes=<range-specifier>}
+<blank line>
+```
+
+### response
+```
+HTTP/1.1 200 OK
+Date: <date>
+Server: Murano
+Connection: Keep-Alive
+Content-Length: <number of bytes being returned>
+Content-Type: <content-type>
+{Accept-Ranges: bytes}
+{Content-Range: bytes <first position>-<last position>/<total length>}
+
+<blob>
+```
+
+Response may also be:
+
+* `HTTP/1.1 206 Partial Content` if the response is partial.
+* See [HTTP Responses](#http-responses) for a full list of responses
+
+### example
+Download entire file
+```
+$ curl -i 'https://example.m2.exosite.io/provision/download?id=splash01.png' \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511'
+```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 23427
+Content-Type: image/png
+
+<23427-byte-blob>
+```
+Download first 1024 bytes of the file
+```
+$ curl -i -r 0-1023 https://example.m2.exosite.io/provision/download?id=splash01.png \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511'
+```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 1024
+Content-Type: image/png
+Accept-Ranges: bytes
+Content-Range: bytes 0-1023/23427
+
+<1024-byte-blob>
+```
+
+# Data reporting and retrieval
+
+## Post Sensor Data
+Report sensor data to Murano. Post data for one or more resources identified by `<alias>` with the given `<value>`. The connecting device is identified and authenticated with the secret `<token>`. If the Murano Device Gateway has defined resources with matching aliases, then the reported values are stored in the device state with the server timestamp at which the data was received by Murano. If multiple aliases are specified, they are written at the same timestamp. Regardless of whether the gateway resources are defined, reported data generate an event type of 'data_in' on the Murano Device2 Gateway service and may be used to store the data in Timeseries database or alerted upon.
+
+### request
+```
 POST /onep:v1/stack/alias HTTP/1.1 
-Host: m2.exosite.com 
-X-Exosite-CIK: <CIK> 
+Host: example.m2.exosite.io 
+{X-Exosite-CIK: <token>}
 Content-Type: application/x-www-form-urlencoded; charset=utf-8 
 Content-Length: <length> 
 <blank line>
 <alias 1>=<value 1>&<alias 2...>=<value 2...>&<alias n>=<value n>
 ```
 
-
 ### response
-
 ```
 HTTP/1.1 204 No Content 
 Date: <date> 
-Server: <server> 
-Connection: Close 
-Content-Length: 0 
+Server: Murano
+Connection: Keep-Alive
 <blank line>
 ```
 
 * See [HTTP Responses](#http-responses) for a full list of responses.
 
-
 ### example
+```
+$ curl -i 'https://example.m2.exosite.io/onep:v1/stack/alias' \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511' \
+    -d 'temperature=63'
+```
+```
+HTTP/1.1 204 No Content
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
 
 ```
-$ curl https://m2.exosite.com/onep:v1/stack/alias \
-    -H 'X-Exosite-CIK: <CIK>' \
-    -H 'Accept: application/x-www-form-urlencoded; charset=utf-8' \
-    -d '<alias>=<value>'
-```
 
-
-## Read
-
-Read the most recent value from one or more resources with `<alias>`. The client (e.g., device or portal) to read from is identified by `<CIK>`. If at least one `<alias>` is found and has data, data will be returned.
-
+## Get Configuration Data
+Retrieve configuration and control data from Murano. Get the latest set value from the authenticated device's state for one or more resources specified by `<alias>`. If at least one `<alias>` resource definition exists the set value will be returned.
 
 ### request
-
 ```
 GET /onep:v1/stack/alias?<alias 1>&<alias 2...>&<alias n> HTTP/1.1
-Host: m2.exosite.com
-X-Exosite-CIK: <CIK>
+Host: example.m2.exosite.io
+{X-Exosite-CIK: <token>}
 Accept: application/x-www-form-urlencoded; charset=utf-8
 <blank line>
 ```
 
-
 ### response
-
 ```
 HTTP/1.1 200 OK
 Date: <date>
-Server: <server>
+Server: Murano
 Connection: Close
 Content-Length: <length>
 <blank line>
 <alias 1>=<value 1>&<alias 2...>=<value 2...>&<alias n>=<value n>
 ```
 
-* Response may also be `HTTP/1.1 204 No Content` if either none of the aliases are found or they are all empty of data
+* Response may also be `HTTP/1.1 204 No Content` if either none of the aliases are found or the device state for the given aliases are empty
 * See [HTTP Responses](#http-responses) for a full list of responses
 
-
 ### example
-
 ```
-$ curl https://m2.exosite.com/onep:v1/stack/alias?<dataport-alias> \
-    -H 'X-Exosite-CIK: <CIK>' \
+$ curl -i 'https://example.m2.exosite.io/onep:v1/stack/alias?thermostat' \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511' \
     -H 'Accept: application/x-www-form-urlencoded; charset=utf-8'
 ```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 13
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
 
+thermostat=65
+```
 
-## Hybrid write/read
-
-Write one or more resources of `<alias w>` with given `<value>` and then read the most recent value from one or more resources with `<alias r>`. The client (e.g., device, portal) to write to and read from is identified by `<CIK>`. All writes occur before all reads.
-
+## Combined Post Get
+Report one or more values with `<alias w>` with given `<value>` and then retrieve the most recent set values from the authenticated device's state with the specified `<alias r>`.  Note: The reported data is stored before retrieving the latest set state.
 
 ### request
-
 ```
 POST /onep:v1/stack/alias?<alias r1>&<alias r2...>&<alias rn> HTTP/1.1
-Host: m2.exosite.com
-X-Exosite-CIK: <CIK>
+Host: example.m2.exosite.io
+{X-Exosite-CIK: <token>}
 Accept: application/x-www-form-urlencoded; charset=utf-8
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: <length>
@@ -166,36 +372,40 @@ Content-Length: <length>
 <alias w1>=<value 1>&<alias w2...>=<value 2...>&<alias wn>=<value n>
 ```
 
-
 ### response
-
 ```
 HTTP/1.1 200 OK
 Date: <date>
-Server: <server>
+Server: Murano
 Connection: Close
 Content-Length: <length>
 <blank line>
 <alias r1>=<value 1>&<alias r2...>=<value 2...>&<alias rn>=<value n>
 ```
 
-* Response may also be `HTTP/1.1 204 No Content` if either none of the aliases are found or they are all empty of data
+* Response may also be `HTTP/1.1 204 No Content` if either none of the aliases are found or the device state for the given aliases are empty
 * See [HTTP Responses](#http-responses) for a full list of responses
 
-
 ### example
-
 ```
-$ curl https://m2.exosite.com/onep:v1/stack/alias?<alias_to_read> \
-    -H 'X-Exosite-CIK: <CIK>' \
+$ curl https://example.m2.exosite.io/onep:v1/stack/alias?thermostat \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511' \
     -H 'Accept: application/x-www-form-urlencoded; charset=utf-8' \
-    -d '<alias_to_write>=<value>'
+    -d 'temperature=63'
 ```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 13
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
 
+thermostat=65
+```
 
 ## Long Polling
-
-The [read](#read) procedure now supports long polling. Long polling is a method of getting a server push without the complexities of setting up publicly accessible HTTP server endpoints on your device. As the name suggests, long polling is similar to normal polling of an HTTP resource, but instead of requiring the client to make a new request to the server constantly, the server will wait to return until it has new information to return to the client (or a timeout has been reached).
+The [post](#post-sensor-data) endpoint also supports long polling. Long polling is a method of getting a server push without the complexities of setting up publicly accessible HTTP server endpoints on your device. As the name suggests, long polling is similar to normal polling of an HTTP resource, but instead of requiring the client to make a new request to the server constantly, the server will wait to return until it has new information to return to the client (or a timeout has been reached).
 
 To perform a request with long polling, simply add the header `Request-Timeout: <miliseconds>` to your request. The server will then wait until a new datapoint is written to the given resource and will then immediately return the value. If no datapoint is written before that time, a `304 Not Modified` is returned and the client may make another long polling request to continue monitoring that resource.
 
@@ -203,13 +413,11 @@ You may also optionally add an `If-Modified-Since` header to specify a start tim
 
 Note: only one resource may be read at a time when using long polling.
 
-
 ### request
-
 ```
 GET /onep:v1/stack/alias?<alias 1> HTTP/1.1
-Host: m2.exosite.com
-X-Exosite-CIK: <CIK>
+Host: example.m2.exosite.io
+{X-Exosite-CIK: <token>}
 Accept: application/x-www-form-urlencoded; charset=utf-8
 Request-Timeout: <timeout>
 If-Modified-Since: <timestamp>
@@ -220,235 +428,87 @@ If-Modified-Since: <timestamp>
 * `Request-Timeout` specifies how long to wait on changes. `<timeout>` is a millisecond value and cannot be more than 300 seconds (300,000 ms).
 * `If-Modified-Since` specifies waiting on aliases since the `<timestamp>`. `<timestamp>` can be timestamp seconds since 1970-01-01 00:00:00 UTC or standard <a href=http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html>HTTP-Date</a> format. If this is not specified, it defaults to "now."
 
-
 ### response
-
-When the resource is updated:
-
+When the device set state is updated:
 ```
 HTTP/1.1 200 OK
 Date: <date>
-Server: <server>
+Server: Murano
 Connection: Close
 Content-Length: <length>
-Last-Modified: <datapoint-modification-date>
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Last-Modified: <value-set-date>
 <blank line>
 <alias>=<value>
 ```
-
-If the resource is not updated before timeout:
-
+If the device state is not updated before timeout:
 ```
 HTTP/1.1 304 Not Modified
 Date: <date>
-Server: <server>
+Server: Murano
 Connection: Close
 Content-Length: <length>
 <blank line>
 ```
 
-When the resource is updated and a value is returned, a `Last-Modified` header is included. When it is vital for your application to receive all updates to a resource, you can pass the `Last-Modified` header value back to the `If-Not-Modified-Since` header in your next request to make sure you don't miss any points that may have been written since the last request returned.
-
+When the device set state had been updated and a value is returned, a `Last-Modified` header is included. When it is vital for your application to receive all updates to a resource, you can pass the `Last-Modified` header value back as the `If-Not-Modified-Since` header in your next request to make sure you don't miss any points that may have been written since the last request returned.
 
 ### example
-
 ```
-$ curl https://m2.exosite.com/onep:v1/stack/alias?<dataport-alias> \
-    -H 'X-Exosite-CIK: <CIK>' \
+$ curl https://example.m2.exosite.io/onep:v1/stack/alias?thermostat \
+    -H 'X-Exosite-CIK: 22596363b3de40b06f981fb85d82312e8c0ed511' \
     -H 'Accept: application/x-www-form-urlencoded; charset=utf-8'
     -H 'Request-Timeout: 30000
     -H 'If-Modified-Since: 1408088308
 ```
-
-
-# Provisioning Procedures
-
-## Activate
-
-Activates and returns the `<CIK>` for the associated device's identity `<sn>` administrated for the Product ID `<vendor>` and `<model>` by Murano.
-The device's identity must be added to the Product in Murano.
-
 ```
-POST /provision/activate HTTP/1.1
-Host: <productid>.m2.exosite.com
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 13
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: <length>
+Last-Modified: 1408088412
 
-vendor=<productid>&model=<productid>&sn=<identity>
+thermostat=65
 ```
 
-
-### response
-
-```
-HTTP/1.1 200 OK
-Date: <date>
-Server: <server>
-Connection: Keep-Alive
-Content-Length: <length>
-Content-Type: text/plain; charset=utf-8
-
-<cik>
-```
-
-Response may also be:
-
-* `HTTP/1.1 404 Not Found` if the client described by `<vendor>`, `<model>`, `<sn>` is not found on the system.
-* `HTTP/1.1 409 Conflict` if the identity is not enabled for activation.
-* See [HTTP Responses](#http-responses) for a full list of responses
-
-
-### example
-
-This command activates a device with identity 12345678 and returns its CIK.
-
-```
-$ curl https://m2.exosite.com/provision/activate \
-    -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-    -d "vendor=mysubdomain&model=myclientmodel&sn=12345678"
-```
-
-
-## List Available Content
-
-List content `<id>`s. Caller with `<DeviceCIK>` must have an activated
-identity in given `<vendor>` `<model>` name space.
-
-```
-GET /provision/download?vendor=<vendor>&model=<model> HTTP/1.1
-Host: m2.exosite.com
-X-Exosite-CIK: <CIK>
-Content-Length: <length>
-<blank line>
-```
-
-### response
-
-```
-HTTP/1.1 200 OK
-Date: <date>
-Server: <server>
-Connection: Keep-Alive
-Content-Length: <length>
-Content-Type: text/csv; charset=utf-8
-
-<id 1>
-<id 2...>
-<id n>
-```
-
-Response may also be:
-
-* `HTTP/1.1 403 Forbidden` if the `<vendor>` and `<model>` pair is invalid.
-* See [HTTP Responses](#http-responses) for a full list of responses
-
-
-## Download Content
-
-If caller with `<CIK>` has an activated SN in given `<vendor>` `<model>` name
-space, and is authorized for the content, then the `<id>` content blob, or its
-requested range, is returned. The header `Range: bytes=<range-specifier>`, if
-specified, allows the caller to request a chunk of bytes at a time.
-`<range-specifier>` takes the form of `X-Y` where both `X` and `Y` are
-optional but at least one of them must be present. `X` is the start byte
-position to return. `Y` is the end position. Both are 0 based. If `X` is
-omitted, `Y` will request the last `Y` count of bytes of the content. If `Y`
-is omitted, it will default to the end of the content. Note that `Content-Type`
-of `<blob>` is based on the type set in the `POST` to
-`/provision/manage/content/<model>/<id>`.
-
-```
-GET /provision/download?vendor=<vendor>&model=<model>&id=<id> HTTP/1.1
-Host: m2.exosite.com
-X-Exosite-CIK: <CIK>
-{Range: bytes=<range-specifier>}
-<blank line>
-```
-
-
-### response
-
-```
-HTTP/1.1 200 OK
-Date: <date>
-Server: <server>
-Connection: Keep-Alive
-{Accept-Ranges: bytes}
-Content-Length: <number of bytes being returned>
-{Content-Range: bytes <first position>-<last position>/<total length>}
-Content-Type: <content-type>
-
-<blob>
-```
-
-Response may also be:
-
-* `HTTP/1.1 206 Partial Content` if the response is partial.
-* `HTTP/1.1 403 Forbidden` if the `<vendor>` and `<model>` pair is invalid.
-* See [HTTP Responses](#http-responses) for a full list of responses
-
-
-## Get Content Info
-
-If caller with `<CIK>` has an activated SN in given `<vendor>` `<model>` name
-space, and is authorized for the content, then the `<id>` content information
-is returned.
-
-```
-GET /provision/download?vendor=<vendor>&model=<model>&id=<id>&info=true HTTP/1.1
-Host: m2.exosite.com
-X-Exosite-CIK: <CIK>
-Content-Length: <length>
-<blank line>
-```
-
-
-### response
-
-```
-HTTP/1.1 200 OK
-Date: <date>
-Server: <server>
-Connection: Keep-Alive
-Content-Length: <length>
-Content-Type: text/csv; charset=utf-8
-
-<content-type>,<byte-size>,<updated-timestamp>,<meta>
-```
-
-Response may also be:
-
-* `HTTP/1.1 400 Bad Request` if the `<vendor>` and `<model>` pair is invalid.
-* See [HTTP Responses](#http-responses) for a full list of responses
-
-
-# Utility Procedures
+# Misc
 
 ## Timestamp
-
 Get the current time according to the server.
 
-
 ### request
-
 ```
 GET /timestamp HTTP/1.1
-Host: m2.exosite.com
+Host: example.m2.exosite.io
 <blank line>
 ```
 
-
 ### response
-
 ```
 HTTP/1.1 200 OK
 Date: <date>
-Server: <server>
+Server: Murano
 Connection: Keep-Alive
 Content-Length: <length>
 Content-Type: text/plain; charset=utf-8
 
 <timestamp>
 ```
-
 * See [HTTP Responses](#http-responses) for a full list of responses
+
+### example
+```
+$ curl -i https://example.m2.exosite.io/timestamp
+```
+```
+HTTP/1.1 200 OK
+Date: Fri, 05 May 2017 00:11:22 GMT
+Server: Murano
+Connection: Keep-Alive
+Content-Length: 10
+Content-Type: text/plain; charset=utf-8
+
+1408088308
+```

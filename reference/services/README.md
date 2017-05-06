@@ -15,7 +15,8 @@ Handling of Service Events and calling of Service Operations are performed with 
 
 # Core Services
 
-  * [Device](./device.md)  - Device Gateway Service
+  * [Device](./device.md)  - Device Gateway Service (deprecated)
+  * [Device2](./device2.md)  - Device2 Gateway Service
   * [Email](./email.md)  - Email Service
   * [Timer](./timer.md)  - Timer Service API
   * [Timeseries](./timeseries.md)  - Time Series Storage Service
