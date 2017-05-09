@@ -36,7 +36,7 @@ Typical HTTP response codes include:
 | 401    | Unauthorized  | Missing or invalid credentials                       |
 | 5xx    | Server Error  | Unhandled server error. Contact support.             |
 
-\* Note: aliases that are not found are not considered errors in the request. See the documentation for [post](#post-sensor-data), [get](#get-configuration-data), and [post/get](#combined-post-get) for details.
+**Note:** Aliases that are not found are not considered errors in the request. See the documentation for [post](#post-sensor-data), [get](#get-configuration-data), and [post/get](#combined-post-get) for details.
 
 ## Libraries and Sample Code
 
