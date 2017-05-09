@@ -19,7 +19,7 @@ When used in this document, "timestamp" is a unix timestamp, defined as the numb
 * [Post](#post-sensor-data) - Report sensor data to Murano
 * [Get](#get-configuration-data) - Retrieve configuration and control data from Murano
 * [Combined Post/Get](#combined-post-get) - Use a single request to report and retrieve data from Murano
-* [Long-Polling](#long-polling) - Retrieve the lastest data available, or wait to receive an update
+* [Long Polling](#long-polling) - Retrieve the lastest data available, or wait to receive an update
 
 ### Misc
 * [Timestamp](#timestamp) - Get the current unix timestamp
