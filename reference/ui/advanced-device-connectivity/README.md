@@ -22,7 +22,7 @@ When you click the “+ NEW DEVICE(S)” button, you will have the option to add
 
 ![Device Creation](assets/device_creation.png)
 
-**NOTE:** the *Endpoint* URL at the top of the screen is the host name that has been created to receive your devices' outgoing API calls.  
+**NOTE:** the *Endpoint* URL at the top of the screen is the host name your devices will use when connecting to Murano via the [HTTP Device API](/reference/products/device-api/http/).
 
 ![Endpoint](assets/endpoint.png)
 
@@ -68,18 +68,26 @@ There is no restriction as to the kind of content that can be made available to 
 
 The *Settings* page allows you to set your authentication method and determine which devices can connect. 
 
-Selecting the *Token* option enables a character string for the authorization of your devices’ communication with Murano. Development devices connecting via HTTP must authenticate using CIK (private key). Such devices should not go into production; any devices using HTTP in development that are intended for production should be reprovisioned when TLS is enabled.
+The *Token* authentication method assigns a unique 40-character string to each device. The token serves as both the identity and the authorization for the device; devices pass this token as part of the "X-Exosite-CIK" HTTP header when connecting to Murano.
 
-**NOTE:** Enabling the "Allow development devices to connect" checkbox removes the requirement to use HTTPS and allows straight-HTTP, which is not encrypted and for which all information, including sensitive data like the CIK (private key), is passed in plaintext and easily read by third parties. It is highly discouraged to run in this mode, but activities—particularly those during the development of the device—make doing so useful under limited circumstances. 
+The *TLS CLient Certificate* authentication method employs a standard TLS client certificate. Devices present the certificate during the TLS connection handshake with Murano and are challenged to prove they hold the corresponding private key. The device's certificate's CommonName (CN) field in its subject indicates the identity of the device; Murano uses this to confirm that the certificate is associated to the device.
 
-The *TLS Client Certificate* option enables authentication and identification of devices via parameters of the client certificate.
+The *TLS Client Certificate*, by nature, operates within a TLS session and therefore requires the use of HTTPS. Since the *Token* mechanism uses a simple HTTP header, it is possible to support this mechanism over plain HTTP and checking the "Allow development devices to connect" box enables such connections. Doing so means all communication will be unencrypted, and everything -- including the token! -- will be plainly visible to third parties. **It is highly discouraged to run in this mode**, but activities -- particularly those during the development of the device -- make doing so useful under very limited circumstances. **Note**: devices used during development which connected using plain HTTP should reprovision (to acquire a new token) prior to switching over to HTTPS, as the token used during development will not be secret.
+
+See the [HTTP Device API](/reference/products/device-api/http/) documentation for more information.
 
 ![Settings](assets/settings.png) 
 
 ## Provisioning
 
-Farther down on the *Settings* page, you may select your provisioning settings. Provisioning is the process by which a device acquires credentials consisting of an identity and a secure means of verifying that identity. Devices connecting for the first time may do so fully provisioned (presenting both identity and verification of that identity), may present only their identity, or may require both an identity and verification; of these, devices fully provisioned as part of the manufacturing process are considered the most secure, as they can not be spoofed and the private aspect of the verification need not be sent to them; provisioning opens the possibility that illegitimate devices can appear as legitimate and be granted access.
+Farther down on the *Settings* page, you may select your provisioning settings.
 
-When provisioning a device, the device may present its own identity (assuming "Allow devices to register their own identity" is selected). Such devices will have an identity (such as a MAC address) that must match the specified format. Alternatively, a device may receive an identity (when "Allow server to generate the identity for devices connecting without one" is selected). In either case, it is possible for illegitimate devices to successfully provision; presented identity provides a slightly greater barrier due to its identity format validation. It is possible to further restrict provisioning to only those devices with particular IP Addresses.
+Provisioning is the process by which a device's token or a TLS client certificate is associated to a specific identity in Murano. Devices must be provisioned before they can read and write data and download content.
+
+When using *token* authentication, the device and Murano must first agree to an identity before agreeing to a token. Enabling "Allow devices to register their own identity" allows a device to report its identity as part of requesting a token for that identity. In this case, the device need not have first been created in Murano (Murano will create the device, assign a token to the device, and send the token back to the device for it to subsequently use). Enabling "Allow server to generate the identity for devices connecting without one" allows devices without identities to request an identity.
+
+When using *TLS certificates*, the device must have a certificate to present to Murano ("Allow server to generate the identity for devices connecting without one" is not applicable). Here, as with token, enabling "Allow devices to register their own identity" allows the device to be created in Murano when the certificate is first presented to it using the CN as the device's identity.
+
+It is recommended to provision devices during manufacture when the IP address the device connects from is both known and controlled and to restrict provisioning from these known IP addresses. Murano will ensure the identity the device provides is legitimate given the format specified.
 
 ![Provisioning](assets/settings2.png) 
