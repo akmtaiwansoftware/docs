@@ -6,7 +6,7 @@ title: HTTPS
 
 This is the HTTPS Device API for the Murano Platform. Device firmware implementations should use this API to provision and interact with the Murano platform.  Authenticated devices post sensor and status data and retrieve configuration and control commands using this API.
 
-When used in this document "timestamp" is a unix timestamp, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
+When used in this document, "timestamp" is a unix timestamp, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
 
 ## HTTPS Device APIs
 ### Provisioning and OTA updates
@@ -53,25 +53,25 @@ This document uses the following notational conventions:
 * Curly brackets around HTTP headers represent optional or conditional headers.
 
 ## Connection Domain
-Each Murano device gateway instance receives a unique API domain for devices to connect to. Your unique domain (endpoint) can be retrieved from your account page. In this document, we will use the example domain of 'example.m2.exosite.io'. Replace the example domain with your unique domain when using the API.
+Each Murano device gateway instance receives a unique API domain for devices to connect to. Your unique domain (endpoint) can be retrieved from your account page. In this document, we will use the example domain of "example.m2.exosite.io". Replace the example domain with your unique domain when using the API.
 
-When making a secure TLS connection attempt to the API domain it is required to specify the domain as the SNI field in the TLS connection request.  The HTTP 'Host' header must also be set to the domain name. Any mismatch or use of an invalid domain will result in the connection being terminated without response.
+When making a secure TLS connection attempt to the API domain, it is required to specify the domain as the SNI field in the TLS connection request. The HTTP "Host" header must also be set to the domain name. Any mismatch or use of an invalid domain will result in the connection being terminated without response.
 
 ## Authentication
-A device may authenticate with either a TLS Client Certificate during the TLS connection handshake, or using a secret Token sent in the 'X-Exosite-CIK' HTTP header.
+A device may authenticate with either a TLS Client Certificate during the TLS connection handshake or by using a secret Token sent in the "X-Exosite-CIK" HTTP header.
 
-When using a TLS Client Certificate for authentication, the certificate 'Subject' CommonName (CN) must hold the connecting device's identity.
+When using a TLS Client Certificate for authentication, the certificate "Subject" CommonName (CN) must hold the connecting device's identity.
 
-To establish a device's identity and authorization on the Murano device gateway a device's identity must be whitelisted and pre-shared authentication credentials set for the device, or the gateway must be configured to enable provisioning allowing a device to connect and provision it's identity and credentials.
+To establish a device's identity and authorization on the Murano device gateway, a device's identity must be whitelisted with pre-shared authentication credentials set for the device, or the gateway must be configured to enable provisioning, allowing a device to connect and provision its identity and credentials.
 
-For device gateways that are configured to enable provisioning and TLS client certificate authentication, a device that connects with a TLS client certificate of a whitelisted identity will be auto associated with the device gateway.  For device gateways that disallow provisioning, the device's client certificate will have to be pre-associated with the identity in the gateway.
+For device gateways configured to enable provisioning and TLS client certificate authentication, a device that connects with a TLS client certificate of a whitelisted identity will be auto-associated with the device gateway. For device gateways that disallow provisioning, the device's client certificate will have to be pre-associated with the identity in the gateway.
 
-For device gateways that are configured to enable provisioning and Token authentication, a device must make a request to the [provision](#provision) API to receive a secret token that can be used for subsequent authenticated API requests. The device gateway can be configured to whitelist allowed identities, provisioning time windows and restrict IP addresses to manufacturing facilities for device provisioning.
+For device gateways configured to enable provisioning and Token authentication, a device must make a request to the [provision](#provision) API to receive a secret token that can be used for subsequent authenticated API requests. The device gateway can be configured to whitelist allowed identities, provision time windows, and restrict IP addresses to manufacturing facilities for device provisioning.
 
 # Provisioning and OTA updates
 
 ## Provision
-When the Murano device gateway is configured for Token authentication, calling this endpoint will provision credentials for the given `<identity>` and returns the secret `<token>` the device will use for all subsequent API requests. It is typical that the Murano device gateway is configured to only allow whitelisted identities to provision.  Identities must also conform to the identity format specification defined in the device gateway settings.
+When the Murano device gateway is configured for Token authentication, calling this endpoint will provision credentials for the given `<identity>` and returns the secret `<token>` the device will use for all subsequent API requests. It is typical that the Murano device gateway is configured to only allow whitelisted identities to provision. Identities must also conform to the identity format specification defined in the device gateway settings.
 
 ### request
 ```
@@ -102,7 +102,7 @@ Response may also be:
 * See [HTTP Responses](#http-responses) for a full list of responses
 
 ### example
-Provision identity '12345678'
+Provision identity `12345678`
 ```
 $ curl -i 'https://example.m2.exosite.io/provision/activate' \
     -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
@@ -273,10 +273,10 @@ Content-Range: bytes 0-1023/23427
 <1024-byte-blob>
 ```
 
-# Data reporting and retrieval
+# Data Reporting and Retrieval
 
 ## Post Sensor Data
-Report sensor data to Murano. Post data for one or more resources identified by `<alias>` with the given `<value>`. The connecting device is identified and authenticated with the secret `<token>`. If the Murano Device Gateway has defined resources with matching aliases, then the reported values are stored in the device state with the server timestamp at which the data was received by Murano. If multiple aliases are specified, they are written at the same timestamp. Regardless of whether the gateway resources are defined, reported data generate an event type of 'data_in' on the Murano Device2 Gateway service and may be used to store the data in Timeseries database or alerted upon.
+Report sensor data to Murano. Post data for one or more resources identified by `<alias>` with the given `<value>`. The connecting device is identified and authenticated with the secret `<token>`. If the Murano Device Gateway has defined resources with matching aliases, then the reported values are stored in the device state with the server timestamp at which the data was received by Murano. If multiple aliases are specified, they are written at the same timestamp. Regardless of whether the gateway resources are defined, reported data generate an event type of "data_in" on the Murano Device2 Gateway service and may be used to store the data in Timeseries database or alerted upon.
 
 ### request
 ```
@@ -315,7 +315,7 @@ Connection: Keep-Alive
 ```
 
 ## Get Configuration Data
-Retrieve configuration and control data from Murano. Get the latest set value from the authenticated device's state for one or more resources specified by `<alias>`. If at least one `<alias>` resource definition exists the set value will be returned.
+Retrieve configuration and control data from Murano. Get the latest set value from the authenticated device's state for one or more resources specified by `<alias>`. If at least one `<alias>` resource definition exists, the set value will be returned.
 
 ### request
 ```
@@ -358,7 +358,9 @@ thermostat=65
 ```
 
 ## Combined Post Get
-Report one or more values with `<alias w>` with given `<value>` and then retrieve the most recent set values from the authenticated device's state with the specified `<alias r>`.  Note: The reported data is stored before retrieving the latest set state.
+Report one or more values with `<alias w>` with given `<value>` and then retrieve the most recent set values from the authenticated device's state with the specified `<alias r>`.  
+
+**Note:** The reported data is stored before retrieving the latest set state.
 
 ### request
 ```
@@ -409,9 +411,9 @@ The [post](#post-sensor-data) endpoint also supports long polling. Long polling 
 
 To perform a request with long polling, simply add the header `Request-Timeout: <miliseconds>` to your request. The server will then wait until a new datapoint is written to the given resource and will then immediately return the value. If no datapoint is written before that time, a `304 Not Modified` is returned and the client may make another long polling request to continue monitoring that resource.
 
-You may also optionally add an `If-Modified-Since` header to specify a start time to wait. This is exactly the same as the `alias.last` semantics in scripting. You will want to use this if it's important that you receive all updates to a given resource; otherwise it is possible to miss points that get written between long polling requests.
+You may also optionally add an `If-Modified-Since` header to specify a start time to wait. This is exactly the same as the `alias.last` semantics in scripting. You will want to use this if it's important that you receive all updates to a given resource; otherwise, it is possible to miss points written between long polling requests.
 
-Note: only one resource may be read at a time when using long polling.
+**Note:** Only one resource may be read at a time when using long polling.
 
 ### request
 ```
@@ -451,7 +453,7 @@ Content-Length: <length>
 <blank line>
 ```
 
-When the device set state had been updated and a value is returned, a `Last-Modified` header is included. When it is vital for your application to receive all updates to a resource, you can pass the `Last-Modified` header value back as the `If-Not-Modified-Since` header in your next request to make sure you don't miss any points that may have been written since the last request returned.
+When the device set state had been updated and a value is returned, a `Last-Modified` header is included. When it is vital for your application to receive all updates to a resource, you can pass the `Last-Modified` header value back as the `If-Not-Modified-Since` header in your next request to make sure you do not miss any points that may have been written since the last request returned.
 
 ### example
 ```
