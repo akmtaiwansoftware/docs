@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Exosite Documentation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/assets/less/style.css">
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44116002-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top navbar-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-left"><a class="navbar-brand" href="/"><img src="/assets/exosite-logo.png" id="logo"></a>
+            </div>
+            <div class="navbar-text navbar-left text-uppercase"><strong>Documentation</strong></div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='https://support.exosite.com'>Support</a></li>
+                <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+            </ul>
+            <ul class="nav navbar-nav visible-xs">
+                <div class="nav-links mobile-docs">
+                    <ul class="nav navbar-nav">
+                        <li><a type="button" data-toggle="collapse" href="#nav-murano-platform" aria-expanded="false">Murano</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-murano-platform">
+                            <li class="menu-header">About</li>
+                            <li><a class="level-0" href="/">Murano Overview</a></li>
+                            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+                            <li><a class="level-0" href="/about/products/">Products</a></li>
+                            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+                            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+                            <li class="menu-header">Quickstarts</li>
+                            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a>
+                            </li>
+                            <li class="menu-header">Tutorials</li>
+                            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+                        </ul>
+                        <li><a type="button" data-toggle="collapse" href="#nav-services" aria-expanded="false">Services</a></li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-services">
+                            <li class="menu-header">Communication</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+                            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+                            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+                            <li class="menu-header">IoT</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li class="menu-header">Storage</li>
+                            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+                            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+                            <li class="menu-header">Other</li>
+                            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+                            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+                            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+                        </ul>
+
+                        <li><a type="button" data-toggle="collapse" href="#nav-reference" aria-expanded="false">Reference</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-reference">
+                            <li class="menu-header">API</li>
+                            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+                            <li class="menu-header">Tools</li>
+                            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+                            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+                            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+                            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+                            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+                            <li class="menu-header">UI</li>
+                            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+                            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+                            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+                            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+                            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+                            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+                            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right form-inline search-form">
+                <!-- <a class="btn btn-warning" href="https://exosite.com/business/signup">Sign Up For Murano</a> -->
+                <div class="form-group">
+                    <input id="docsearch" onsubmit="return false;" type="text" class="form-control nav-search"
+                           placeholder="Search...">
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="row main-row row-offcanvas row-offcanvas-left">
+    <div class="hidden-xs sidenav sidebar-offcanvas">
+        <h3 class="sidenav-header">Murano</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">About</li>
+            <li><a class="level-0" href="/">Murano Overview</a></li>
+            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+            <li><a class="level-0" href="/about/products/">Products</a></li>
+            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Quickstarts</li>
+            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tutorials</li>
+            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+        </ul>
+
+
+        <h3 class="sidenav-header">Services</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">Communication</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">IoT</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Storage</li>
+            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Other</li>
+            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+        </ul>
+
+        <h3 class="sidenav-header">Reference</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">API</li>
+            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+            <li><a class="level-0" href="/reference/products/device-api/curl/">Device API with Curl</a></li>
+            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tools</li>
+            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">UI</li>
+            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+        </ul>
+    </div>
+    <div class="main content">
+        <h1 id="key-value-storage-service">Key-Value Storage Service</h1>
+<blockquote>
+<p>This service allows you to store data for your solution based on unique key identifiers. Use it to safely store your Murano application configuration variables, logs, and much more.
+<br/> Moreover, based on the wonderful <a href="http://redis.io">Redis database</a>, this service provides many of the powerful <a href="http://redis.io/commands">Redis commands</a>. <br/><br/> <strong>Important:</strong> The number of keys you can use are limited and depend on your Murano plan. <br/> Use the <em>info</em> operation described in this page to see your current usage.</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<h4 id="keys">Keys</h4>
+<ul>
+<li><a href="#clear">Keystore.clear()</a>  - Clear namespace</li>
+<li><a href="#delete">Keystore.delete()</a>  - Delete key</li>
+<li><a href="#get">Keystore.get()</a>  - Get a key value</li>
+<li><a href="#list">Keystore.list()</a>  - Get namespace keys</li>
+<li><a href="#set">Keystore.set()</a>  - Set the value of a key</li>
+</ul>
+<h4 id="settings">Settings</h4>
+<ul>
+<li><a href="#info">Keystore.info()</a>  - Get namespace information</li>
+</ul>
+<h4 id="other">Other</h4>
+<ul>
+<li><a href="#command">Keystore.command()</a>  - Execute a Redis command</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<h3 id="keys">Keys</h3>
+<hr>
+<h4 id="clear">clear</h4>
+<blockquote>
+<p>Remove all keys from this solution namespace. Be careful. There is no going back!</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="all-solution-keys-successfully-removed-nil-">All solution keys successfully removed  -  <em>nil</em></h6>
+<p>All solution keys successfully removed</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error type</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Response code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">Keystore.clear()
+</code></pre>
+<hr>
+<h4 id="delete">delete</h4>
+<blockquote>
+<p>Remove a key value from the namespace. This operation frees a quota count for your solution.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>key</strong></td>
+<td style="text-align:center"><em>string</em> {1..200}</td>
+<td>Key identifier</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="key-successfully-deleted-nil-">Key successfully deleted  -  <em>nil</em></h6>
+<p>Key successfully deleted</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error type</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Response code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">Keystore.delete({ key = &quot;myKey&quot; })
+</code></pre>
+<hr>
+<h4 id="get">get</h4>
+<blockquote>
+<p>Returns the value of the given key</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>key</strong></td>
+<td style="text-align:center"><em>string</em> {1..200}</td>
+<td>Key identifier</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-response-object-containing-the-key-value-object-">The response object containing the key value.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>value</strong></td>
+<td style="text-align:center"><em>array</em>, <em>object</em>, <em>string</em>, <em>number</em>, <em>boolean</em>, <em>null</em></td>
+<td>Key content</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error type</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Response code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local result = Keystore.get({ key = &quot;myKey&quot; })
+print(result.value)
+</code></pre>
+<hr>
+<h4 id="list">list</h4>
+<blockquote>
+<p>Returns the list of keys present in the namespace.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="solution-namespace-information-object-">Solution namespace information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>keys</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Active namespace keys</td>
+</tr>
+<tr>
+<td>quota</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Usage limitation applying to this service. WARNING! This property is deprecated and will be removed in a future version. Use the <em>info</em> operation instead to get this value.</td>
+</tr>
+<tr>
+<td>quota.keys</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Maximum number of keys allowed for this solution depending on your Murano plan. Contact Murano team for more information.</td>
+</tr>
+<tr>
+<td>usage</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Namespace usage. WARNING! This property is deprecated and will be removed in a future version. Use the <em>info</em> operation instead to get this value.</td>
+</tr>
+<tr>
+<td>usage.keys</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Current number of keys being used by the solution namespace.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error type</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Response code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local result = Keystore.list()
+print(result.keys)
+</code></pre>
+<hr>
+<h4 id="set">set</h4>
+<blockquote>
+<p>Set or update a key value. If the key does not exist, this operation will increase your usage count.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>key</strong></td>
+<td style="text-align:center"><em>string</em> {1..200}</td>
+<td>Key identifier</td>
+</tr>
+<tr>
+<td><strong>value</strong></td>
+<td style="text-align:center"><em>string</em>, <em>number</em>, <em>boolean</em>, <em>null</em></td>
+<td>Key content</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="key-successfully-set-nil-">Key successfully set  -  <em>nil</em></h6>
+<p>Key successfully set</p>
+<h6 id="namespace-key-count-quota-reached-delete-some-unused-keys-or-contact-murano-team-for-upgrading-your-plan-you-can-view-your-current-namespace-usage-with-the-_info_-operation-or-on-your-murano-portal-account-nil-">Namespace, Key count quota reached. Delete some unused keys or contact Murano team for upgrading your plan. You can view your current namespace usage with the <em>info</em> operation or on your Murano portal account.  -  <em>nil</em></h6>
+<p>Namespace, Key count quota reached. Delete some unused keys or contact Murano team for upgrading your plan. You can view your current namespace usage with the <em>info</em> operation or on your Murano portal account.</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error type</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Response code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">Keystore.set({ key = &quot;myKey&quot;, value = &quot;myValue&quot; })
+</code></pre>
+<h3 id="settings">Settings</h3>
+<hr>
+<h4 id="info">info</h4>
+<blockquote>
+<p>Returns namespace information including usage and quota.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="solution-namespace-information-object-">Solution namespace information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>quota</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Usage limitation applying to this service</td>
+</tr>
+<tr>
+<td>quota.keys</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Maximum number of keys allowed for this solution depending on your Murano plan. Contact Murano team for more information.</td>
+</tr>
+<tr>
+<td>usage</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Namespace usage</td>
+</tr>
+<tr>
+<td>usage.keys</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Current number of keys being used by the solution namespace.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error type</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Response code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local result = Keystore.info()
+print(&quot;I am using &quot; .. result.usage.keys .. &quot; out of my &quot; .. result.quota.keys .. &quot; keys&quot;)
+</code></pre>
+<h3 id="other">Other</h3>
+<hr>
+<h4 id="command">command</h4>
+<blockquote>
+<p>This function offers some popular Redis commands to execute on the key. Please refer to <a href="http://redis.io/commands">http://redis.io/commands documentation page</a> for the command information and parameters. Remember, some commands will increase your namespace usage and may hit your namespace quota.
+Not all Redis commands are supported. Please refer to the command parameter information below for the available functions.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>key</strong></td>
+<td style="text-align:center"><em>string</em> {1..200}</td>
+<td>Target key</td>
+</tr>
+<tr>
+<td><strong>command</strong></td>
+<td style="text-align:center">&quot;get&quot;, &quot;set&quot;, &quot;del&quot;, &quot;setnx&quot;, &quot;strlen&quot;, &quot;type&quot;, &quot;exists&quot;, &quot;append&quot;, &quot;bitcount&quot;, &quot;bitpos&quot;, &quot;getbit&quot;, &quot;setbit&quot;, &quot;getrange&quot;, &quot;incr&quot;, &quot;incrby&quot;, &quot;decr&quot;, &quot;decrby&quot;, &quot;getset&quot;, &quot;incrbyfloat&quot;, &quot;lpush&quot;, &quot;lpushx&quot;, &quot;lindex&quot;, &quot;llen&quot;, &quot;linsert&quot;, &quot;lrange&quot;, &quot;lrem&quot;, &quot;lset&quot;, &quot;ltrim&quot;, &quot;lpop&quot;, &quot;rpop&quot;, &quot;rpush&quot;, &quot;rpushx&quot;, &quot;sadd&quot;, &quot;srem&quot;, &quot;scard&quot;, &quot;smembers&quot;, &quot;sismember&quot;, &quot;srandmember&quot;, &quot;spop&quot;, &quot;setex&quot;, &quot;psetex&quot;, &quot;expire&quot;, &quot;pexpireat&quot;, &quot;pexpire&quot;, &quot;expireat&quot;, &quot;pttl&quot;, &quot;ttl&quot;, &quot;persist&quot;, &quot;zadd&quot;, &quot;zcard&quot;, &quot;zcount&quot;, &quot;zincrby&quot;, &quot;zlexcount&quot;, &quot;zrange&quot;, &quot;zrangebylex&quot;, &quot;zrangebyscore&quot;, &quot;zrank&quot;, &quot;zrem&quot;, &quot;zremrangebylex&quot;, &quot;zremrangebyscore&quot;, &quot;zremrangebyrank&quot;, &quot;zrevrange&quot;, &quot;zrevrangebylex&quot;, &quot;zrevrangebyscore&quot;, &quot;zrevrank&quot;, &quot;zscore&quot;, &quot;hdel&quot;, &quot;hexists&quot;, &quot;hget&quot;, &quot;hgetall&quot;, &quot;hincrby&quot;, &quot;hincrbyfloat&quot;, &quot;hkeys&quot;, &quot;hlen&quot;, &quot;hmget&quot;, &quot;hstrlen&quot;, &quot;hvals&quot;, &quot;hscan&quot;, &quot;hset&quot;, &quot;hmset&quot;, &quot;hsetnx&quot;</td>
+<td>This function offers some popular Redis commands to execute on the key. Please refer to <a href="http://redis.io/commands">http://redis.io/commands documentation page</a> for the command information and parameters.</td>
+</tr>
+<tr>
+<td>args</td>
+<td style="text-align:center">[ <em>string</em>, <em>number</em>, <em>boolean</em> ]</td>
+<td>List of arguments for the specified command. Please refer to <a href="http://redis.io/commands">http://redis.io/commands documentation page</a> for the command information and parameters.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-response-object-containing-the-key-value-object-">The response object containing the key value.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>value</strong></td>
+<td style="text-align:center"><em>array</em>, <em>object</em>, <em>string</em>, <em>number</em>, <em>boolean</em>, <em>null</em></td>
+<td>Key content</td>
+</tr>
+</tbody>
+</table>
+<h6 id="namespace-key-count-quota-reached-delete-some-un-used-keys-or-contact-murano-team-for-upgrading-your-plan-you-can-view-your-current-namespace-usage-with-the-_list_-operation-or-on-your-murano-portal-account-nil-">Namespace, Key count quota reached. Delete some un-used keys or contact Murano team for upgrading your plan. You can view your current namespace usage with the <em>list</em> operation or on your Murano portal account.  -  <em>nil</em></h6>
+<p>Namespace, Key count quota reached. Delete some un-used keys or contact Murano team for upgrading your plan. You can view your current namespace usage with the <em>list</em> operation or on your Murano portal account.</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error type</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Response code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- Add a string to a list
+result = Keystore.command({
+  key = &quot;myList&quot;,
+  command = &quot;lpush&quot;,
+  args = {&quot;oneItem&quot;}
+})
+
+-- Retrieve the list content
+result = Keystore.command({
+  key = &quot;myList&quot;,
+  command = &quot;lrange&quot;,
+  args = {0, -1}
+})
+</code></pre>
+
+    </div>
+</div> <!-- end main content row -->
+</div>
+
+<div class="footer">
+    <div class="footer-container center-block">
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="footer-logo" src="/assets/logo-symbol.png" id="logo-icon">
+            </div>
+            <!-- products menu -->
+            <div class=" col-sm-2 nav-menu">
+                <h4 class="widget-title">Products</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/platform/">Platform</a></li>
+                    <li><a href="https://exosite.com/resources/exositeready/">ExositeReady&trade;</a></li>
+                </ul>
+            </div>
+            <!-- solutions menu -->
+            <!--<div class="col-sm-2 nav-menu">-->
+                <!--<h4 class="widget-title">Solutions</h4>-->
+                <!--<ul id="menu-product" class="menu">-->
+                    <!--<li><a href="#">IoT 101</a></li>-->
+                    <!--<li><a href="#">Concept Validation</a></li>-->
+                    <!--<li><a href="#">Proof of Feasibility</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- resources menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Resources</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/casestudies/">Case Studies</a></li>
+                    <li><a href="https://exosite.com/whitepapers/">White Papers</a></li>
+                    <li><a href="https://exosite.com/blog/">Blog</a></li>
+                    <li><a href="https://exosite.com/resources/developer-resources/">Developer Resources</a></li>
+                </ul>
+            </div>
+            <!-- tools menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Tools</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://community.exosite.com/">Community</a></li>
+                    <li><a href="https://support.exosite.com/hc/en-us">Support</a></li>
+                    <li><a href="https://status.exosite.com/">Status</a></li>
+                </ul>
+            </div>
+            <!-- company menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Company</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/about/">About</a></li>
+                    <li><a href="https://exosite.com/newsroom/">News & Events</a></li>
+                    <li><a href="https://exosite.com/careers/">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-2 footer-info">
+                <p><a href="https://exosite.com/privacy-policy/">Privacy Policy</a> | <a
+                        href="https://exosite.com/murano-terms-conditions/">Terms & Conditions</a></p>
+                <p>All rights reserved exosite.com &copy;2017</p>
+            </div>
+            <div class="col-sm-2 language-select">
+                <a href="#" class="btn"><img src="/assets/american-flag.png">Language</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

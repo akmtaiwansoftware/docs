@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Exosite Documentation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/assets/less/style.css">
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44116002-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top navbar-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-left"><a class="navbar-brand" href="/"><img src="/assets/exosite-logo.png" id="logo"></a>
+            </div>
+            <div class="navbar-text navbar-left text-uppercase"><strong>Documentation</strong></div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='https://support.exosite.com'>Support</a></li>
+                <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+            </ul>
+            <ul class="nav navbar-nav visible-xs">
+                <div class="nav-links mobile-docs">
+                    <ul class="nav navbar-nav">
+                        <li><a type="button" data-toggle="collapse" href="#nav-murano-platform" aria-expanded="false">Murano</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-murano-platform">
+                            <li class="menu-header">About</li>
+                            <li><a class="level-0" href="/">Murano Overview</a></li>
+                            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+                            <li><a class="level-0" href="/about/products/">Products</a></li>
+                            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+                            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+                            <li class="menu-header">Quickstarts</li>
+                            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a>
+                            </li>
+                            <li class="menu-header">Tutorials</li>
+                            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+                        </ul>
+                        <li><a type="button" data-toggle="collapse" href="#nav-services" aria-expanded="false">Services</a></li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-services">
+                            <li class="menu-header">Communication</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+                            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+                            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+                            <li class="menu-header">IoT</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li class="menu-header">Storage</li>
+                            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+                            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+                            <li class="menu-header">Other</li>
+                            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+                            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+                            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+                        </ul>
+
+                        <li><a type="button" data-toggle="collapse" href="#nav-reference" aria-expanded="false">Reference</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-reference">
+                            <li class="menu-header">API</li>
+                            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+                            <li class="menu-header">Tools</li>
+                            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+                            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+                            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+                            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+                            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+                            <li class="menu-header">UI</li>
+                            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+                            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+                            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+                            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+                            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+                            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+                            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right form-inline search-form">
+                <!-- <a class="btn btn-warning" href="https://exosite.com/business/signup">Sign Up For Murano</a> -->
+                <div class="form-group">
+                    <input id="docsearch" onsubmit="return false;" type="text" class="form-control nav-search"
+                           placeholder="Search...">
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="row main-row row-offcanvas row-offcanvas-left">
+    <div class="hidden-xs sidenav sidebar-offcanvas">
+        <h3 class="sidenav-header">Murano</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">About</li>
+            <li><a class="level-0" href="/">Murano Overview</a></li>
+            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+            <li><a class="level-0" href="/about/products/">Products</a></li>
+            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Quickstarts</li>
+            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tutorials</li>
+            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+        </ul>
+
+
+        <h3 class="sidenav-header">Services</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">Communication</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">IoT</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Storage</li>
+            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Other</li>
+            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+        </ul>
+
+        <h3 class="sidenav-header">Reference</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">API</li>
+            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+            <li><a class="level-0" href="/reference/products/device-api/curl/">Device API with Curl</a></li>
+            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tools</li>
+            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">UI</li>
+            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+        </ul>
+    </div>
+    <div class="main content">
+        <h1 id="get-started-with-arduino-y-n-and-exosite">Get Started with Arduino Yún and Exosite</h1>
+<p>This tutorial will explain how to set up a free Portals™ account, program an Arduino Yún using a &#39;Sketch&#39; app using Exosite&#39;s Arduino libray, connect the Yún to Exosite and visualize it within the Portals tool.</p>
+<p>The Arduino Yún is an open hardware platform that combines an Arduino with a mini Linux computer that handles the WiFi / Ethernet Networking interfaces.  More information can be found here: <a href="https://www.arduino.cc/en/Main/ArduinoBoardYun">Arduino Yún</a>.  </p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Computer with an Internet connection</li>
+<li>Active email address</li>
+<li>Arduino Yún</li>
+<li>Ethernet Cable (or WiFi to connect Arduino)</li>
+<li>USB Cable for the Arduino Yún</li>
+<li>Check out more details on the <a href="https://github.com/exosite-garage/arduino_exosite_library">Exosite Arduino Libary located here</a></li>
+</ul>
+<h1 id="exosite-arduino-y-n-tutorial">Exosite Arduino Yún Tutorial</h1>
+<p><img src="extras/YunParts.png" alt="image"></p>
+<h2 id="instructions">Instructions</h2>
+<h3 id="installing-arduino-ide-exosite-library">Installing Arduino IDE / Exosite Library</h3>
+<ol>
+<li><p>Download the Arduino toolchain and development environment</p>
+<ul>
+<li><a href="http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software</a></li>
+</ul>
+</li>
+<li><p>Install the Exosite Arduino Library from the Arduino Library Manager (Sketch-&gt;Include Library-&gt;Manage Libraries-&gt;Search for &quot;Exosite&quot;)</p>
+<p>The <a href="https://github.com/exosite-garage/arduino_exosite_library">Exosite Arduino Library</a> is provided to help developers quickly evaluate Exosite technologies and build useful connected things.</p>
+<p> <img src="extras/LibraryManager_1.png" alt="image"></p>
+<p> <img src="extras/LibraryManager_Exosite.png" alt="image"></p>
+</li>
+</ol>
+<h3 id="configure-your-y-n-s-networking">Configure your Yún&#39;s networking</h3>
+<ol>
+<li><p>Power your Arduino Yún using the USB cable connected to your computer or using a power adapter and follow the Yún instructions for connecting to your network WiFi or connect an Ethernet cable.  <a href="https://www.arduino.cc/en/Guide/ArduinoYun#toc14">Arduino Yún Getting Started -- WiFi Configuration</a></p>
+<ul>
+<li>Note: The Yun, if connected by Ethernet can be found by going to <a href="arduino.local">arduino.local</a> in your web browser - although recommend using the <a href="https://www.arduino.cc/en/Guide/ArduinoYun#toc14">Arduino Yun WiFi Configuration Guide</a>.</li>
+</ul>
+<p><img src="extras/finding_arduino_on_network.png" alt="image">
+<img src="extras/setting-yun-wifi-config.png" alt="image"></p>
+</li>
+</ol>
+<h3 id="set-up-your-y-n-on-exosite-s-portals-visualization-tool">Set up your Yún on Exosite&#39;s Portals Visualization Tool</h3>
+<ol>
+<li>Sign up for a free account at <a href="https://portals.exosite.com">https://portals.exosite.com</a>.  This will include an email verification process.
+<img src="extras/sign-up.png" alt="image"></li>
+</ol>
+<ol>
+<li><p>Once logged in, Go to the Devices page (<a href="https://portals.exosite.com/manage/devices">https://portals.exosite.com/manage/devices</a>) and add a device</p>
+<ol>
+<li><p>Click on &quot;+ Add Device&quot;</p>
+<p><img src="extras/add-device.png" alt="image"></p>
+</li>
+<li><p>Select &quot;Select a supported device below.&quot;</p>
+</li>
+<li><p>Select &quot;Arduino Yún Compatible&quot; device type from drop down list</p>
+</li>
+<li><p>Click &#39;Continue&#39; button.</p>
+<p><img src="extras/add-device-yun-type.png" alt="image"></p>
+</li>
+<li><p><strong>IMPORTANT</strong>: Enter your WiFi MAC Address.  You can get this either from the Yún&#39;s web server page (&#39;Set up your Yun&#39; above) or if you run this sketch, it will print it out at boot time.  It should be in the format 00:11:AA:BB:22:CC (capital letters and use colons).  Note: If you use something other than your Yún&#39;s WiFi MAC Address, the device won&#39;t activate.</p>
+</li>
+<li>Name your device, anything you want.  Leave the device location field empty, it is optional.</li>
+<li><p>Hit &#39;Continue&#39; button.</p>
+<p><img src="extras/add-dev-yun-mac.png" alt="image"></p>
+</li>
+<li><p>Hit the &#39;Quit&#39; button on the final window that says &quot;Your Arduino Yún Compatible Device was successfully enabled with the CIK...&quot;</p>
+<p><img src="extras/add-device-done.png" alt="image"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="program-the-yun">Program the Yun</h3>
+<ol>
+<li><p>Open &quot;File-&gt;Examples-&gt;arduino_exosite_library-&gt;ExoYunGettingStarted&quot;</p>
+<p> <img src="extras/open_example_sketch.png" alt="image"></p>
+</li>
+<li><p>Power your Arduino Yún using the USB cable connected to your computer or using a power adapter.</p>
+</li>
+<li><p>Go to &quot;Tools-&gt;Serial&quot; to select the serial port or networking port your Arduino Yún board is connected to (both serial or over the network options work for the Yun)
+<img src="extras/choose-board.png" alt="image"></p>
+</li>
+<li><p>Go to &quot;Tools-&gt;Board&quot; to select the corresponding Arduino Yún board type
+<img src="extras/choose-port.png" alt="image"></p>
+</li>
+<li><p>In the Arduino software, compile and verify there are no errors</p>
+</li>
+<li><p>Upload the program to your board.</p>
+<p><img src="extras/download.png" alt="image"></p>
+</li>
+<li><p>Check the serial output to verify activation and communication with Exosite.  Also check your MAC Address.</p>
+<p><img src="extras/serial_output.png" alt="image"></p>
+</li>
+<li><p>When &quot;Done uploading&quot; is displayed, go to <a href="https://portals.exosite.com">https://portals.exosite.com</a> to see your data in the cloud!  Click on your device on the &#39;Devicest List&#39; on the start page.  This will bring you to a product dashboard.  You can now create your own custom dashboards, add other data ports, data rules, alerts, and scripts.</p>
+<p><img src="extras/click-device.png" alt="image">
+<img src="extras/yun-dashboard.png" alt="image"></p>
+</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<h4 id="help">Help</h4>
+<p>If you are running into problems, please feel free to check out our <a href="https://community.exosite.com/c/hardware-platforms">developer community forum</a> or use our <a href="https://support.exosite.com">support site</a>.</p>
+<h4 id="using-the-y-n-compared-to-arduino-with-ethernet-shield-with-exosite">Using the Yún compared to Arduino with Ethernet Shield with Exosite</h4>
+<p>Exosite has created a separate reference Yún device type for a couple of reasons.
+The Yún actually has MAC Adddresses programmed into the device, so this can be used
+for activation instead of the Arduino Compatible Ethernet example that generates a random unique identifier and you need to put this into your sketch.  For the Yún, you do not need to do this, it just uses it&#39;s WiFi MAC Address to activate.  The second reasons is the Yún has slightly different hardware available, most notably the Yún has D13 available to control the board LED.  When you use a regular Arduino with Ethernet shield, you lose D13 so providing an option to control the LED wouldn&#39;t make sense.</p>
+<h4 id="security">Security</h4>
+<p>The Arduino Networking Client Libraries such as the <a href="https://www.arduino.cc/en/Reference/Ethernet">Ethernet Library</a> and <a href="https://www.arduino.cc/en/Reference/YunBridgeLibrary">Yun Client Class</a> do not have built in support for Encrypted HTTP communication.  Exosite always recommends using encrypted communication and is working on ways to use encryption on Arduino devices in the future.  </p>
+
+    </div>
+</div> <!-- end main content row -->
+</div>
+
+<div class="footer">
+    <div class="footer-container center-block">
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="footer-logo" src="/assets/logo-symbol.png" id="logo-icon">
+            </div>
+            <!-- products menu -->
+            <div class=" col-sm-2 nav-menu">
+                <h4 class="widget-title">Products</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/platform/">Platform</a></li>
+                    <li><a href="https://exosite.com/resources/exositeready/">ExositeReady&trade;</a></li>
+                </ul>
+            </div>
+            <!-- solutions menu -->
+            <!--<div class="col-sm-2 nav-menu">-->
+                <!--<h4 class="widget-title">Solutions</h4>-->
+                <!--<ul id="menu-product" class="menu">-->
+                    <!--<li><a href="#">IoT 101</a></li>-->
+                    <!--<li><a href="#">Concept Validation</a></li>-->
+                    <!--<li><a href="#">Proof of Feasibility</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- resources menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Resources</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/casestudies/">Case Studies</a></li>
+                    <li><a href="https://exosite.com/whitepapers/">White Papers</a></li>
+                    <li><a href="https://exosite.com/blog/">Blog</a></li>
+                    <li><a href="https://exosite.com/resources/developer-resources/">Developer Resources</a></li>
+                </ul>
+            </div>
+            <!-- tools menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Tools</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://community.exosite.com/">Community</a></li>
+                    <li><a href="https://support.exosite.com/hc/en-us">Support</a></li>
+                    <li><a href="https://status.exosite.com/">Status</a></li>
+                </ul>
+            </div>
+            <!-- company menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Company</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/about/">About</a></li>
+                    <li><a href="https://exosite.com/newsroom/">News & Events</a></li>
+                    <li><a href="https://exosite.com/careers/">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-2 footer-info">
+                <p><a href="https://exosite.com/privacy-policy/">Privacy Policy</a> | <a
+                        href="https://exosite.com/murano-terms-conditions/">Terms & Conditions</a></p>
+                <p>All rights reserved exosite.com &copy;2017</p>
+            </div>
+            <div class="col-sm-2 language-select">
+                <a href="#" class="btn"><img src="/assets/american-flag.png">Language</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

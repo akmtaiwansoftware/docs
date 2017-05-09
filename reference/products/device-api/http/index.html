@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Exosite Documentation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/assets/less/style.css">
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44116002-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top navbar-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-left"><a class="navbar-brand" href="/"><img src="/assets/exosite-logo.png" id="logo"></a>
+            </div>
+            <div class="navbar-text navbar-left text-uppercase"><strong>Documentation</strong></div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='https://support.exosite.com'>Support</a></li>
+                <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+            </ul>
+            <ul class="nav navbar-nav visible-xs">
+                <div class="nav-links mobile-docs">
+                    <ul class="nav navbar-nav">
+                        <li><a type="button" data-toggle="collapse" href="#nav-murano-platform" aria-expanded="false">Murano</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-murano-platform">
+                            <li class="menu-header">About</li>
+                            <li><a class="level-0" href="/">Murano Overview</a></li>
+                            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+                            <li><a class="level-0" href="/about/products/">Products</a></li>
+                            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+                            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+                            <li class="menu-header">Quickstarts</li>
+                            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a>
+                            </li>
+                            <li class="menu-header">Tutorials</li>
+                            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+                        </ul>
+                        <li><a type="button" data-toggle="collapse" href="#nav-services" aria-expanded="false">Services</a></li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-services">
+                            <li class="menu-header">Communication</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+                            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+                            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+                            <li class="menu-header">IoT</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li class="menu-header">Storage</li>
+                            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+                            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+                            <li class="menu-header">Other</li>
+                            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+                            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+                            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+                        </ul>
+
+                        <li><a type="button" data-toggle="collapse" href="#nav-reference" aria-expanded="false">Reference</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-reference">
+                            <li class="menu-header">API</li>
+                            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+                            <li class="menu-header">Tools</li>
+                            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+                            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+                            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+                            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+                            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+                            <li class="menu-header">UI</li>
+                            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+                            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+                            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+                            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+                            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+                            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+                            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right form-inline search-form">
+                <!-- <a class="btn btn-warning" href="https://exosite.com/business/signup">Sign Up For Murano</a> -->
+                <div class="form-group">
+                    <input id="docsearch" onsubmit="return false;" type="text" class="form-control nav-search"
+                           placeholder="Search...">
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="row main-row row-offcanvas row-offcanvas-left">
+    <div class="hidden-xs sidenav sidebar-offcanvas">
+        <h3 class="sidenav-header">Murano</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">About</li>
+            <li><a class="level-0" href="/">Murano Overview</a></li>
+            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+            <li><a class="level-0" href="/about/products/">Products</a></li>
+            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Quickstarts</li>
+            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tutorials</li>
+            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+        </ul>
+
+
+        <h3 class="sidenav-header">Services</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">Communication</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">IoT</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Storage</li>
+            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Other</li>
+            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+        </ul>
+
+        <h3 class="sidenav-header">Reference</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">API</li>
+            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+            <li><a class="level-0" href="/reference/products/device-api/curl/">Device API with Curl</a></li>
+            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tools</li>
+            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">UI</li>
+            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+        </ul>
+    </div>
+    <div class="main content">
+        <h1 id="http-device-api-overview">HTTP Device API Overview</h1>
+<p>This is the HTTP Device API for the Murano Platform. Device firmware and applications should use this API to provision and interact with the platform.  Devices use resources to read from and write to, like a variable. When used in this document &quot;timestamp&quot; is a unix timestamp, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.</p>
+<h1 id="procedures">Procedures</h1>
+<h3 id="timeseries-data-procedures">Timeseries Data Procedures</h3>
+<ul>
+<li><a href="#write">Write</a> - write new data to a set of resources</li>
+<li><a href="#read">Read</a> - read the latest data from a set of resources</li>
+<li><a href="#hybrid-writeread">Hybrid Write/Read</a> - write a set of resources, then read a set of resources</li>
+<li><a href="#long-polling">Long-Polling</a> - be notified immediately when a resource is updated</li>
+</ul>
+<h3 id="product-device-provisioning-procedures">Product Device Provisioning Procedures</h3>
+<ul>
+<li><a href="#activate">Activate</a> - activate device and get device&#39;s CIK</li>
+<li><a href="#list-available-content">List Available Content</a> - get a list of content available to device</li>
+<li><a href="#get-content-info">Get Content Info</a> - get meta information about content file</li>
+<li><a href="#download-content">Download Content</a> - get content file</li>
+</ul>
+<h3 id="utility-procedures">Utility Procedures</h3>
+<ul>
+<li><a href="#timestamp">Timestamp</a> - get the current unix timestamp</li>
+</ul>
+<h2 id="libraries-and-sample-code">Libraries and Sample Code</h2>
+<p>Sample code that uses this API can be found on the Murano Getting Started product examples:</p>
+<ul>
+<li><a href="/quickstarts/">Murano Quickstarts</a></li>
+</ul>
+<h2 id="notational-conventions">Notational Conventions</h2>
+<p>This document uses a few notational conventions:</p>
+<ul>
+<li>JSON is pretty printed for clarity. The extra whitespace is not included in the RPC JSON.</li>
+<li>Comments (<code>//</code>) are occasionally included in JSON to give hints or provide detail. These comments are not included in actual requests or responses.</li>
+<li>A name in angle brackets (e.g., <code>&lt;myvar&gt;</code> is a placeholder that will be defined elsewhere)</li>
+<li><code>number</code> indicates a number (e.g., 42)</li>
+<li><code>string</code> represents a string (e.g., &quot;MySensor&quot;)</li>
+<li><code>|</code> represents multiple choice</li>
+<li><code>=</code> represents default value</li>
+<li><code>...</code> represents one or more of the previous items</li>
+</ul>
+<h2 id="hostname-host">Hostname/Host</h2>
+<p>Although all examples use the server hostname and host header of &quot;m2.exosite.com,&quot; device firmware and applications should use the Murano Product ID in the hostname: <code>&lt;productid&gt;.m2.exosite.com</code>.  </p>
+<pre><code>   Host: myproductid.m2.exosite.com
+</code></pre><h2 id="http-responses">HTTP Responses</h2>
+<p>Typical HTTP response codes include:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th style="text-align:left">Response</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td style="text-align:left">OK</td>
+<td style="text-align:left">Successful request, returning requested values</td>
+</tr>
+<tr>
+<td>204</td>
+<td style="text-align:left">No Content</td>
+<td style="text-align:left">Successful request, nothing will be returned</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td style="text-align:left">Client Error</td>
+<td style="text-align:left">There was an error* with the request by the client</td>
+</tr>
+<tr>
+<td>401</td>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">No or invalid CIK</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td style="text-align:left">Server Error</td>
+<td style="text-align:left">There was an error with the request on the server</td>
+</tr>
+</tbody>
+</table>
+<p><em>* Note: aliases that are not found are not considered errors in the request. See the documentation for <a href="#read">read</a>, <a href="#write">write</a>, and <a href="#hybrid-writeread">Hybrid write/read</a> for details.</em></p>
+<h1 id="data-procedures">Data Procedures</h1>
+<h2 id="write">Write</h2>
+<p>Write one or more resources of <code>&lt;alias&gt;</code> with given <code>&lt;value&gt;</code>. The client (e.g., device or portal) is identified by <code>&lt;CIK&gt;</code>. Data is written with the server timestamp as of the time the data was received by the server. Data cannot be written faster than a rate of once per second; doing so results in undefined behavior. If multiple aliases are specified, they are written at the same timestamp.</p>
+<h3 id="request">request</h3>
+<pre><code>POST /onep:v1/stack/alias HTTP/1.1 
+Host: m2.exosite.com 
+X-Exosite-CIK: &lt;CIK&gt; 
+Content-Type: application/x-www-form-urlencoded; charset=utf-8 
+Content-Length: &lt;length&gt; 
+&lt;blank line&gt;
+&lt;alias 1&gt;=&lt;value 1&gt;&amp;&lt;alias 2...&gt;=&lt;value 2...&gt;&amp;&lt;alias n&gt;=&lt;value n&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 204 No Content 
+Date: &lt;date&gt; 
+Server: &lt;server&gt; 
+Connection: Close 
+Content-Length: 0 
+&lt;blank line&gt;
+</code></pre><ul>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses.</li>
+</ul>
+<h3 id="example">example</h3>
+<pre><code>$ curl https://m2.exosite.com/onep:v1/stack/alias \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -d &#39;&lt;alias&gt;=&lt;value&gt;&#39;
+</code></pre><h2 id="read">Read</h2>
+<p>Read the most recent value from one or more resources with <code>&lt;alias&gt;</code>. The client (e.g., device or portal) to read from is identified by <code>&lt;CIK&gt;</code>. If at least one <code>&lt;alias&gt;</code> is found and has data, data will be returned.</p>
+<h3 id="request">request</h3>
+<pre><code>GET /onep:v1/stack/alias?&lt;alias 1&gt;&amp;&lt;alias 2...&gt;&amp;&lt;alias n&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Accept: application/x-www-form-urlencoded; charset=utf-8
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+&lt;alias 1&gt;=&lt;value 1&gt;&amp;&lt;alias 2...&gt;=&lt;value 2...&gt;&amp;&lt;alias n&gt;=&lt;value n&gt;
+</code></pre><ul>
+<li>Response may also be <code>HTTP/1.1 204 No Content</code> if either none of the aliases are found or they are all empty of data</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h3 id="example">example</h3>
+<pre><code>$ curl https://m2.exosite.com/onep:v1/stack/alias?&lt;dataport-alias&gt; \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39;
+</code></pre><h2 id="hybrid-write-read">Hybrid write/read</h2>
+<p>Write one or more resources of <code>&lt;alias w&gt;</code> with given <code>&lt;value&gt;</code> and then read the most recent value from one or more resources with <code>&lt;alias r&gt;</code>. The client (e.g., device, portal) to write to and read from is identified by <code>&lt;CIK&gt;</code>. All writes occur before all reads.</p>
+<h3 id="request">request</h3>
+<pre><code>POST /onep:v1/stack/alias?&lt;alias r1&gt;&amp;&lt;alias r2...&gt;&amp;&lt;alias rn&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Accept: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+&lt;alias w1&gt;=&lt;value 1&gt;&amp;&lt;alias w2...&gt;=&lt;value 2...&gt;&amp;&lt;alias wn&gt;=&lt;value n&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+&lt;alias r1&gt;=&lt;value 1&gt;&amp;&lt;alias r2...&gt;=&lt;value 2...&gt;&amp;&lt;alias rn&gt;=&lt;value n&gt;
+</code></pre><ul>
+<li>Response may also be <code>HTTP/1.1 204 No Content</code> if either none of the aliases are found or they are all empty of data</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h3 id="example">example</h3>
+<pre><code>$ curl https://m2.exosite.com/onep:v1/stack/alias?&lt;alias_to_read&gt; \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -d &#39;&lt;alias_to_write&gt;=&lt;value&gt;&#39;
+</code></pre><h2 id="long-polling">Long Polling</h2>
+<p>The <a href="#read">read</a> procedure now supports long polling. Long polling is a method of getting a server push without the complexities of setting up publicly accessible HTTP server endpoints on your device. As the name suggests, long polling is similar to normal polling of an HTTP resource, but instead of requiring the client to make a new request to the server constantly, the server will wait to return until it has new information to return to the client (or a timeout has been reached).</p>
+<p>To perform a request with long polling, simply add the header <code>Request-Timeout: &lt;miliseconds&gt;</code> to your request. The server will then wait until a new datapoint is written to the given resource and will then immediately return the value. If no datapoint is written before that time, a <code>304 Not Modified</code> is returned and the client may make another long polling request to continue monitoring that resource.</p>
+<p>You may also optionally add an <code>If-Modified-Since</code> header to specify a start time to wait. This is exactly the same as the <code>alias.last</code> semantics in scripting. You will want to use this if it&#39;s important that you receive all updates to a given resource; otherwise it is possible to miss points that get written between long polling requests.</p>
+<p>Note: only one resource may be read at a time when using long polling.</p>
+<h3 id="request">request</h3>
+<pre><code>GET /onep:v1/stack/alias?&lt;alias 1&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Accept: application/x-www-form-urlencoded; charset=utf-8
+Request-Timeout: &lt;timeout&gt;
+If-Modified-Since: &lt;timestamp&gt;
+&lt;blank line&gt;
+</code></pre><ul>
+<li><code>&lt;alias&gt;</code> is the alias you monitor for new datapoints.</li>
+<li><code>Request-Timeout</code> specifies how long to wait on changes. <code>&lt;timeout&gt;</code> is a millisecond value and cannot be more than 300 seconds (300,000 ms).</li>
+<li><code>If-Modified-Since</code> specifies waiting on aliases since the <code>&lt;timestamp&gt;</code>. <code>&lt;timestamp&gt;</code> can be timestamp seconds since 1970-01-01 00:00:00 UTC or standard <a href=http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html>HTTP-Date</a> format. If this is not specified, it defaults to &quot;now.&quot;</li>
+</ul>
+<h3 id="response">response</h3>
+<p>When the resource is updated:</p>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+Last-Modified: &lt;datapoint-modification-date&gt;
+&lt;blank line&gt;
+&lt;alias&gt;=&lt;value&gt;
+</code></pre><p>If the resource is not updated before timeout:</p>
+<pre><code>HTTP/1.1 304 Not Modified
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+</code></pre><p>When the resource is updated and a value is returned, a <code>Last-Modified</code> header is included. When it is vital for your application to receive all updates to a resource, you can pass the <code>Last-Modified</code> header value back to the <code>If-Not-Modified-Since</code> header in your next request to make sure you don&#39;t miss any points that may have been written since the last request returned.</p>
+<h3 id="example">example</h3>
+<pre><code>$ curl https://m2.exosite.com/onep:v1/stack/alias?&lt;dataport-alias&gt; \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39;
+    -H &#39;Request-Timeout: 30000
+    -H &#39;If-Modified-Since: 1408088308
+</code></pre><h1 id="provisioning-procedures">Provisioning Procedures</h1>
+<h2 id="activate">Activate</h2>
+<p>Activates and returns the <code>&lt;CIK&gt;</code> for the associated device&#39;s identity <code>&lt;sn&gt;</code> administrated for the Product ID <code>&lt;vendor&gt;</code> and <code>&lt;model&gt;</code> by Murano.
+The device&#39;s identity must be added to the Product in Murano.</p>
+<pre><code>POST /provision/activate HTTP/1.1
+Host: &lt;productid&gt;.m2.exosite.com
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: &lt;length&gt;
+
+vendor=&lt;productid&gt;&amp;model=&lt;productid&gt;&amp;sn=&lt;identity&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/plain; charset=utf-8
+
+&lt;cik&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 404 Not Found</code> if the client described by <code>&lt;vendor&gt;</code>, <code>&lt;model&gt;</code>, <code>&lt;sn&gt;</code> is not found on the system.</li>
+<li><code>HTTP/1.1 409 Conflict</code> if the identity is not enabled for activation.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h3 id="example">example</h3>
+<p>This command activates a device with identity 12345678 and returns its CIK.</p>
+<pre><code>$ curl https://m2.exosite.com/provision/activate \
+    -H &quot;Content-Type: application/x-www-form-urlencoded; charset=utf-8&quot; \
+    -d &quot;vendor=mysubdomain&amp;model=myclientmodel&amp;sn=12345678&quot;
+</code></pre><h2 id="list-available-content">List Available Content</h2>
+<p>List content <code>&lt;id&gt;</code>s. Caller with <code>&lt;DeviceCIK&gt;</code> must have an activated
+identity in given <code>&lt;vendor&gt;</code> <code>&lt;model&gt;</code> name space.</p>
+<pre><code>GET /provision/download?vendor=&lt;vendor&gt;&amp;model=&lt;model&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/csv; charset=utf-8
+
+&lt;id 1&gt;
+&lt;id 2...&gt;
+&lt;id n&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 403 Forbidden</code> if the <code>&lt;vendor&gt;</code> and <code>&lt;model&gt;</code> pair is invalid.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h2 id="download-content">Download Content</h2>
+<p>If caller with <code>&lt;CIK&gt;</code> has an activated SN in given <code>&lt;vendor&gt;</code> <code>&lt;model&gt;</code> name
+space, and is authorized for the content, then the <code>&lt;id&gt;</code> content blob, or its
+requested range, is returned. The header <code>Range: bytes=&lt;range-specifier&gt;</code>, if
+specified, allows the caller to request a chunk of bytes at a time.
+<code>&lt;range-specifier&gt;</code> takes the form of <code>X-Y</code> where both <code>X</code> and <code>Y</code> are
+optional but at least one of them must be present. <code>X</code> is the start byte
+position to return. <code>Y</code> is the end position. Both are 0 based. If <code>X</code> is
+omitted, <code>Y</code> will request the last <code>Y</code> count of bytes of the content. If <code>Y</code>
+is omitted, it will default to the end of the content. Note that <code>Content-Type</code>
+of <code>&lt;blob&gt;</code> is based on the type set in the <code>POST</code> to
+<code>/provision/manage/content/&lt;model&gt;/&lt;id&gt;</code>.</p>
+<pre><code>GET /provision/download?vendor=&lt;vendor&gt;&amp;model=&lt;model&gt;&amp;id=&lt;id&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+{Range: bytes=&lt;range-specifier&gt;}
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+{Accept-Ranges: bytes}
+Content-Length: &lt;number of bytes being returned&gt;
+{Content-Range: bytes &lt;first position&gt;-&lt;last position&gt;/&lt;total length&gt;}
+Content-Type: &lt;content-type&gt;
+
+&lt;blob&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 206 Partial Content</code> if the response is partial.</li>
+<li><code>HTTP/1.1 403 Forbidden</code> if the <code>&lt;vendor&gt;</code> and <code>&lt;model&gt;</code> pair is invalid.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h2 id="get-content-info">Get Content Info</h2>
+<p>If caller with <code>&lt;CIK&gt;</code> has an activated SN in given <code>&lt;vendor&gt;</code> <code>&lt;model&gt;</code> name
+space, and is authorized for the content, then the <code>&lt;id&gt;</code> content information
+is returned.</p>
+<pre><code>GET /provision/download?vendor=&lt;vendor&gt;&amp;model=&lt;model&gt;&amp;id=&lt;id&gt;&amp;info=true HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/csv; charset=utf-8
+
+&lt;content-type&gt;,&lt;byte-size&gt;,&lt;updated-timestamp&gt;,&lt;meta&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 400 Bad Request</code> if the <code>&lt;vendor&gt;</code> and <code>&lt;model&gt;</code> pair is invalid.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h1 id="utility-procedures">Utility Procedures</h1>
+<h2 id="timestamp">Timestamp</h2>
+<p>Get the current time according to the server.</p>
+<h3 id="request">request</h3>
+<pre><code>GET /timestamp HTTP/1.1
+Host: m2.exosite.com
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/plain; charset=utf-8
+
+&lt;timestamp&gt;
+</code></pre><ul>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+
+    </div>
+</div> <!-- end main content row -->
+</div>
+
+<div class="footer">
+    <div class="footer-container center-block">
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="footer-logo" src="/assets/logo-symbol.png" id="logo-icon">
+            </div>
+            <!-- products menu -->
+            <div class=" col-sm-2 nav-menu">
+                <h4 class="widget-title">Products</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/platform/">Platform</a></li>
+                    <li><a href="https://exosite.com/resources/exositeready/">ExositeReady&trade;</a></li>
+                </ul>
+            </div>
+            <!-- solutions menu -->
+            <!--<div class="col-sm-2 nav-menu">-->
+                <!--<h4 class="widget-title">Solutions</h4>-->
+                <!--<ul id="menu-product" class="menu">-->
+                    <!--<li><a href="#">IoT 101</a></li>-->
+                    <!--<li><a href="#">Concept Validation</a></li>-->
+                    <!--<li><a href="#">Proof of Feasibility</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- resources menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Resources</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/casestudies/">Case Studies</a></li>
+                    <li><a href="https://exosite.com/whitepapers/">White Papers</a></li>
+                    <li><a href="https://exosite.com/blog/">Blog</a></li>
+                    <li><a href="https://exosite.com/resources/developer-resources/">Developer Resources</a></li>
+                </ul>
+            </div>
+            <!-- tools menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Tools</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://community.exosite.com/">Community</a></li>
+                    <li><a href="https://support.exosite.com/hc/en-us">Support</a></li>
+                    <li><a href="https://status.exosite.com/">Status</a></li>
+                </ul>
+            </div>
+            <!-- company menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Company</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/about/">About</a></li>
+                    <li><a href="https://exosite.com/newsroom/">News & Events</a></li>
+                    <li><a href="https://exosite.com/careers/">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-2 footer-info">
+                <p><a href="https://exosite.com/privacy-policy/">Privacy Policy</a> | <a
+                        href="https://exosite.com/murano-terms-conditions/">Terms & Conditions</a></p>
+                <p>All rights reserved exosite.com &copy;2017</p>
+            </div>
+            <div class="col-sm-2 language-select">
+                <a href="#" class="btn"><img src="/assets/american-flag.png">Language</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

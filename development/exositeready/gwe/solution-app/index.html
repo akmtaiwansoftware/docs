@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Exosite Documentation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/assets/less/style.css">
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44116002-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top navbar-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-left"><a class="navbar-brand" href="/"><img src="/assets/exosite-logo.png" id="logo"></a>
+            </div>
+            <div class="navbar-text navbar-left text-uppercase"><strong>Documentation</strong></div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='https://support.exosite.com'>Support</a></li>
+                <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+            </ul>
+            <ul class="nav navbar-nav visible-xs">
+                <div class="nav-links mobile-docs">
+                    <ul class="nav navbar-nav">
+                        <li><a type="button" data-toggle="collapse" href="#nav-murano-platform" aria-expanded="false">Murano</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-murano-platform">
+                            <li class="menu-header">About</li>
+                            <li><a class="level-0" href="/">Murano Overview</a></li>
+                            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+                            <li><a class="level-0" href="/about/products/">Products</a></li>
+                            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+                            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+                            <li class="menu-header">Quickstarts</li>
+                            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a>
+                            </li>
+                            <li class="menu-header">Tutorials</li>
+                            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+                        </ul>
+                        <li><a type="button" data-toggle="collapse" href="#nav-services" aria-expanded="false">Services</a></li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-services">
+                            <li class="menu-header">Communication</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+                            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+                            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+                            <li class="menu-header">IoT</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li class="menu-header">Storage</li>
+                            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+                            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+                            <li class="menu-header">Other</li>
+                            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+                            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+                            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+                        </ul>
+
+                        <li><a type="button" data-toggle="collapse" href="#nav-reference" aria-expanded="false">Reference</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-reference">
+                            <li class="menu-header">API</li>
+                            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+                            <li class="menu-header">Tools</li>
+                            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+                            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+                            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+                            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+                            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+                            <li class="menu-header">UI</li>
+                            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+                            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+                            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+                            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+                            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+                            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+                            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right form-inline search-form">
+                <!-- <a class="btn btn-warning" href="https://exosite.com/business/signup">Sign Up For Murano</a> -->
+                <div class="form-group">
+                    <input id="docsearch" onsubmit="return false;" type="text" class="form-control nav-search"
+                           placeholder="Search...">
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="row main-row row-offcanvas row-offcanvas-left">
+    <div class="hidden-xs sidenav sidebar-offcanvas">
+        <h3 class="sidenav-header">Murano</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">About</li>
+            <li><a class="level-0" href="/">Murano Overview</a></li>
+            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+            <li><a class="level-0" href="/about/products/">Products</a></li>
+            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Quickstarts</li>
+            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tutorials</li>
+            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+        </ul>
+
+
+        <h3 class="sidenav-header">Services</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">Communication</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">IoT</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Storage</li>
+            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Other</li>
+            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+        </ul>
+
+        <h3 class="sidenav-header">Reference</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">API</li>
+            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+            <li><a class="level-0" href="/reference/products/device-api/curl/">Device API with Curl</a></li>
+            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tools</li>
+            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">UI</li>
+            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+        </ul>
+    </div>
+    <div class="main content">
+        <h1 id="exositeready-gateway-engine-solution-app">ExositeReady™ Gateway Engine Solution App</h1>
+<p>This guide provides an example solution displaying all the telemetric data from ExositeReady™ Gateway Engine (GWE) as well as showing a custom gateway application: &quot;gmq-sine-demo.&quot; For additional information and resources, please refer to the GWE documentation <a href="http://docs.exosite.com/development/exositeready/gwe/">home page</a>.</p>
+<h1 id="requirements">Requirements</h1>
+<p>This guide requires the installation of GWE on your gateway hardware device. These installation instructions can be found in the <a href="http://docs.exosite.com/development/exositeready/gwe/getting_started/">GWE Getting-started Guide</a>.</p>
+<p><strong>NOTE:</strong> This is a technical tutorial. You will need some familiarity with your operating system’s terminal.</p>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="configure-murano">Configure Murano</h2>
+<ol>
+<li><p><a href="https://exosite.com/signup/">Create a Murano account</a> or <a href="https://www.exosite.io/">log in to your existing account</a>.</p>
+</li>
+<li><p>In your browser, navigate to the <em>Products</em> tab. </p>
+<ol>
+<li>Click &quot;NEW PRODUCT.&quot; </li>
+<li>In the popup box, name your product whatever you like. </li>
+<li>Select <em>Start from scratch</em> from the <em>Choose starting point</em> drop-down menu. </li>
+<li><p>Click &quot;ADD.&quot;</p>
+<p><img src="assets/step_2.png" alt="Step 2"></p>
+</li>
+</ol>
+</li>
+<li><p>Click to open your new product and navigate to the <em>DEVICES</em> tab.</p>
+<ol>
+<li>Click &quot;NEW DEVICE.&quot; </li>
+<li>In the popup box, name your device &quot;Gateway&quot;. </li>
+<li>Use your gateway&#39;s MAC address as the <em>Identity</em>. (Example format &quot;00:08:00:4A:02:25&quot;.)</li>
+<li><p>Click &quot;CREATE.&quot;</p>
+<p><img src="assets/step_3.png" alt="Step 3"></p>
+</li>
+</ol>
+</li>
+<li><p>Refer back to the previous step to add another new device called &quot;Test Data&quot;, using &quot;12345&quot; as the <em>Identity</em>.</p>
+<p> <img src="assets/step_4.png" alt="Step 4"></p>
+</li>
+<li><p>Click to open your Test Data device. </p>
+<ol>
+<li>Click &quot;NEW RESOURCE.&quot; </li>
+<li>In the popup box, input the <em>Alias</em> as “Test” and <em>Data format</em> as <em>float</em>. </li>
+<li><p>Click &quot;CREATE.&quot;</p>
+<p><img src="assets/step_5.png" alt="Step 5"></p>
+</li>
+</ol>
+</li>
+<li><p>Add additional new resources to your &quot;Gateway&quot; device with the <em>Alias</em>es &quot;usage_report&quot;, &quot;engine_report&quot;, &quot;device_info&quot;, &quot;update_interval&quot;, &quot;engine_fetch&quot;, and &quot;fetch_status&quot;. Use <em>string</em> as the <em>Data format</em> for each.</p>
+<p> <img src="assets/step_6.png" alt="Step 6"></p>
+</li>
+<li><p>Navigate to the <em>Solutions</em> tab.</p>
+<ol>
+<li>Click &quot;NEW SOLUTION.&quot; </li>
+<li>In the popup box, name the domain whatever you like.</li>
+<li>Select <em>Start from scratch</em> from the <em>Choose starting point</em> drop-down menu.  </li>
+<li><p>Click &quot;ADD.&quot;</p>
+<p><img src="assets/step_7.png" alt="Step 7"></p>
+</li>
+</ol>
+</li>
+<li><p>Open your terminal to install the <a href="https://github.com/exosite/exosite-cli">Exosite CLI tool</a>.</p>
+<pre><code> pip install exosite
+</code></pre></li>
+<li><p>Clone the GWE Seed App repository to your machine.</p>
+<pre><code> git clone https://github.com/exosite/GWE-Seed-App
+</code></pre></li>
+<li><p>Init the Exosite program and log in using your exosite.io credentials. </p>
+<pre><code>cd GWE-Seed-App
+exosite --init
+</code></pre></li>
+<li><p>Deploy the solution.</p>
+<pre><code>exosite --deploy
+</code></pre></li>
+</ol>
+<h2 id="configure-the-gateway">Configure the Gateway</h2>
+<ol>
+<li><p>Ensure GWE has been properly installed on your gateway following the <a href="http://docs.exosite.com/development/exositeready/gwe/getting_started/">GWE Getting-started guide</a>.</p>
+</li>
+<li><p>Set the update interval to post data every minute.</p>
+<pre><code> gwe -t 60
+</code></pre></li>
+<li><p>Install the gmq-sine-demo onto the gateway using the <a href="https://github.com/exosite/gmq-sine-demo">documentation</a>. Use the device identity as the Serial when prompted (12345).</p>
+</li>
+<li><p>Navigate to your solution page and check to see the data is flowing.</p>
+</li>
+</ol>
+<p>If you encounter any issues, please contact the dedicated GWE support team at <a href="mailto:gwesupport@exosite.com">gwesupport@exosite.com</a>.</p>
+
+    </div>
+</div> <!-- end main content row -->
+</div>
+
+<div class="footer">
+    <div class="footer-container center-block">
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="footer-logo" src="/assets/logo-symbol.png" id="logo-icon">
+            </div>
+            <!-- products menu -->
+            <div class=" col-sm-2 nav-menu">
+                <h4 class="widget-title">Products</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/platform/">Platform</a></li>
+                    <li><a href="https://exosite.com/resources/exositeready/">ExositeReady&trade;</a></li>
+                </ul>
+            </div>
+            <!-- solutions menu -->
+            <!--<div class="col-sm-2 nav-menu">-->
+                <!--<h4 class="widget-title">Solutions</h4>-->
+                <!--<ul id="menu-product" class="menu">-->
+                    <!--<li><a href="#">IoT 101</a></li>-->
+                    <!--<li><a href="#">Concept Validation</a></li>-->
+                    <!--<li><a href="#">Proof of Feasibility</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- resources menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Resources</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/casestudies/">Case Studies</a></li>
+                    <li><a href="https://exosite.com/whitepapers/">White Papers</a></li>
+                    <li><a href="https://exosite.com/blog/">Blog</a></li>
+                    <li><a href="https://exosite.com/resources/developer-resources/">Developer Resources</a></li>
+                </ul>
+            </div>
+            <!-- tools menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Tools</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://community.exosite.com/">Community</a></li>
+                    <li><a href="https://support.exosite.com/hc/en-us">Support</a></li>
+                    <li><a href="https://status.exosite.com/">Status</a></li>
+                </ul>
+            </div>
+            <!-- company menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Company</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/about/">About</a></li>
+                    <li><a href="https://exosite.com/newsroom/">News & Events</a></li>
+                    <li><a href="https://exosite.com/careers/">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-2 footer-info">
+                <p><a href="https://exosite.com/privacy-policy/">Privacy Policy</a> | <a
+                        href="https://exosite.com/murano-terms-conditions/">Terms & Conditions</a></p>
+                <p>All rights reserved exosite.com &copy;2017</p>
+            </div>
+            <div class="col-sm-2 language-select">
+                <a href="#" class="btn"><img src="/assets/american-flag.png">Language</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

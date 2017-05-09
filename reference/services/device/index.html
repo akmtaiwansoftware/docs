@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Exosite Documentation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/assets/less/style.css">
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44116002-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top navbar-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-left"><a class="navbar-brand" href="/"><img src="/assets/exosite-logo.png" id="logo"></a>
+            </div>
+            <div class="navbar-text navbar-left text-uppercase"><strong>Documentation</strong></div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='https://support.exosite.com'>Support</a></li>
+                <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+            </ul>
+            <ul class="nav navbar-nav visible-xs">
+                <div class="nav-links mobile-docs">
+                    <ul class="nav navbar-nav">
+                        <li><a type="button" data-toggle="collapse" href="#nav-murano-platform" aria-expanded="false">Murano</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-murano-platform">
+                            <li class="menu-header">About</li>
+                            <li><a class="level-0" href="/">Murano Overview</a></li>
+                            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+                            <li><a class="level-0" href="/about/products/">Products</a></li>
+                            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+                            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+                            <li class="menu-header">Quickstarts</li>
+                            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+                            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a>
+                            </li>
+                            <li class="menu-header">Tutorials</li>
+                            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+                        </ul>
+                        <li><a type="button" data-toggle="collapse" href="#nav-services" aria-expanded="false">Services</a></li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-services">
+                            <li class="menu-header">Communication</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+                            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+                            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+                            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+                            <li class="menu-header">IoT</li>
+                            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+                            <li class="menu-header">Storage</li>
+                            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+                            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+                            <li class="menu-header">Other</li>
+                            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+                            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+                            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+                        </ul>
+
+                        <li><a type="button" data-toggle="collapse" href="#nav-reference" aria-expanded="false">Reference</a>
+                        </li>
+                        <ul class="navbar-collapse collapse list-unstyled" id="nav-reference">
+                            <li class="menu-header">API</li>
+                            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+                            <li class="menu-header">Tools</li>
+                            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+                            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+                            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+                            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+                            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+                            <li class="menu-header">UI</li>
+                            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+                            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+                            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+                            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+                            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+                            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+                            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+                            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right form-inline search-form">
+                <!-- <a class="btn btn-warning" href="https://exosite.com/business/signup">Sign Up For Murano</a> -->
+                <div class="form-group">
+                    <input id="docsearch" onsubmit="return false;" type="text" class="form-control nav-search"
+                           placeholder="Search...">
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="row main-row row-offcanvas row-offcanvas-left">
+    <div class="hidden-xs sidenav sidebar-offcanvas">
+        <h3 class="sidenav-header">Murano</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">About</li>
+            <li><a class="level-0" href="/">Murano Overview</a></li>
+            <li><a class="level-0" href="/about/data-flow/">Data Flow</a></li>
+            <li><a class="level-0" href="/about/products/">Products</a></li>
+            <li><a class="level-0" href="/about/integrations/">Integrations</a></li>
+            <li><a class="level-0" href="/about/applications/">Applications</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Quickstarts</li>
+            <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+            <li><a class="level-0" href="/quickstarts/devicesensor/">Device Sensor Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+            <li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tutorials</li>
+            <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+            <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+            <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+        </ul>
+
+
+        <h3 class="sidenav-header">Services</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">Communication</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/email">Email</a></li>
+            <li><a class="level-1" href="/reference/services/twilio">Twilio</a></li>
+            <li><a class="level-1" href="/reference/services/webservice">Custom API Gateway</a></li>
+            <li><a class="level-1" href="/reference/services/websocket">WebSocket Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">IoT</li>
+            <li><a class="level-1" href="/reference/services/device">Device Gateway</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Storage</li>
+            <li><a class="level-1" href="/reference/services/keystore">Key-Value Store</a></li>
+            <li><a class="level-1" href="/reference/services/tsdb">Time Series Storage</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Other</li>
+            <li><a class="level-1" href="/reference/services/config">Solution Configuration</a></li>
+            <li><a class="level-1" href="/reference/services/timer">Timer Service API</a></li>
+            <li><a class="level-1" href="/reference/services/user">User Management</a></li>
+        </ul>
+
+        <h3 class="sidenav-header">Reference</h3>
+        <ul class="list-unstyled">
+            <li class="menu-header">API</li>
+            <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+            <li><a class="level-0" href="/reference/products/device-api/curl/">Device API with Curl</a></li>
+            <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+            <li><a class="level-0" href="/reference/services">Core Services Overview</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">Tools</li>
+            <li><a class="level-0" href="/development/tools/murano-cli/">Murano CLI</a></li>
+            <li><a class="level-0" href="/development/tools/deployment/">Solution Deployment</a></li>
+            <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+            <li><a class="level-0" href="/development/exositeready/libraries-examples/">Libraries & Examples</a></li>
+            <li><a class="level-0" href="/development/exositeready/gwe/">Gateway Engine</a></li>
+            <li><a class="level-0" href="/portals/">One Platform & Portals</a></li>
+        </ul>
+        <ul class="list-unstyled">
+            <li class="menu-header">UI</li>
+            <li><a class="level-0" href="/reference/ui/create-account/">Create an Account</a></li>
+            <li><a class="level-0" href="/reference/ui/manage-business/">Manage Your Business</a></li>
+            <li><a class="level-0" href="/reference/ui/create-solution/">Create a Solution</a></li>
+            <li><a class="level-0" href="/reference/ui/create-product/">Create a Product</a></li>
+            <li><a class="level-0" href="/reference/ui/user-management/">Manage Users</a></li>
+            <li><a class="level-0" href="/reference/ui/keystore-service/">Record Product Metrics</a></li>
+            <li><a class="level-0" href="/reference/ui/external-app-hosting/">Host Your App Externally</a></li>
+            <li><a class="level-0" href="/reference/ui/device-management/">Manage Your Device Lifecycle</a></li>
+            <li><a class="level-0" href="/reference/ui/send-notifications/">Send Notifications</a></li>
+        </ul>
+    </div>
+    <div class="main content">
+        <h1 id="device-gateway-service">Device Gateway Service</h1>
+<blockquote>
+<p>API allowing communication with IoT devices.</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<h4 id="device">Device</h4>
+<ul>
+<li><a href="#create">Device.create()</a>  - Creates and actives a new device.</li>
+<li><a href="#list">Device.list()</a>  - Get the list of devices for a product.</li>
+<li><a href="#write">Device.write()</a>  - Write data to a device.</li>
+</ul>
+<h4 id="product">Product</h4>
+<ul>
+<li><a href="#productinfo">Device.productInfo()</a>  - Get product information.</li>
+</ul>
+<h4 id="other">Other</h4>
+<ul>
+<li>(deprecated) <a href="#rpccall">Device.rpcCall()</a>  - Proxies One Platform RPC API.</li>
+</ul>
+<h3 id="events">Events</h3>
+<ul>
+<li><a href="#datapoint">datapoint</a>  - Incoming data</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<h3 id="device">Device</h3>
+<hr>
+<h4 id="create">create</h4>
+<blockquote>
+<p>Creates a device with the given serial number (assumed not to exist)<br/><br/>Enables the serial number<br/><br/>Returns the client resource id of the new serial number.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>device_sn</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device serial number</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-client-resource-id-string-">The client resource ID  -  <em>string</em></h6>
+<p>The client resource ID</p>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">return Device.create({
+  pid=&quot;xxxxxxxxxxxxx&quot;,
+  [&quot;device_sn&quot;]=&quot;1&quot;
+})
+</code></pre>
+<hr>
+<h4 id="list">list</h4>
+<blockquote>
+<p>Returns list of devices for a given product. By default, only 50 devices are returned. You can fetch up to 100 devices per call.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td>offset</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Offset in device list to start returning from.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td style="text-align:center"><em>integer</em> {5..100}</td>
+<td>Maximum number of devices to return.<br/>Default: 50</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-devices-of-this-product-object-">List of devices of this product.  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>sn</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device serial number unique withing the product scope.</td>
+</tr>
+<tr>
+<td><strong>rid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Resource Identifier (RID) of the device.</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td style="text-align:center">&quot;notactivated&quot;, &quot;activated&quot;, &quot;expired&quot;</td>
+<td>Device provisionning status.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local devices = Device.list({ pid=&quot;xxxxxxxxxxxxx&quot; }) for k,device in pairs(devices) do
+  print(device.sn)
+end
+</code></pre>
+<hr>
+<h4 id="write">write</h4>
+<blockquote>
+<p>Writes values to serial number resources. Returns, for each key, whether the write was successful (ok) or not (invalid).</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>device_sn</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device identity</td>
+</tr>
+<tr>
+<td>&lt;keys&gt;</td>
+<td style="text-align:center"><em>string</em>, <em>boolean</em>, <em>number</em></td>
+<td>Values to be written in the key</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="returns-for-each-key-whether-the-write-was-successful-ok-or-not-invalid-object-">Returns, for each key, whether the write was successful (ok) or not (invalid)  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;keys&gt;</td>
+<td style="text-align:center">&quot;ok&quot;, &quot;invalid&quot;</td>
+<td>Whether the write was successful (ok) or not (invalid) for this key.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">return Device.write({
+  pid=&quot;xxxxxxxxxxxxx&quot;,
+  [&quot;device_sn&quot;]=&quot;1&quot;,
+  state=&quot;1&quot;
+})
+</code></pre>
+<h3 id="product">Product</h3>
+<hr>
+<h4 id="productinfo">productInfo</h4>
+<blockquote>
+<p>get product information</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Product ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="product-information-object-object-">Product information object.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Identifier of the product.</td>
+</tr>
+<tr>
+<td>rid</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Resource Identifier (RID) of the product.</td>
+</tr>
+<tr>
+<td>label</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Display name of the product.</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td style="text-align:center"><em>string</em></td>
+<td>URL of the device data endpoint.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">Other</h3>
+<hr>
+<h4 id="-deprecated-rpccall">(deprecated) rpcCall</h4>
+<blockquote>
+<p>Convert the Product ID ({pid}) to its CIK, add the CIK as the rpc auth object, and forward the request.<br/> See <a href="http://docs.exosite.com/rpc/">http://docs.exosite.com/rpc/</a> for argument and response details.<br/><br/> <b>WARNING this operation is deprecated and will be removed soon.</b>. Please use Device.write() instead. (<a href="http://docs.exosite.com/murano/services/device/#write">http://docs.exosite.com/murano/services/device/#write</a>)</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Product ID: needs to be found in Product ID list of solution service config for access rights.</td>
+</tr>
+<tr>
+<td>auth</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Murano user authentication options. The request is always authenticated with the user business ID.<br /> More info on <a href=\"http://docs.exosite.com/rpc/#authentication\">Murano OneP documentation page</a>.</td>
+</tr>
+<tr>
+<td>auth.client_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client context RID. Authenticates as the given client if the CIK identifies an ancestor of the given client.</td>
+</tr>
+<tr>
+<td><strong>calls</strong></td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of PRC definitions.</td>
+</tr>
+<tr>
+<td>calls[].id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Response mapping ID of the call, return in the response</td>
+</tr>
+<tr>
+<td>calls[].<strong>arguments</strong></td>
+<td style="text-align:center">[ <em>string</em>, <em>object</em>, <em>number</em> ]</td>
+<td>List of argument corresponding to the target procedure.</td>
+</tr>
+<tr>
+<td>calls[].<strong>procedure</strong></td>
+<td style="text-align:center">&quot;read&quot;, &quot;write&quot;, &quot;writegroup&quot;, &quot;record&quot;, &quot;recordbatch&quot;, &quot;flush&quot;, &quot;wait&quot;, &quot;create&quot;, &quot;move&quot;, &quot;update&quot;, &quot;info&quot;, &quot;listing&quot;, &quot;drop&quot;, &quot;usage&quot;, &quot;map&quot;, &quot;lookup&quot;, &quot;unmap&quot;, &quot;share&quot;, &quot;revoke&quot;, &quot;activate&quot;, &quot;deactivate&quot;</td>
+<td>Name of the remote procedure to be executed.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-rpc-calls-results-object-">List of RPC calls results  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>string</em> {..40}</td>
+<td>RPC request ID</td>
+</tr>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>object</em></td>
+<td>RPC call errors</td>
+</tr>
+<tr>
+<td>error.code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>RPC error code</td>
+</tr>
+<tr>
+<td>error.context</td>
+<td style="text-align:center">&quot;arguments&quot;, &quot;auth&quot;, &quot;calls&quot;, &quot;procedure&quot;</td>
+<td>RPC error data</td>
+</tr>
+<tr>
+<td>error.message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>RPC error message</td>
+</tr>
+<tr>
+<td>result</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>RPC arguments, defined by the RPC call</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center">&quot;ok&quot;, &quot;fail&quot;</td>
+<td>RPC call status</td>
+</tr>
+</tbody>
+</table>
+<h2 id="events">Events</h2>
+<hr>
+<h4 id="datapoint">datapoint</h4>
+<blockquote>
+<p>This event is triggered by data generated by devices and transmitted by the One Platform device API.
+More information about how to send data to the OneP API on <a href="http://docs.exosite.com/murano/products/device_api/http/#write">http://docs.exosite.com/murano/products/device_api/http/#write</a></p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="data-object-the-data-from-the-device-">data  -  <em>object</em>  -  <em>The data from the device</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>api</td>
+<td style="text-align:center">&quot;write&quot;, &quot;record&quot;</td>
+<td>Provider API</td>
+</tr>
+<tr>
+<td>pid</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device Product ID</td>
+</tr>
+<tr>
+<td>rid</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Unique device resource ID</td>
+</tr>
+<tr>
+<td>seq</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The message sequence number for specific resource ID</td>
+</tr>
+<tr>
+<td>alias</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device resource alias</td>
+</tr>
+<tr>
+<td>value</td>
+<td style="text-align:center">[ <em>integer</em><br /> or <em>number</em><br /> or <em>string</em> ] {..2}</td>
+<td>Data transmitted by the device.<br /> If API == write, the first value is &quot;live&quot;,<br /> If API == record, the first value is the event timestamp as integer.<br /> The second value is always the data transmitted, either number or string.</td>
+</tr>
+<tr>
+<td>device_sn</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device serial number</td>
+</tr>
+<tr>
+<td>source_ip</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The device source IP</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Server recording time for the event</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">function handle_device_datapoint (data)
+
+ ... 
+
+end
+</code></pre>
+
+    </div>
+</div> <!-- end main content row -->
+</div>
+
+<div class="footer">
+    <div class="footer-container center-block">
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="footer-logo" src="/assets/logo-symbol.png" id="logo-icon">
+            </div>
+            <!-- products menu -->
+            <div class=" col-sm-2 nav-menu">
+                <h4 class="widget-title">Products</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/platform/">Platform</a></li>
+                    <li><a href="https://exosite.com/resources/exositeready/">ExositeReady&trade;</a></li>
+                </ul>
+            </div>
+            <!-- solutions menu -->
+            <!--<div class="col-sm-2 nav-menu">-->
+                <!--<h4 class="widget-title">Solutions</h4>-->
+                <!--<ul id="menu-product" class="menu">-->
+                    <!--<li><a href="#">IoT 101</a></li>-->
+                    <!--<li><a href="#">Concept Validation</a></li>-->
+                    <!--<li><a href="#">Proof of Feasibility</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- resources menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Resources</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/casestudies/">Case Studies</a></li>
+                    <li><a href="https://exosite.com/whitepapers/">White Papers</a></li>
+                    <li><a href="https://exosite.com/blog/">Blog</a></li>
+                    <li><a href="https://exosite.com/resources/developer-resources/">Developer Resources</a></li>
+                </ul>
+            </div>
+            <!-- tools menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Tools</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://community.exosite.com/">Community</a></li>
+                    <li><a href="https://support.exosite.com/hc/en-us">Support</a></li>
+                    <li><a href="https://status.exosite.com/">Status</a></li>
+                </ul>
+            </div>
+            <!-- company menu -->
+            <div class="col-sm-2 nav-menu">
+                <h4 class="widget-title">Company</h4>
+                <ul id="menu-product" class="menu">
+                    <li><a href="https://exosite.com/about/">About</a></li>
+                    <li><a href="https://exosite.com/newsroom/">News & Events</a></li>
+                    <li><a href="https://exosite.com/careers/">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-2 footer-info">
+                <p><a href="https://exosite.com/privacy-policy/">Privacy Policy</a> | <a
+                        href="https://exosite.com/murano-terms-conditions/">Terms & Conditions</a></p>
+                <p>All rights reserved exosite.com &copy;2017</p>
+            </div>
+            <div class="col-sm-2 language-select">
+                <a href="#" class="btn"><img src="/assets/american-flag.png">Language</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>
