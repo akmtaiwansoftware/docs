@@ -7,8 +7,8 @@ template: default
 
 ![murano overview](assets/platform_overview.png)
 
-Murano Products allow developers to define and deploy devices under a common product model.  Products combines three key things:
+Murano Products allow developers to define and deploy devices under a common product definition.  Products combine several key things:
 * Device Connectivity
-* Provisioning, including Device Identities and controlled Activations
-* Product Definitions to define what resources devices have access to to read/write and interact with the platform
-* Product Managed Content for infield updates, configuration files, and media file access
+* Provisioning of device identities and credentials
+* Product resources for managing device state
+* Content storage for over the air updates for firmware, configuration files, and media file access
